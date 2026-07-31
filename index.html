@@ -1,0 +1,3216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextGen OPEX Consulting™ | Excelencia Operacional para PyMEs Manufactureras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul:      #1E3A8A;
+      --azul-deep: #0f2060;
+      --verde:     #6DBE45;
+      --azul-tec:  #00AEEF;
+      --gris:      #4B5563;
+      --blanco:    #FFFFFF;
+      --bg-light:  #F4F7FA;
+      --bg-mid:    #E8EDF4;
+      --texto:     #1A2340;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--texto);
+      background: #fff;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ══════════════════════════════════════
+       NAV
+    ══════════════════════════════════════ */
+    nav {
+      background: linear-gradient(90deg, #1a3d8f 0%, #2155b0 100%);
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 2px 28px rgba(0,0,0,0.22);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    /* Isotype SVG */
+    .nav-logo svg { width: 46px; height: 46px; flex-shrink: 0; }
+
+    .logo-wordmark {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.15;
+    }
+
+    .logo-wordmark .line1 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-wordmark .line1 .g { color: var(--verde); }
+
+    .logo-wordmark .line2 {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--verde);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .logo-wordmark .line3 {
+      font-size: 10px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.78);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--verde); }
+
+    .nav-cta {
+      background: var(--verde);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 5px;
+      font-weight: 700 !important;
+      transition: background .2s, transform .15s !important;
+    }
+
+    .nav-cta:hover {
+      background: #5aaa38 !important;
+      transform: translateY(-1px);
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      background:
+        linear-gradient(130deg, rgba(10,22,70,0.91) 0%, rgba(22,50,130,0.86) 50%, rgba(18,70,140,0.80) 100%),
+        url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      padding: 92px 64px 80px;
+      position: relative;
+      overflow: hidden;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-glow-1 {
+      position: absolute;
+      top: -120px; right: -80px;
+      width: 650px; height: 650px;
+      background: radial-gradient(circle, rgba(109,190,69,.14) 0%, transparent 68%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -100px; left: 40%;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(0,174,239,.09) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Decorative grid lines */
+    .hero-grid {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 22px;
+      background: rgba(109,190,69,.12);
+      border: 1px solid rgba(109,190,69,.3);
+      padding: 7px 16px;
+      border-radius: 20px;
+    }
+
+    .hero-eyebrow span { display: inline-block; width: 6px; height: 6px; background: var(--verde); border-radius: 50%; }
+
+    .hero h1 {
+      font-size: 46px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.13;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 em { color: var(--verde); font-style: normal; }
+
+    .hero-desc {
+      font-size: 17px;
+      color: rgba(255,255,255,.78);
+      margin-bottom: 38px;
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .btn-green {
+      background: var(--verde);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 5px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 20px rgba(109,190,69,.35);
+      transition: all .2s;
+      display: inline-block;
+    }
+
+    .btn-green:hover {
+      background: #5aaa38;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(109,190,69,.45);
+    }
+
+    .btn-ghost {
+      border: 2px solid rgba(255,255,255,.45);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 5px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all .2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,.1);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,.14);
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--verde);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,.58);
+      margin-top: 4px;
+    }
+
+    /* Floating KPI panel */
+    .hero-cards {
+      position: absolute;
+      right: 64px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 300px;
+    }
+
+    .hero-phrase-block {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(14px);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 12px;
+    }
+
+    .hero-phrase-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: rgba(255,255,255,.45);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero-phrase-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    .hero-phrase-text em {
+      color: var(--verde);
+      font-style: normal;
+    }
+
+    .hero-phrase-text2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      line-height: 1.5;
+    }
+
+    .hero-phrase-text2 em {
+      color: var(--azul-tec);
+      font-style: normal;
+    }
+
+    .hero-kpis-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .kpi-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      backdrop-filter: blur(12px);
+      border-radius: 10px;
+      padding: 12px 10px;
+      flex: 1;
+      text-align: center;
+    }
+
+    .kpi-label {
+      font-size: 9px;
+      color: rgba(255,255,255,.6);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .kpi-value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--verde);
+    }
+
+    .kpi-sub {
+      font-size: 9px;
+      color: rgba(255,255,255,.5);
+      margin-top: 2px;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION COMMONS
+    ══════════════════════════════════════ */
+    .section {
+      padding: 82px 64px;
+    }
+
+    .section-label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--azul);
+      line-height: 1.18;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--gris);
+      line-height: 1.75;
+      max-width: 640px;
+    }
+
+    .text-center { text-align: center; }
+    .text-center .section-sub { margin: 0 auto; }
+
+    .mb-50 { margin-bottom: 50px; }
+
+    /* ══════════════════════════════════════
+       PROBLEMAS
+    ══════════════════════════════════════ */
+    .problemas { background: var(--bg-light); }
+
+    .problemas-header { text-align: center; max-width: 680px; margin: 0 auto 52px; }
+
+    .problemas-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .problema-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 34px 22px 28px;
+      text-align: center;
+      border-top: 4px solid var(--azul);
+      box-shadow: 0 2px 18px rgba(0,0,0,.07);
+      transition: transform .22s, box-shadow .22s;
+    }
+
+    .problema-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(30,58,138,.12);
+    }
+
+    .p-icon {
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, var(--azul) 0%, #2c52c2 100%);
+      border-radius: 14px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .p-icon svg {
+      width: 28px; height: 28px;
+      stroke: #fff; fill: none; stroke-width: 2;
+    }
+
+    .problema-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .problema-card p {
+      font-size: 13px;
+      color: var(--gris);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════
+       TRILOGÍA
+    ══════════════════════════════════════ */
+    .trilogia {
+      background: linear-gradient(130deg, var(--azul-deep) 0%, #1a348a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trilogia-glow {
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(109,190,69,.1) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .trilogia .section-label { color: var(--verde); position: relative; }
+    .trilogia .section-title { color: #fff; position: relative; }
+    .trilogia .section-sub  { color: rgba(255,255,255,.72); position: relative; max-width: none; }
+
+    .trilogia-header-wrap { max-width: 680px; margin-bottom: 52px; position: relative; }
+
+    .trilogia-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .libro-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 14px;
+      padding: 38px 30px;
+      backdrop-filter: blur(6px);
+      transition: background .22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .libro-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--verde), var(--azul-tec));
+    }
+
+    .libro-card:hover { background: rgba(255,255,255,.12); }
+
+    .libro-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--verde);
+      opacity: .25;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .libro-tag {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--azul-tec);
+      margin-bottom: 14px;
+    }
+
+    .libro-card h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 14px;
+      line-height: 1.22;
+    }
+
+    .libro-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,.68);
+      line-height: 1.75;
+    }
+
+    .libro-badge {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 6px 16px;
+      background: rgba(109,190,69,.18);
+      border: 1px solid rgba(109,190,69,.35);
+      border-radius: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--verde);
+    }
+
+    /* ══════════════════════════════════════
+       SERVICIOS
+    ══════════════════════════════════════ */
+    .servicios { background: #fff; }
+
+    .servicios-header { max-width: 680px; margin-bottom: 52px; }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .servicio-card {
+      border: 1.5px solid var(--bg-mid);
+      border-radius: 12px;
+      padding: 34px 28px;
+      transition: all .22s;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .servicio-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--azul), var(--verde));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s;
+    }
+
+    .servicio-card:hover::after { transform: scaleX(1); }
+    .servicio-card:hover {
+      box-shadow: 0 10px 32px rgba(30,58,138,.1);
+      transform: translateY(-4px);
+      border-color: transparent;
+    }
+
+    .s-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, #EEF2FF, #DBEAFE);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .s-icon svg {
+      width: 26px; height: 26px;
+      stroke: var(--azul); fill: none; stroke-width: 2;
+    }
+
+    .servicio-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+
+    .servicio-card p {
+      font-size: 13.5px;
+      color: var(--gris);
+      line-height: 1.72;
+    }
+
+    /* ══════════════════════════════════════
+       NOS
+    ══════════════════════════════════════ */
+    .nos-section { background: var(--bg-light); }
+
+    .nos-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .nos-desc {
+      font-size: 15.5px;
+      color: var(--gris);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .nos-fases { display: flex; flex-direction: column; }
+
+    .fase {
+      display: flex;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--bg-mid);
+      align-items: flex-start;
+    }
+
+    .fase:last-child { border-bottom: none; }
+
+    .fase-num {
+      width: 36px; height: 36px;
+      background: var(--azul);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .fase h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 4px;
+    }
+
+    .fase p { font-size: 13px; color: var(--gris); line-height: 1.6; }
+
+    .nos-panel {
+      background: #fff;
+      border-radius: 16px;
+      padding: 38px 36px;
+      box-shadow: 0 6px 32px rgba(0,0,0,.08);
+    }
+
+    .nos-header-card {
+      text-align: center;
+      background: linear-gradient(130deg, #1a4a8a, #2060b0);
+      border-radius: 10px;
+      padding: 22px 20px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .nos-header-card .brand-main {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 4px;
+    }
+
+    .nos-header-card .brand-main span { color: var(--verde); }
+
+    .nos-header-card .brand-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 5px;
+    }
+
+    .pilares-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 16px;
+    }
+
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .pilar {
+      background: var(--bg-light);
+      border-radius: 8px;
+      padding: 15px 16px;
+      border-left: 3px solid var(--verde);
+    }
+
+    .pilar h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .pilar p { font-size: 12px; color: var(--gris); line-height: 1.5; }
+
+    /* ══════════════════════════════════════
+       NOMI
+    ══════════════════════════════════════ */
+    .nomi-section { background: #fff; }
+
+    .nomi-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .nomi-levels { display: flex; flex-direction: column; gap: 9px; margin-top: 10px; }
+
+    .nivel {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      background: var(--bg-light);
+      border-left: 4px solid;
+    }
+
+    .nivel-1 { border-color: #EF4444; }
+    .nivel-2 { border-color: #F97316; }
+    .nivel-3 { border-color: #EAB308; }
+    .nivel-4 { border-color: #3B82F6; }
+    .nivel-5 { border-color: var(--verde); }
+    .nivel-6 { border-color: #7C3AED; }
+
+    .nivel-dot {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .nivel-1 .nivel-dot { background: #EF4444; }
+    .nivel-2 .nivel-dot { background: #F97316; }
+    .nivel-3 .nivel-dot { background: #EAB308; }
+    .nivel-4 .nivel-dot { background: #3B82F6; }
+    .nivel-5 .nivel-dot { background: var(--verde); }
+    .nivel-6 .nivel-dot { background: #7C3AED; }
+
+    .nivel h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--texto);
+      margin-bottom: 2px;
+    }
+
+    .nivel p { font-size: 12px; color: var(--gris); }
+
+    .nomi-right { padding-top: 4px; }
+
+    .dims-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 14px;
+    }
+
+    .dims-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .dim {
+      background: linear-gradient(135deg, #EEF2FF, #DBEAFE);
+      border-radius: 9px;
+      padding: 16px;
+      border-top: 3px solid var(--azul);
+    }
+
+    .dim h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 4px;
+    }
+
+    .dim p { font-size: 12px; color: var(--gris); line-height: 1.5; }
+
+    .nomi-cta-box {
+      background: linear-gradient(130deg, #1a4a8a, #2060b0);
+      border-radius: 12px;
+      padding: 30px 28px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .nomi-cta-box h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .nomi-cta-box h3 em { color: var(--verde); font-style: normal; }
+
+    .nomi-cta-box p {
+      font-size: 13px;
+      color: rgba(255,255,255,.68);
+      margin-bottom: 20px;
+    }
+
+    /* ══════════════════════════════════════
+       PCA
+    ══════════════════════════════════════ */
+    .pca-section { background: var(--bg-light); }
+
+    .pca-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .pca-badge {
+      background: linear-gradient(135deg, var(--azul-deep) 0%, #1E3A8A 100%);
+      border-radius: 16px;
+      padding: 46px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pca-badge::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(109,190,69,.16) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .pca-badge::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(0,174,239,.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .pca-logo-mark {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pca-big {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 4px;
+      line-height: 1;
+    }
+
+    .pca-big sup { font-size: 18px; color: var(--verde); vertical-align: super; }
+
+    .pca-name {
+      display: block;
+      font-size: 11px;
+      color: rgba(255,255,255,.55);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+
+    .pca-full {
+      font-size: 14px;
+      color: var(--verde);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: .5px;
+      position: relative;
+    }
+
+    .pca-sep {
+      width: 40px; height: 2px;
+      background: linear-gradient(90deg, var(--verde), var(--azul-tec));
+      margin: 20px auto;
+    }
+
+    .pca-formats {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fmt {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .fmt svg {
+      width: 20px; height: 20px;
+      stroke: var(--verde); fill: none; stroke-width: 2; flex-shrink: 0;
+    }
+
+    .fmt span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .pca-right { padding-top: 8px; }
+
+    .pca-modulos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .modulo {
+      background: #fff;
+      border-radius: 10px;
+      padding: 22px 20px;
+      border-left: 4px solid var(--azul-tec);
+      box-shadow: 0 2px 14px rgba(0,0,0,.05);
+    }
+
+    .modulo h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 8px;
+    }
+
+    .modulo p { font-size: 13px; color: var(--gris); line-height: 1.65; }
+
+    /* ══════════════════════════════════════
+       INTEGRACION
+    ══════════════════════════════════════ */
+    .integracion { background: #fff; }
+
+    .integ-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+
+    .integ-card {
+      text-align: center;
+      padding: 36px 22px;
+      border-radius: 14px;
+      border: 1.5px solid var(--bg-mid);
+      transition: all .22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .integ-card:hover {
+      border-color: var(--azul);
+      box-shadow: 0 8px 28px rgba(30,58,138,.1);
+      transform: translateY(-4px);
+    }
+
+    .integ-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .integ-circle svg {
+      width: 34px; height: 34px;
+      stroke: #fff; fill: none; stroke-width: 1.8;
+    }
+
+    .integ-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+
+    .integ-card p { font-size: 13.5px; color: var(--gris); line-height: 1.68; }
+
+    .integ-tag {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════
+       BENEFICIOS
+    ══════════════════════════════════════ */
+    .beneficios {
+      background: linear-gradient(130deg, var(--azul-deep) 0%, #1E3A8A 100%);
+      padding: 82px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .beneficios-glow {
+      position: absolute;
+      top: -150px; right: -150px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(109,190,69,.1) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+
+    .beneficios .section-label { color: var(--verde); position: relative; }
+    .beneficios .section-title { color: #fff; position: relative; }
+    .beneficios .section-sub { color: rgba(255,255,255,.7); position: relative; max-width: none; }
+
+    .beneficios-header { text-align: center; margin-bottom: 52px; position: relative; }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      position: relative;
+    }
+
+    .bene-card {
+      text-align: center;
+      padding: 34px 18px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      transition: background .22s;
+    }
+
+    .bene-card:hover { background: rgba(255,255,255,.14); }
+
+    .bene-icon {
+      width: 62px; height: 62px;
+      background: rgba(109,190,69,.18);
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bene-icon svg {
+      width: 28px; height: 28px;
+      stroke: var(--verde); fill: none; stroke-width: 2;
+    }
+
+    .bene-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .bene-card p { font-size: 12.5px; color: rgba(255,255,255,.62); line-height: 1.6; }
+
+    /* ══════════════════════════════════════
+       CONSULTOR
+    ══════════════════════════════════════ */
+    .consultor {
+      background:
+        linear-gradient(90deg, rgba(244,247,250,1) 0%, rgba(244,247,250,0.97) 50%, rgba(244,247,250,0.85) 100%),
+        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80') right/cover no-repeat;
+      padding: 82px 64px;
+    }
+
+    .consultor-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 64px;
+      align-items: start;
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    .consultor-panel {
+      background: linear-gradient(135deg, var(--azul-deep) 0%, #1E3A8A 100%);
+      border-radius: 18px;
+      padding: 44px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .consultor-panel::before {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: rgba(109,190,69,.12);
+      border-radius: 50%;
+    }
+
+    .avatar-ring {
+      width: 128px; height: 128px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde) 0%, var(--azul-tec) 100%);
+      margin: 0 auto 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    }
+
+    .avatar-initials {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 44px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .consultor-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      position: relative;
+    }
+
+    .consultor-role {
+      display: block;
+      font-size: 13px;
+      color: var(--verde);
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: .5px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .creds {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      position: relative;
+    }
+
+    .cred {
+      background: rgba(255,255,255,.1);
+      border-radius: 7px;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      text-align: left;
+    }
+
+    .cred::before {
+      content: '✓';
+      color: var(--verde);
+      font-size: 13px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .consultor-bio .section-label { margin-bottom: 10px; }
+    .consultor-bio h2 { font-size: 32px; font-weight: 800; color: var(--azul); margin-bottom: 22px; }
+    .consultor-bio p { font-size: 15px; color: var(--gris); line-height: 1.82; margin-bottom: 16px; }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .bio-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .bio-dot {
+      width: 8px; height: 8px;
+      background: var(--verde);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    .bio-item p { font-size: 13.5px; color: var(--gris); margin: 0; line-height: 1.55; }
+
+    /* ══════════════════════════════════════
+       CONTACTO
+    ══════════════════════════════════════ */
+    .contacto { background: #fff; padding: 82px 64px; }
+
+    .contacto-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    .contacto-left .section-title { margin-bottom: 16px; }
+    .contacto-left p { font-size: 15px; color: var(--gris); line-height: 1.8; margin-bottom: 34px; }
+
+    .contacto-items { display: flex; flex-direction: column; gap: 18px; }
+
+    .contacto-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .ci-icon {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--azul), #2a52c2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ci-icon svg {
+      width: 22px; height: 22px;
+      stroke: #fff; fill: none; stroke-width: 2;
+    }
+
+    .ci-text strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+
+    .ci-text span { font-size: 14px; color: var(--gris); }
+
+    .form-box {
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 40px 36px;
+    }
+
+    .form-box h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--azul);
+      margin-bottom: 6px;
+    }
+
+    .form-box .form-desc {
+      font-size: 13.5px;
+      color: var(--gris);
+      margin-bottom: 28px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-group label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #D0DAE8;
+      border-radius: 7px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: var(--texto);
+      background: #fff;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--azul);
+      box-shadow: 0 0 0 3px rgba(30,58,138,.08);
+    }
+
+    .form-group textarea { height: 100px; resize: vertical; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--azul);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 7px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover { background: #152d6e; transform: translateY(-1px); }
+
+    .form-note {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--gris);
+      margin-top: 12px;
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: #060f2e;
+      padding: 52px 64px 28px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 44px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: rgba(255,255,255,.48);
+      line-height: 1.75;
+      margin-top: 18px;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--verde);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 11px;
+      transition: color .2s;
+    }
+
+    .footer-col a:hover { color: #fff; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+    }
+
+    .footer-tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--verde);
+      letter-spacing: .5px;
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE (básico)
+    ══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .problemas-grid { grid-template-columns: repeat(3, 1fr); }
+      .beneficios-grid { grid-template-columns: repeat(3, 1fr); }
+      .servicios-grid { grid-template-columns: 1fr 1fr; }
+      .hero-cards { display: none; }
+      .hero h1 { font-size: 38px; }
+    }
+
+    @media (max-width: 860px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .section { padding: 60px 28px; }
+      .hero { padding: 70px 28px 60px; }
+      .hero h1 { font-size: 32px; }
+      .nos-layout, .nomi-layout, .pca-layout,
+      .consultor-layout, .contacto-layout, .trilogia-grid,
+      .integ-grid, .servicios-grid { grid-template-columns: 1fr; }
+      .problemas-grid { grid-template-columns: 1fr 1fr; }
+      .beneficios-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="inicio">
+  <div class="nav-logo">
+    <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™" style="height: 68px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));">
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#problemas">Problemática</a></li>
+    <li><a href="#metodologia">Metodología</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nomi">NOMI™</a></li>
+    <li><a href="#pca">PCA™</a></li>
+    <li><a href="#consultor">Consultor</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#contacto" class="nav-cta">Diagnóstico Gratuito</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span></span>
+      Consultoría en Excelencia Operacional · PyMEs Manufactureras
+    </div>
+
+    <h1>Recupera el control<br>de tu <em>operación</em>.<br>Construye una empresa<br>que crezca <em>con estructura</em>.</h1>
+
+    <p class="hero-desc">
+      Transformamos empresas manufactureras reactivas en organizaciones disciplinadas,
+      rentables y menos dependientes de sus dueños. Metodología propia. Resultados medibles.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn-green">Solicitar Diagnóstico Gratuito →</a>
+      <a href="#metodologia" class="btn-ghost">Conocer la Metodología</a>
+    </div>
+
+    <div class="hero-stats">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div style="background:rgba(255,255,255,0.96); border-radius:8px; padding:7px 14px; display:flex; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,.2);">
+          <img src="NOS logo sf.png" alt="NOS™" style="height:32px; width:auto;">
+        </div>
+        <div class="stat-label">Sistema de Transformación<br>Operacional Propietario</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div style="background:rgba(255,255,255,0.96); border-radius:8px; padding:7px 14px; display:flex; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,.2);">
+          <img src="NOMI logo sf.png" alt="NOMI™" style="height:32px; width:auto;">
+        </div>
+        <div class="stat-label">Evaluación de Madurez<br>en 6 Dimensiones</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div style="background:rgba(255,255,255,0.96); border-radius:8px; padding:7px 14px; display:flex; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,.2);">
+          <img src="Logo PCA sf.png" alt="PCA™" style="height:32px; width:auto;">
+        </div>
+        <div class="stat-label">Pensamiento Crítico<br>Aumentado</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero right panel -->
+  <div class="hero-cards">
+
+    <!-- Frase 1 -->
+    <div class="hero-phrase-block">
+      <div class="hero-phrase-label">Nuestra Filosofía</div>
+      <div class="hero-phrase-text">
+        Pensar Mejor.<br>
+        <em>Liderar Mejor.</em><br>
+        Operar Mejor.
+      </div>
+    </div>
+
+    <!-- Frase 2 -->
+    <div class="hero-phrase-block">
+      <div class="hero-phrase-label">Nuestro Compromiso</div>
+      <div class="hero-phrase-text2">
+        <em>Transformamos operaciones.</em><br>
+        Generamos resultados.
+      </div>
+    </div>
+
+    <!-- KPIs en fila -->
+    <div class="hero-kpis-row">
+      <div class="kpi-card">
+        <div class="kpi-label">Productividad</div>
+        <div class="kpi-value">+35%</div>
+        <div class="kpi-sub">Mejora operacional</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Desperdicios</div>
+        <div class="kpi-value">−40%</div>
+        <div class="kpi-sub">Scrap y retrabajos</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">OTD</div>
+        <div class="kpi-value">+90%</div>
+        <div class="kpi-sub">On-time delivery</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ PROBLEMAS ══════════ -->
+<section class="section problemas" id="problemas">
+  <div class="problemas-header">
+    <span class="section-label">¿Te identificas con esto?</span>
+    <h2 class="section-title">Los problemas más comunes<br>de la operación manufacturera</h2>
+    <p class="section-sub">
+      La mayoría de estos síntomas tienen una causa común:
+      <strong>falta de madurez operacional</strong>. No son problemas de personas — son problemas de sistema.
+    </p>
+  </div>
+
+  <div class="problemas-grid">
+    <div class="problema-card">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <h3>Operación Reactiva</h3>
+      <p>El día a día decide tu agenda. Los problemas se resuelven en crisis, no con prevención ni planeación.</p>
+    </div>
+
+    <div class="problema-card">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+      </div>
+      <h3>Baja Productividad</h3>
+      <p>La capacidad real de tu planta está subutilizada. Más horas, mismos o peores resultados.</p>
+    </div>
+
+    <div class="problema-card">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+      </div>
+      <h3>Desperdicios Elevados</h3>
+      <p>Scrap, retrabajos e inventarios excesivos que devoran tu rentabilidad sin que nadie los mida.</p>
+    </div>
+
+    <div class="problema-card">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+      </div>
+      <h3>Entregas Tardías</h3>
+      <p>Los clientes se quejan. Las promesas no se cumplen. La reputación de la empresa está en riesgo.</p>
+    </div>
+
+    <div class="problema-card">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      </div>
+      <h3>Sin Indicadores Confiables</h3>
+      <p>Las decisiones se toman por intuición. No hay datos claros ni tableros que reflejen la realidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BANNER INDUSTRIAL ══════════ -->
+<div style="
+  height: 260px;
+  background: linear-gradient(90deg, rgba(10,22,70,0.82) 0%, rgba(10,22,70,0.55) 60%, rgba(10,22,70,0.2) 100%),
+              url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 64px;
+  position: relative;
+  overflow: hidden;
+">
+  <div style="position: relative; z-index: 1; max-width: 640px;">
+    <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #6DBE45; margin-bottom: 12px;">Metodología Propia · Resultados Medibles</p>
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 18px;">
+      Pensar mejor. Liderar mejor.<br><em style="color: #6DBE45; font-style: normal;">Operar mejor.</em>
+    </h2>
+    <p style="font-size: 15px; color: rgba(255,255,255,.78); line-height: 1.7;">
+      Una metodología práctica y probada, diseñada específicamente para la industria manufacturera latinoamericana.
+    </p>
+  </div>
+  <div style="position: absolute; right: 64px; top: 50%; transform: translateY(-50%); opacity: .9;">
+    <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™" style="height: 110px; width: auto; filter: brightness(0) invert(1);">
+  </div>
+</div>
+
+<!-- ══════════ TRILOGÍA ══════════ -->
+<section class="section trilogia" id="metodologia">
+  <div class="trilogia-glow"></div>
+
+  <div class="trilogia-header-wrap">
+    <span class="section-label">Autoría Propia · Marco Conceptual</span>
+    <h2 class="section-title">Trilogía del Liderazgo<br>Operacional</h2>
+    <p class="section-sub">
+      Tres libros de autoría propia que forman el fundamento filosófico y metodológico de NextGen OPEX Consulting.
+      Un sistema completo para que los líderes industriales transformen su mentalidad y su operación.
+    </p>
+  </div>
+
+  <div class="trilogia-grid">
+    <div class="libro-card">
+      <div style="text-align:center; margin-bottom:18px; margin-top:4px;">
+        <img src="Portada cronicas.png" alt="El Lado Humano de NOS™" style="height:180px; width:auto; object-fit:contain; border-radius:6px; box-shadow:0 8px 28px rgba(0,0,0,.5); display:inline-block;">
+      </div>
+      <div class="libro-num">01</div>
+      <span class="libro-tag">El Lado Humano · Personas y Operación</span>
+      <h3>El Lado Humano<br>de NOS™</h3>
+      <p>
+        Crónicas de la planta: historias reales, aprendizajes, errores y decisiones difíciles
+        que rara vez aparecen en un reporte de producción, pero que definen el éxito o fracaso
+        de una organización. Un homenaje a quienes mantienen vivas las operaciones industriales.
+      </p>
+      <div style="margin-top: 18px; padding: 12px 14px; background: rgba(255,255,255,.07); border-radius: 8px; border-left: 2px solid rgba(109,190,69,.5);">
+        <p style="font-size: 12px; color: rgba(255,255,255,.6); font-style: italic; line-height: 1.5;">
+          "Las metodologías transforman procesos...<br>las personas transforman las empresas."
+        </p>
+      </div>
+      <span class="libro-badge">Liderazgo Humano</span>
+    </div>
+
+    <div class="libro-card">
+      <div style="text-align:center; margin-bottom:18px; margin-top:4px;">
+        <img src="Portada PCA.png" alt="La Filosofía Cognitiva de NOS™" style="height:180px; width:auto; object-fit:contain; border-radius:6px; box-shadow:0 8px 28px rgba(0,0,0,.5); display:inline-block;">
+      </div>
+      <div class="libro-num">02</div>
+      <span class="libro-tag">Filosofía Cognitiva · PCA™</span>
+      <h3>La Filosofía Cognitiva<br>de NOS™</h3>
+      <p>
+        Cómo desarrollar líderes que piensen mejor, usen la inteligencia artificial con criterio
+        y transformen decisiones en resultados. Una persona con pensamiento crítico usando IA
+        puede analizar mejor, cuestionar mejor y aprender más rápido.
+      </p>
+      <div style="margin-top: 18px; padding: 12px 14px; background: rgba(255,255,255,.07); border-radius: 8px; border-left: 2px solid rgba(0,174,239,.5);">
+        <p style="font-size: 12px; color: rgba(255,255,255,.6); font-style: italic; line-height: 1.5;">
+          "No es un libro sobre IA. Es un libro sobre<br>cómo elevar la inteligencia de una persona."
+        </p>
+      </div>
+      <span class="libro-badge">Pensamiento Crítico Aumentado™</span>
+    </div>
+
+    <div class="libro-card">
+      <div style="text-align:center; margin-bottom:18px; margin-top:4px;">
+        <img src="Portada NOS.png" alt="Metodología NOS™" style="height:180px; width:auto; object-fit:contain; border-radius:6px; box-shadow:0 8px 28px rgba(0,0,0,.5); display:inline-block;">
+      </div>
+      <div class="libro-num">03</div>
+      <span class="libro-tag">Sistema · Transformación Operacional</span>
+      <h3>Metodología NOS™<br>NextGen OPEX System™</h3>
+      <p>
+        Para convertir la estrategia en resultados sostenibles mediante diagnóstico, diseño,
+        ejecución, control y escalamiento. El manual del sistema propietario ALIGN™ → X-RAY™ →
+        DESIGN™ → EXECUTION™ → CONTROL™ → SCALE™.
+      </p>
+      <div style="margin-top: 18px; padding: 12px 14px; background: rgba(255,255,255,.07); border-radius: 8px; border-left: 2px solid rgba(109,190,69,.5);">
+        <p style="font-size: 12px; color: rgba(255,255,255,.6); font-style: italic; line-height: 1.5;">
+          "NOMI™ es el primer paso. NOS™ es el camino.<br>La transformación es el destino."
+        </p>
+      </div>
+      <span class="libro-badge">Excelencia Operacional</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICIOS ══════════ -->
+<section class="section servicios" id="servicios">
+  <div class="servicios-header">
+    <span class="section-label">Servicios de Consultoría</span>
+    <h2 class="section-title">Lo que hacemos<br>en tu empresa</h2>
+    <p class="section-sub">
+      Intervenciones diseñadas para PyMEs manufactureras. Cada proyecto parte de un diagnóstico real
+      y concluye con mejoras medibles y sostenibles.
+    </p>
+  </div>
+
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+      </div>
+      <h3>Diagnóstico Operacional NOMI™</h3>
+      <p>Evaluación estructurada del nivel de madurez en 6 dimensiones clave. Identifica la brecha actual
+         y la ruta de evolución más adecuada para tu empresa.</p>
+    </div>
+
+    <div class="servicio-card">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <h3>Transformación de Procesos</h3>
+      <p>Estandarización, mapeo de flujo de valor y eliminación de desperdicios. Lean Manufacturing
+         aplicado a la realidad operacional de tu planta.</p>
+    </div>
+
+    <div class="servicio-card">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      </div>
+      <h3>Implementación de Indicadores</h3>
+      <p>Diseño e implementación de tableros de control operacional. KPIs que reflejan la realidad
+         y permiten tomar decisiones basadas en datos, no en intuición.</p>
+    </div>
+
+    <div class="servicio-card">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      </div>
+      <h3>Desarrollo de Liderazgo Operacional</h3>
+      <p>Fortalecemos la capacidad gerencial de mandos medios y supervisores para liderar con estructura,
+         criterio y responsabilidad sobre los resultados.</p>
+    </div>
+
+    <div class="servicio-card">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <h3>Reducción de Costos Operativos</h3>
+      <p>Identificación y eliminación sistemática de desperdicios: scrap, retrabajos, tiempos muertos
+         e inventarios excesivos que afectan la rentabilidad.</p>
+    </div>
+
+    <div class="servicio-card">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </div>
+      <h3>Inteligencia Operacional con IA</h3>
+      <p>Integración de herramientas de análisis de datos e inteligencia artificial para potenciar
+         la toma de decisiones y anticipar problemas operativos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ NOS ══════════ -->
+<section class="section nos-section" id="nos">
+  <div class="nos-layout">
+    <div class="nos-left">
+      <span class="section-label">Sistema Propietario</span>
+      <h2 class="section-title">NOS™ — NextGen<br>OPEX System™</h2>
+      <p class="nos-desc">
+        El NOS™ es el sistema de transformación operacional de NextGen OPEX Consulting.
+        Una ruta estructurada y probada para llevar a tu empresa de la operación reactiva
+        a la excelencia operacional sostenida, implementando cambios reales en el piso de planta.
+      </p>
+
+      <div class="nos-fases">
+        <div class="fase">
+          <div class="fase-num" style="background: #1E3A8A; font-size: 11px; letter-spacing: .5px;">01</div>
+          <div>
+            <h4>ALIGN™ — <span style="font-weight: 400; color: var(--gris);">Definir</span></h4>
+            <p>Alinear el problema con el negocio. Define el problema correcto, entiende el impacto económico y establece metas SMART.</p>
+          </div>
+        </div>
+        <div class="fase">
+          <div class="fase-num" style="background: #1a4fa0; font-size: 11px; letter-spacing: .5px;">02</div>
+          <div>
+            <h4>X-RAY™ — <span style="font-weight: 400; color: var(--gris);">Entender</span></h4>
+            <p>Comprender la realidad operacional. Analiza causas raíz, valida datos e identifica las variables críticas de la operación.</p>
+          </div>
+        </div>
+        <div class="fase">
+          <div class="fase-num" style="background: #1a6ab0; font-size: 11px; letter-spacing: .5px;">03</div>
+          <div>
+            <h4>DESIGN™ — <span style="font-weight: 400; color: var(--gris);">Diseñar</span></h4>
+            <p>Construir soluciones prácticas y sostenibles. Prioriza oportunidades, genera alternativas y diseña la solución futura.</p>
+          </div>
+        </div>
+        <div class="fase">
+          <div class="fase-num" style="background: #4a9a30; font-size: 11px; letter-spacing: .5px;">04</div>
+          <div>
+            <h4>EXECUTION™ — <span style="font-weight: 400; color: var(--gris);">Ejecutar</span></h4>
+            <p>Implementar con disciplina. Convierte planes en resultados, gestiona el cambio y asegura la adopción real en planta.</p>
+          </div>
+        </div>
+        <div class="fase">
+          <div class="fase-num" style="background: #3a8a22; font-size: 11px; letter-spacing: .5px;">05</div>
+          <div>
+            <h4>CONTROL™ — <span style="font-weight: 400; color: var(--gris);">Sostener</span></h4>
+            <p>Evitar recaídas y asegurar resultados. Estandariza, mide, controla y previene la regresión del sistema operativo.</p>
+          </div>
+        </div>
+        <div class="fase">
+          <div class="fase-num" style="background: #6DBE45; font-size: 11px; letter-spacing: .5px;">06</div>
+          <div>
+            <h4>SCALE™ — <span style="font-weight: 400; color: var(--gris);">Escalar</span></h4>
+            <p>Multiplicar el impacto en toda la organización. Replica mejores prácticas, desarrolla capacidades y escala con IA.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nos-panel">
+      <div class="nos-header-card">
+        <img src="NOS logo sf.png" alt="NOS™ NextGen OPEX System™" style="height: 70px; width: auto; object-fit: contain;">
+        <div class="brand-sub" style="margin-top: 8px;">NextGen OPEX System™ · Sistema de Transformación</div>
+      </div>
+
+      <p class="pilares-title">Pilares del Sistema NOS™</p>
+      <div class="pilares-grid">
+        <div class="pilar">
+          <h4>Estabilidad</h4>
+          <p>Procesos estandarizados y operación predecible como base de toda mejora.</p>
+        </div>
+        <div class="pilar">
+          <h4>Control</h4>
+          <p>Indicadores, rutinas de gestión y seguimiento disciplinado de resultados.</p>
+        </div>
+        <div class="pilar">
+          <h4>Mejora Continua</h4>
+          <p>Cultura de resolución de problemas y eliminación sistemática de desperdicios.</p>
+        </div>
+        <div class="pilar">
+          <h4>Inteligencia</h4>
+          <p>Datos, análisis y herramientas de IA para decisiones operacionales más rápidas.</p>
+        </div>
+        <div class="pilar">
+          <h4>Liderazgo</h4>
+          <p>Desarrollo del equipo gerencial para sostener y escalar los resultados.</p>
+        </div>
+        <div class="pilar">
+          <h4>Autonomía</h4>
+          <p>La empresa funciona, crece y mejora sin depender del dueño o del consultor.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; padding: 18px; background: linear-gradient(90deg, rgba(109,190,69,.12), rgba(0,174,239,.1)); border-radius: 9px; border-left: 3px solid var(--verde);">
+        <p style="font-size: 13px; color: var(--azul); font-weight: 600; font-family: 'Montserrat', sans-serif;">
+          "NOMI™ es el primer paso. NOS™ es el camino.<br>La transformación es el destino."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ NOMI ══════════ -->
+<section class="section nomi-section" id="nomi">
+  <div class="nomi-layout">
+    <div class="nomi-left">
+      <span class="section-label">Evaluación Diagnóstica</span>
+      <h2 class="section-title">NOMI™ — NextGen<br>Operational Maturity Index™</h2>
+      <p style="font-size: 15px; color: var(--gris); line-height: 1.8; margin-bottom: 28px;">
+        NOMI™ es el sistema de evaluación diagnóstica de NextGen OPEX Consulting. Mide el nivel
+        de madurez operacional de tu organización en 6 dimensiones clave e identifica la brecha
+        entre tu estado actual y el estado objetivo.
+      </p>
+
+      <p style="font-size: 13px; font-weight: 700; color: var(--azul); text-transform: uppercase; letter-spacing: 1.5px; font-family: 'Montserrat', sans-serif; margin-bottom: 14px;">
+        Los 6 Niveles de Madurez NOMI™
+      </p>
+
+      <div class="nomi-levels">
+        <div class="nivel nivel-1">
+          <div class="nivel-dot">1</div>
+          <div>
+            <h4>Caótico</h4>
+            <p>No existe un sistema. La operación depende de la reacción y el heroísmo.</p>
+          </div>
+        </div>
+        <div class="nivel nivel-2">
+          <div class="nivel-dot">2</div>
+          <div>
+            <h4>Reactivo</h4>
+            <p>Se actúa ante los problemas. No hay control ni previsión consistente.</p>
+          </div>
+        </div>
+        <div class="nivel nivel-3">
+          <div class="nivel-dot">3</div>
+          <div>
+            <h4>Control Básico</h4>
+            <p>Existen procesos e indicadores básicos, pero no son consistentes.</p>
+          </div>
+        </div>
+        <div class="nivel nivel-4">
+          <div class="nivel-dot">4</div>
+          <div>
+            <h4>Gestión Controlada</h4>
+            <p>La operación es estable y gestionada mediante datos y disciplina.</p>
+          </div>
+        </div>
+        <div class="nivel nivel-5">
+          <div class="nivel-dot">5</div>
+          <div>
+            <h4>Optimizado</h4>
+            <p>Mejora continua, tecnología y análisis para optimizar el desempeño.</p>
+          </div>
+        </div>
+        <div class="nivel nivel-6">
+          <div class="nivel-dot">6</div>
+          <div>
+            <h4>World Class / Autónomo</h4>
+            <p>Inteligencia operacional, automatización avanzada y aprendizaje continuo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nomi-right">
+      <p class="dims-title">Las 6 Dimensiones NOMI™</p>
+      <div class="dims-grid">
+        <div class="dim">
+          <h4>Procesos</h4>
+          <p>Estandarización, flujo y control operacional.</p>
+        </div>
+        <div class="dim">
+          <h4>Operación</h4>
+          <p>Productividad, estabilidad y gestión de desperdicios.</p>
+        </div>
+        <div class="dim">
+          <h4>Gestión</h4>
+          <p>Indicadores, liderazgo y seguimiento de resultados.</p>
+        </div>
+        <div class="dim">
+          <h4>Mejora Continua</h4>
+          <p>Capacidad de resolver problemas y sostener mejoras.</p>
+        </div>
+        <div class="dim">
+          <h4>Tecnología</h4>
+          <p>Digitalización, automatización e integración de sistemas.</p>
+        </div>
+        <div class="dim">
+          <h4>Intel. Operacional</h4>
+          <p>Datos, analítica e inteligencia artificial aplicada.</p>
+        </div>
+      </div>
+
+      <div class="nomi-cta-box">
+        <img src="NOMI logo sf.png" alt="NOMI™" style="height: 56px; width: auto; object-fit: contain; display: block; margin: 0 auto 14px;">
+        <h3><em>NOMI™</em> Express</h3>
+        <p>Evaluación inicial de 65 preguntas que revela tu nivel de madurez operacional actual en menos de 48 horas. El primer paso hacia la transformación.</p>
+        <a href="#contacto" class="btn-green" style="font-size: 13px; padding: 13px 28px;">
+          Solicitar Evaluación NOMI™ →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PCA ══════════ -->
+<section class="section pca-section" id="pca">
+  <div class="pca-layout">
+    <div class="pca-badge">
+      <div class="pca-logo-mark">
+        <img src="Logo PCA sf.png" alt="PCA™ Pensamiento Crítico Aumentado™" style="height: 90px; width: auto; object-fit: contain; display: block; margin: 0 auto 12px;">
+        <span class="pca-name">Programa de Entrenamiento</span>
+        <div class="pca-full">Pensamiento Crítico Aumentado™</div>
+      </div>
+      <div class="pca-sep"></div>
+      <div class="pca-formats">
+        <div class="fmt">
+          <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          <span>Talleres In-Company</span>
+        </div>
+        <div class="fmt">
+          <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span>Cursos Online</span>
+        </div>
+        <div class="fmt">
+          <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Entrenamiento para Equipos</span>
+        </div>
+        <div class="fmt">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <span>Conferencias y Keynotes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pca-right">
+      <span class="section-label">Formación Directiva y Operacional</span>
+      <h2 class="section-title">Desarrolla el criterio<br>que transforma equipos</h2>
+      <p style="font-size: 15px; color: var(--gris); line-height: 1.8; margin-bottom: 28px;">
+        PCA™ es el programa de formación de NextGen OPEX Consulting. Combinamos herramientas de
+        pensamiento crítico con inteligencia artificial aplicada para desarrollar líderes operacionales
+        que resuelven problemas reales con método, no con intuición.
+      </p>
+
+      <div class="pca-modulos">
+        <div class="modulo">
+          <h4>🧠 Pensamiento Crítico Aplicado</h4>
+          <p>Frameworks de análisis y toma de decisiones estructuradas para líderes operacionales.</p>
+        </div>
+        <div class="modulo">
+          <h4>⚙️ Resolución de Problemas</h4>
+          <p>A3, 8D, 5 Por Qués y metodologías de análisis de causa raíz aplicados al piso de planta.</p>
+        </div>
+        <div class="modulo">
+          <h4>🤖 IA para Operaciones</h4>
+          <p>Herramientas de inteligencia artificial accesibles para análisis operacional y mejora de decisiones.</p>
+        </div>
+        <div class="modulo">
+          <h4>📊 Gestión con Datos</h4>
+          <p>Cómo interpretar indicadores, construir argumentos con evidencia y liderar con datos reales.</p>
+        </div>
+        <div class="modulo">
+          <h4>🎯 Liderazgo Situacional</h4>
+          <p>Desarrollo del estilo de liderazgo adecuado para cada situación operacional y madurez del equipo.</p>
+        </div>
+        <div class="modulo">
+          <h4>📈 Lean Thinking</h4>
+          <p>Mentalidad Lean aplicada a la manufactura: identificar valor, eliminar desperdicio y fluir mejor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BANNER ECOSISTEMA NOC ══════════ -->
+<div style="
+  height: 220px;
+  background: linear-gradient(135deg, rgba(20,52,120,0.72) 0%, rgba(30,70,160,0.60) 100%),
+              url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 72px;
+  padding: 0 64px;
+">
+  <div style="text-align:center;">
+    <img src="NOMI logo sf.png" alt="NOMI™" style="height: 68px; width: auto; display: block; margin: 0 auto 10px; filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));">
+    <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; color: rgba(255,255,255,.85); letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Diagnóstico · Evaluación</p>
+  </div>
+  <div style="font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 900; color: #6DBE45; text-shadow: 0 2px 8px rgba(0,0,0,.3);">→</div>
+  <div style="text-align:center;">
+    <img src="NOS logo sf.png" alt="NOS™" style="height: 68px; width: auto; display: block; margin: 0 auto 10px; filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));">
+    <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; color: rgba(255,255,255,.85); letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Transformación · Ejecución</p>
+  </div>
+  <div style="font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 900; color: #6DBE45; text-shadow: 0 2px 8px rgba(0,0,0,.3);">→</div>
+  <div style="text-align:center;">
+    <img src="Logo PCA sf.png" alt="PCA™" style="height: 68px; width: auto; display: block; margin: 0 auto 10px; filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));">
+    <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; color: rgba(255,255,255,.85); letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Formación · Desarrollo</p>
+  </div>
+</div>
+
+<!-- ══════════ INTEGRACIÓN ══════════ -->
+<section class="section integracion" id="integracion">
+  <div class="text-center mb-50">
+    <span class="section-label">Enfoque Integrado</span>
+    <h2 class="section-title">Un sistema que integra lo mejor<br>de múltiples disciplinas</h2>
+    <p class="section-sub">
+      No aplicamos herramientas aisladas. Integramos Lean, Six Sigma, pensamiento crítico
+      e inteligencia artificial en un sistema cohesionado, adaptado a la realidad de la PyME manufacturera.
+    </p>
+  </div>
+
+  <div class="integ-grid">
+    <div class="integ-card">
+      <div class="integ-circle" style="background: linear-gradient(135deg, #1E3A8A, #2c52c2);">
+        <svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <h3>Lean Manufacturing</h3>
+      <p>Eliminación de desperdicios, flujo continuo y creación de valor real para el cliente.
+         5S, VSM, Kaizen, SMED y más.</p>
+      <span class="integ-tag" style="background: rgba(30,58,138,.1); color: var(--azul);">Eficiencia</span>
+    </div>
+
+    <div class="integ-card">
+      <div class="integ-circle" style="background: linear-gradient(135deg, #6DBE45, #4fa334);">
+        <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      </div>
+      <h3>Six Sigma</h3>
+      <p>Reducción de variabilidad y defectos mediante metodología DMAIC. Control estadístico
+         de proceso aplicado a manufactura real.</p>
+      <span class="integ-tag" style="background: rgba(109,190,69,.12); color: #3a8a20;">Calidad</span>
+    </div>
+
+    <div class="integ-card">
+      <div class="integ-circle" style="background: linear-gradient(135deg, #00AEEF, #0082b3);">
+        <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+      </div>
+      <h3>Pensamiento Crítico</h3>
+      <p>Análisis estructurado de problemas, causa raíz y toma de decisiones basada en evidencia,
+         no en suposiciones o urgencias.</p>
+      <span class="integ-tag" style="background: rgba(0,174,239,.1); color: #006fa8;">Criterio</span>
+    </div>
+
+    <div class="integ-card">
+      <div class="integ-circle" style="background: linear-gradient(135deg, #7C3AED, #5b21b6);">
+        <svg viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </div>
+      <h3>Inteligencia Artificial</h3>
+      <p>Herramientas de IA aplicadas al análisis operacional, predicción de fallas, optimización
+         de inventarios y asistencia en la toma de decisiones.</p>
+      <span class="integ-tag" style="background: rgba(124,58,237,.1); color: #5b21b6;">Tecnología</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BENEFICIOS ══════════ -->
+<section class="beneficios" id="beneficios">
+  <div class="beneficios-glow"></div>
+  <div class="beneficios-header">
+    <span class="section-label">Resultados Esperados</span>
+    <h2 class="section-title">Los beneficios que transforma<br>tu operación manufacturera</h2>
+    <p class="section-sub" style="margin: 0 auto;">
+      Cada intervención se diseña para generar resultados concretos, sostenibles y medibles.
+      Esto es lo que nuestros clientes obtienen.
+    </p>
+  </div>
+
+  <div class="beneficios-grid">
+    <div class="bene-card">
+      <div class="bene-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+      </div>
+      <h3>Mayor Productividad</h3>
+      <p>Más output con los mismos recursos. Menos tiempo perdido, más valor entregado por turno.</p>
+    </div>
+
+    <div class="bene-card">
+      <div class="bene-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <h3>Mejor Control Operacional</h3>
+      <p>Saber qué pasa en tu planta en tiempo real. Indicadores claros, rutinas de gestión efectivas.</p>
+    </div>
+
+    <div class="bene-card">
+      <div class="bene-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+      </div>
+      <h3>Reducción de Desperdicios</h3>
+      <p>Menos scrap, menos retrabajos, menos inventario muerto. Mayor rentabilidad por unidad producida.</p>
+    </div>
+
+    <div class="bene-card">
+      <div class="bene-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <h3>Entregas Confiables</h3>
+      <p>Cumplimiento de promesas de entrega. Clientes satisfechos, reputación fortalecida y menor costo de urgencias.</p>
+    </div>
+
+    <div class="bene-card">
+      <div class="bene-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      </div>
+      <h3>Decisiones con Datos</h3>
+      <p>Del "yo creo" al "los números dicen". Cultura de gestión por indicadores que acelera la mejora.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONSULTOR ══════════ -->
+<section class="consultor" id="consultor">
+  <div class="consultor-layout">
+    <div class="consultor-panel">
+      <div class="avatar-ring" style="background: none; border: 4px solid var(--verde); overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4);">
+        <img src="Foto Omar Sierra 2025 Ln.jpeg" alt="Omar Sierra" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%;">
+      </div>
+      <div class="consultor-name">Omar Sierra</div>
+      <span class="consultor-role">Fundador & Consultor Principal</span>
+      <div class="creds">
+        <div class="cred">Ingeniero Industrial</div>
+        <div class="cred">Lean Six Sigma Black Belt</div>
+        <div class="cred">Especialista en OPEX Manufacturero</div>
+        <div class="cred">Autor — Trilogía del Liderazgo Operacional</div>
+        <div class="cred">Experto en Pensamiento Crítico Aumentado</div>
+        <div class="cred">Consultor en IA Aplicada a Operaciones</div>
+        <div class="cred">Consultor Certificado EC0566 — CONOCER</div>
+      </div>
+    </div>
+
+    <div class="consultor-bio">
+      <span class="section-label">Perfil del Consultor</span>
+      <h2>Experiencia industrial.<br>Resultados comprobados.</h2>
+
+      <p>
+        Omar Sierra es fundador de NextGen OPEX Consulting y autor de la Trilogía del Liderazgo Operacional.
+        Con amplia experiencia en transformación de operaciones manufactureras, ha acompañado a directores
+        generales y dueños de PyMEs en el proceso de recuperar el control de su operación y construir
+        organizaciones disciplinadas y rentables.
+      </p>
+
+      <p>
+        Su metodología integra las mejores prácticas de Lean Manufacturing, Six Sigma y pensamiento crítico
+        con herramientas de inteligencia artificial, creando un sistema propio —el NOS™— que genera
+        resultados medibles y sostenibles en el tiempo, adaptado a la realidad de la industria manufacturera
+        latinoamericana.
+      </p>
+
+      <p>
+        Ha trabajado con empresas de manufactura de plásticos, metalmecánica, ventanas y puertas, logística
+        y distribución, ayudándolas a alcanzar niveles superiores de madurez operacional evaluados mediante
+        el índice NOMI™.
+      </p>
+
+      <div class="bio-grid">
+        <div class="bio-item">
+          <div class="bio-dot"></div>
+          <p>Diagnósticos NOMI™ implementados en empresas manufactureras de múltiples sectores</p>
+        </div>
+        <div class="bio-item">
+          <div class="bio-dot"></div>
+          <p>Sistema NOS™ diseñado y probado en operaciones reales con resultados documentados</p>
+        </div>
+        <div class="bio-item">
+          <div class="bio-dot"></div>
+          <p>Autor de 3 libros sobre liderazgo operacional y excelencia en manufactura</p>
+        </div>
+        <div class="bio-item">
+          <div class="bio-dot"></div>
+          <p>Instructor PCA™: talleres, cursos y entrenamientos para equipos directivos</p>
+        </div>
+        <div class="bio-item">
+          <div class="bio-dot"></div>
+          <p>Enfoque práctico: trabajo directo en el piso de planta, no solo en sala de juntas</p>
+        </div>
+        <div class="bio-item">
+          <div class="bio-dot"></div>
+          <p>Integración de IA y analítica de datos en proyectos de transformación operacional</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ NEWSLETTER ══════════ -->
+<section id="newsletter" style="
+  background: linear-gradient(135deg, #0f2060 0%, #1a3d8f 50%, #0f2060 100%);
+  padding: 86px 64px;
+  position: relative;
+  overflow: hidden;
+">
+  <!-- Glow decorativo -->
+  <div style="position:absolute; top:-160px; right:-120px; width:520px; height:520px; background:radial-gradient(circle, rgba(109,190,69,.13) 0%, transparent 70%); border-radius:50%; pointer-events:none;"></div>
+  <div style="position:absolute; bottom:-140px; left:-80px; width:440px; height:440px; background:radial-gradient(circle, rgba(0,174,239,.09) 0%, transparent 70%); border-radius:50%; pointer-events:none;"></div>
+
+  <div style="max-width:1100px; margin:0 auto; position:relative; z-index:2;">
+
+    <!-- Header -->
+    <div style="text-align:center; margin-bottom:52px;" class="reveal">
+      <span style="display:inline-block; font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; color:var(--verde); letter-spacing:3px; text-transform:uppercase; margin-bottom:14px;">Conocimiento Operacional · Actualización Continua</span>
+      <h2 style="font-family:'Montserrat',sans-serif; font-size:36px; font-weight:900; color:#fff; margin-bottom:14px; line-height:1.2;">
+        El <em style="color:var(--verde); font-style:normal;">conocimiento</em> que no llega<br>a los directivos, no genera cambio.
+      </h2>
+      <p style="font-size:15px; color:rgba(255,255,255,.7); max-width:560px; margin:0 auto; line-height:1.75;">
+        Suscríbete al boletín de NextGen OPEX Consulting y recibe casos de estudio reales, actualizaciones de metodología y herramientas prácticas directamente en tu correo.
+      </p>
+    </div>
+
+    <!-- Qué recibirás -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:52px;" class="reveal-stagger">
+
+      <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:22px 18px; text-align:center;">
+        <div style="width:44px; height:44px; background:rgba(109,190,69,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6DBE45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:#fff; margin-bottom:6px;">Casos de Estudio</div>
+        <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.6;">Transformaciones reales en plantas manufactureras con resultados medibles.</div>
+      </div>
+
+      <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:22px 18px; text-align:center;">
+        <div style="width:44px; height:44px; background:rgba(0,174,239,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:#fff; margin-bottom:6px;">Actualizaciones NOS™</div>
+        <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.6;">Evolución de las 6 fases, nuevas herramientas y lecciones del campo.</div>
+      </div>
+
+      <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:22px 18px; text-align:center;">
+        <div style="width:44px; height:44px; background:rgba(109,190,69,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6DBE45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:#fff; margin-bottom:6px;">Insights de Industria</div>
+        <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.6;">Tendencias en Lean, Six Sigma, IA aplicada y liderazgo operacional.</div>
+      </div>
+
+      <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:22px 18px; text-align:center;">
+        <div style="width:44px; height:44px; background:rgba(0,174,239,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:#fff; margin-bottom:6px;">Recursos Descargables</div>
+        <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.6;">Plantillas, checklists y guías prácticas exclusivas para suscriptores.</div>
+      </div>
+
+    </div>
+
+    <!-- Formulario de suscripción -->
+    <div style="max-width:560px; margin:0 auto; text-align:center;" class="reveal">
+      <form id="newsletter-form" onsubmit="handleNewsletter(event)" style="display:flex; gap:10px; margin-bottom:14px;">
+        <input
+          type="text"
+          id="nl-name"
+          placeholder="Tu nombre"
+          required
+          style="flex:1; padding:14px 18px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.1); color:#fff; font-family:'Poppins',sans-serif; font-size:14px; outline:none; backdrop-filter:blur(6px);"
+          onfocus="this.style.borderColor='rgba(109,190,69,.7)'"
+          onblur="this.style.borderColor='rgba(255,255,255,.2)'"
+        >
+        <input
+          type="email"
+          id="nl-email"
+          placeholder="tu@empresa.com"
+          required
+          style="flex:2; padding:14px 18px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.1); color:#fff; font-family:'Poppins',sans-serif; font-size:14px; outline:none; backdrop-filter:blur(6px);"
+          onfocus="this.style.borderColor='rgba(109,190,69,.7)'"
+          onblur="this.style.borderColor='rgba(255,255,255,.2)'"
+        >
+        <button type="submit" style="padding:14px 24px; background:var(--verde); color:#fff; border:none; border-radius:8px; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; transition:background .2s, transform .15s;"
+          onmouseover="this.style.background='#5aaa38'; this.style.transform='translateY(-1px)'"
+          onmouseout="this.style.background='var(--verde)'; this.style.transform='none'"
+        >Suscribirme →</button>
+      </form>
+      <div id="nl-success" style="display:none; padding:14px 20px; background:rgba(109,190,69,.18); border:1px solid rgba(109,190,69,.4); border-radius:8px; color:#a8e080; font-size:14px; font-family:'Montserrat',sans-serif; font-weight:600;">
+        ✓ ¡Listo! Te has suscrito al boletín de NextGen OPEX Consulting.
+      </div>
+      <p style="font-size:11px; color:rgba(255,255,255,.4); margin-top:10px;">Sin spam. Contenido de valor. Puedes darte de baja en cualquier momento.</p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function handleNewsletter(e) {
+  e.preventDefault();
+  const name  = document.getElementById('nl-name').value.trim();
+  const email = document.getElementById('nl-email').value.trim();
+  if (!name || !email) return;
+  document.getElementById('newsletter-form').style.display = 'none';
+  document.getElementById('nl-success').style.display = 'block';
+  /* Aquí conectar con Mailchimp / ConvertKit / HubSpot via API */
+}
+</script>
+
+<!-- ══════════ CONTACTO ══════════ -->
+<section class="contacto" id="contacto">
+  <div class="contacto-layout">
+    <div class="contacto-left">
+      <span class="section-label">Empieza Hoy</span>
+      <h2 class="section-title">Solicita tu Diagnóstico<br>Operacional Gratuito</h2>
+      <p>
+        El primer paso para transformar tu operación es conocer dónde estás hoy.
+        Agenda una sesión sin costo con Omar Sierra y descubre el nivel de madurez
+        operacional de tu empresa y cuál es la ruta de evolución más adecuada.
+      </p>
+
+      <div class="contacto-items">
+        <div class="contacto-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          </div>
+          <div class="ci-text">
+            <strong>Correo electrónico</strong>
+            <span>osierra@nextgenopexco.com</span>
+          </div>
+        </div>
+
+        <div class="contacto-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3.284 14.253A8.96 8.96 0 013 12c0-1.016.167-1.994.474-2.906"/></svg>
+          </div>
+          <div class="ci-text">
+            <strong>Sitio web</strong>
+            <span>nextgenopexco.com</span>
+          </div>
+        </div>
+
+        <div class="contacto-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="ci-text">
+            <strong>LinkedIn</strong>
+            <span>NextGen OPEX Consulting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <h3>Solicitar Diagnóstico</h3>
+      <p class="form-desc">Completa el formulario y nos ponemos en contacto contigo en menos de 24 horas.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label>Empresa</label>
+          <input type="text" placeholder="Nombre de tu empresa">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="correo@empresa.com">
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="+52 (000) 000-0000">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Sector de tu empresa</label>
+        <select>
+          <option value="">Selecciona una opción</option>
+          <option>Manufactura general</option>
+          <option>Extrusion de plásticos</option>
+          <option>Metalmecánica</option>
+          <option>Ventanas y puertas</option>
+          <option>Alimentos y bebidas</option>
+          <option>Logística y distribución</option>
+          <option>Otro sector manufacturero</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuál es tu mayor reto operacional?</label>
+        <textarea placeholder="Cuéntanos brevemente el principal problema que enfrentas en tu operación..."></textarea>
+      </div>
+
+      <button class="btn-submit">Solicitar Diagnóstico Gratuito →</button>
+      <p class="form-note">🔒 Tu información es confidencial. Sin spam, sin compromisos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™" style="height: 56px; width: auto; object-fit: contain; filter: brightness(0) invert(1);">
+      <p>
+        Consultoría especializada en excelencia operacional para PyMEs manufactureras.
+        Recupera el control. Mejora la rentabilidad. Construye una empresa que funcione sin ti.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Metodología</h4>
+      <a href="#metodologia">Trilogía del Liderazgo Operacional</a>
+      <a href="#nos">NOS™ — NextGen OPEX System™</a>
+      <a href="#nomi">NOMI™ — Evaluación de Madurez</a>
+      <a href="#pca">PCA™ — Pensamiento Crítico</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <a href="#servicios">Diagnóstico Operacional</a>
+      <a href="#servicios">Transformación de Procesos</a>
+      <a href="#servicios">Indicadores y Control</a>
+      <a href="#servicios">Desarrollo de Liderazgo</a>
+      <a href="#servicios">IA Aplicada a Operaciones</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="mailto:osierra@nextgenopexco.com">osierra@nextgenopexco.com</a>
+      <a href="#">nextgenopexco.com</a>
+      <a href="#">LinkedIn — NextGen OPEX</a>
+      <a href="#contacto">Diagnóstico Gratuito</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 NextGen OPEX Consulting™ · Todos los derechos reservados · NOS™ · NOMI™ · PCA™</p>
+    <div class="footer-tagline">
+      NOMI™ es el primer paso. NOS™ es el camino. La transformación es el destino.
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ASISTENTE NOC — WIDGET DE CHAT FLOTANTE
+══════════════════════════════════════════════════════════ -->
+<style>
+  /* === CHAT BUBBLE === */
+  #noc-chat-bubble {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+  }
+
+  #noc-toggle-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1E3A8A, #6DBE45);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(30,58,138,0.45);
+    transition: transform .2s, box-shadow .2s;
+    position: relative;
+  }
+
+  #noc-toggle-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 32px rgba(30,58,138,0.55);
+  }
+
+  #noc-toggle-btn svg {
+    width: 28px; height: 28px;
+    stroke: #fff; fill: none; stroke-width: 2;
+  }
+
+  #noc-unread-dot {
+    position: absolute;
+    top: 2px; right: 2px;
+    width: 14px; height: 14px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* === CHAT WINDOW === */
+  #noc-chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 28px;
+    width: 360px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 12px 60px rgba(0,0,0,.18), 0 4px 20px rgba(30,58,138,.15);
+    display: none;
+    flex-direction: column;
+    z-index: 9998;
+    overflow: hidden;
+    max-height: 540px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  #noc-chat-window.open { display: flex; }
+
+  /* Header */
+  .chat-header {
+    background: linear-gradient(130deg, #0f2060, #1E3A8A);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .chat-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .chat-avatar {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, #6DBE45, #00AEEF);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .chat-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .chat-agent-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .chat-status {
+    font-size: 11px;
+    color: rgba(255,255,255,.65);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .chat-status::before {
+    content: '';
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: #6DBE45;
+    border-radius: 50%;
+  }
+
+  .chat-header-actions { display: flex; gap: 8px; }
+
+  .chat-action-btn {
+    background: rgba(255,255,255,.12);
+    border: none;
+    border-radius: 6px;
+    width: 28px; height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .2s;
+  }
+
+  .chat-action-btn:hover { background: rgba(255,255,255,.22); }
+
+  .chat-action-btn svg {
+    width: 14px; height: 14px;
+    stroke: rgba(255,255,255,.8); fill: none; stroke-width: 2;
+  }
+
+  /* Messages area */
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: #F8FAFE;
+  }
+
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: #D0DAE8; border-radius: 4px; }
+
+  .msg {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .msg.bot { flex-direction: row; }
+  .msg.user { flex-direction: row-reverse; }
+
+  .msg-avatar {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, #1E3A8A, #6DBE45);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .msg-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .msg-bubble {
+    max-width: 76%;
+    padding: 11px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .msg.bot .msg-bubble {
+    background: #fff;
+    color: #1A2340;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  }
+
+  .msg.user .msg-bubble {
+    background: #1E3A8A;
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+
+  /* Quick replies */
+  .quick-replies {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 0 16px 14px;
+    background: #F8FAFE;
+    flex-shrink: 0;
+  }
+
+  .quick-reply-btn {
+    background: #fff;
+    border: 1.5px solid #D0DAE8;
+    border-radius: 20px;
+    padding: 9px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    color: #1E3A8A;
+    cursor: pointer;
+    text-align: left;
+    transition: all .18s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+  }
+
+  .quick-reply-btn:hover {
+    background: #EEF2FF;
+    border-color: #1E3A8A;
+    transform: translateX(2px);
+  }
+
+  .quick-reply-btn::before {
+    content: '→';
+    color: #6DBE45;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Input area */
+  .chat-input-area {
+    padding: 12px 14px;
+    border-top: 1px solid #E8EDF4;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #fff;
+    flex-shrink: 0;
+  }
+
+  #noc-chat-input {
+    flex: 1;
+    border: 1.5px solid #D0DAE8;
+    border-radius: 20px;
+    padding: 9px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #1A2340;
+    outline: none;
+    transition: border-color .2s;
+  }
+
+  #noc-chat-input:focus { border-color: #1E3A8A; }
+  #noc-chat-input::placeholder { color: #9CA3AF; }
+
+  #noc-send-btn {
+    width: 36px; height: 36px;
+    background: #1E3A8A;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background .2s;
+  }
+
+  #noc-send-btn:hover { background: #6DBE45; }
+
+  #noc-send-btn svg {
+    width: 16px; height: 16px;
+    stroke: #fff; fill: none; stroke-width: 2.5;
+  }
+
+  .chat-powered {
+    text-align: center;
+    font-size: 10px;
+    color: #9CA3AF;
+    padding: 6px 0 10px;
+    background: #fff;
+    flex-shrink: 0;
+  }
+
+  /* Typing indicator */
+  .typing-dots {
+    display: flex;
+    gap: 4px;
+    padding: 8px 12px;
+    align-items: center;
+  }
+
+  .typing-dots span {
+    width: 6px; height: 6px;
+    background: #9CA3AF;
+    border-radius: 50%;
+    animation: typingBounce 1.2s infinite;
+  }
+
+  .typing-dots span:nth-child(2) { animation-delay: .2s; }
+  .typing-dots span:nth-child(3) { animation-delay: .4s; }
+
+  @keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+</style>
+
+<!-- BUBBLE BUTTON -->
+<div id="noc-chat-bubble">
+  <button id="noc-toggle-btn" onclick="toggleChat()" title="Asistente NOC">
+    <svg id="chat-icon" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+    <div id="noc-unread-dot">1</div>
+  </button>
+</div>
+
+<!-- CHAT WINDOW -->
+<div id="noc-chat-window">
+
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="chat-header-left">
+      <div class="chat-avatar">
+        <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NOC" style="padding:4px;">
+      </div>
+      <div>
+        <div class="chat-agent-name">Asistente NOC</div>
+        <div class="chat-status">En línea · Impulsado por IA</div>
+      </div>
+    </div>
+    <div class="chat-header-actions">
+      <button class="chat-action-btn" onclick="minimizeChat()" title="Minimizar">
+        <svg viewBox="0 0 24 24"><path d="M20 12H4"/></svg>
+      </button>
+      <button class="chat-action-btn" onclick="toggleChat()" title="Cerrar">
+        <svg viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div class="chat-messages" id="noc-messages">
+    <div class="msg bot">
+      <div class="msg-avatar" style="font-size:9px; padding:2px;">
+        <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NOC" style="padding:3px;">
+      </div>
+      <div class="msg-bubble">
+        👋 ¡Hola! Soy el <strong>Asistente Inteligente de NextGen OPEX Consulting</strong>.<br><br>
+        Estoy aquí para ayudarte a conocer nuestros servicios, responder tus dudas y orientarte hacia la mejor solución para tu empresa.<br><br>
+        ¿En qué puedo ayudarte hoy?
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Replies -->
+  <div class="quick-replies" id="noc-quick-replies">
+    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'servicios')">Conocer nuestros servicios</button>
+    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'nomi')">¿Qué es NOMI™?</button>
+    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'reunion')">Agendar una reunión</button>
+    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'problema')">Tengo un problema operacional</button>
+  </div>
+
+  <!-- Input -->
+  <div class="chat-input-area">
+    <input type="text" id="noc-chat-input" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter') sendUserMessage()">
+    <button id="noc-send-btn" onclick="sendUserMessage()">
+      <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    </button>
+  </div>
+  <div class="chat-powered">⚡ Impulsado por IA · NextGen OPEX Consulting™</div>
+
+</div>
+
+<script>
+  const RESPONSES = {
+    servicios: {
+      user: "Conocer nuestros servicios",
+      bot: `Ofrecemos servicios especializados para <strong>PyMEs manufactureras</strong>:<br><br>
+🔍 <strong>Diagnóstico NOMI™</strong> — Evaluación de madurez operacional<br>
+⚙️ <strong>Transformación NOS™</strong> — ALIGN, X-RAY, DESIGN, EXECUTION, CONTROL, SCALE<br>
+📊 <strong>Indicadores y Control</strong> — KPIs y tableros de gestión<br>
+🧠 <strong>PCA™ Training</strong> — Talleres de pensamiento crítico + IA<br>
+🤖 <strong>IA Aplicada</strong> — Inteligencia operacional y analítica<br><br>
+¿Te gustaría que te recomendara el servicio ideal según tu situación?`
+    },
+    nomi: {
+      user: "¿Qué es NOMI™?",
+      bot: `<strong>NOMI™</strong> es el NextGen Operational Maturity Index™, nuestro sistema de diagnóstico operacional.<br><br>
+Evalúa tu empresa en <strong>6 dimensiones</strong>: Procesos, Operación, Gestión, Mejora Continua, Tecnología e Inteligencia Operacional.<br><br>
+Mide tu nivel actual en una escala de <strong>6 niveles</strong>, del Caótico al World Class, y genera la ruta de evolución hacia NOS™.<br><br>
+✅ Incluye <strong>Reporte Ejecutivo</strong> con hallazgos, brecha y prioridades.<br><br>
+¿Te gustaría agendar una evaluación NOMI™ Express gratuita?`
+    },
+    reunion: {
+      user: "Agendar una reunión",
+      bot: `Con gusto. Para agendar tu reunión con <strong>Omar Sierra</strong>, necesito algunos datos:<br><br>
+📌 Nombre<br>
+🏭 Empresa<br>
+📧 Correo<br>
+💬 ¿Cuál es tu mayor desafío operacional?<br><br>
+También puedes escribirnos directamente a:<br>
+📧 <strong>osierra@nextgenopexco.com</strong><br><br>
+La reunión inicial es <strong>sin costo</strong> y dura 45 minutos. ¡Listo, ya lo enviamos!`
+    },
+    problema: {
+      user: "Tengo un problema operacional",
+      bot: `Entiendo — es un desafío muy común. Puedo ayudarte a identificar posibles causas y recomendarte un plan inicial.<br><br>
+Los problemas más frecuentes que resolvemos:<br><br>
+🔴 Scrap elevado y retrabajos<br>
+🔴 Entregas tardías (bajo OTIF)<br>
+🔴 Baja productividad y tiempos muertos<br>
+🔴 Falta de indicadores confiables<br>
+🔴 Dependencia excesiva del dueño<br><br>
+¿Te gustaría hacer un diagnóstico rápido con NOMI™ Express? Podemos identificar la causa raíz en 48 horas.`
+    }
+  };
+
+  let chatOpen = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('noc-chat-window');
+    const dot = document.getElementById('noc-unread-dot');
+    win.classList.toggle('open', chatOpen);
+    if (chatOpen) dot.style.display = 'none';
+  }
+
+  function minimizeChat() {
+    chatOpen = false;
+    document.getElementById('noc-chat-window').classList.remove('open');
+  }
+
+  function addMessage(text, type) {
+    const messages = document.getElementById('noc-messages');
+    const msg = document.createElement('div');
+    msg.className = `msg ${type}`;
+
+    const avatarHTML = type === 'bot'
+      ? `<div class="msg-avatar" style="font-size:9px; padding:2px;"><img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NOC" style="padding:3px;"></div>`
+      : `<div class="msg-avatar" style="background: linear-gradient(135deg,#4B5563,#1E3A8A);">U</div>`;
+
+    msg.innerHTML = `${avatarHTML}<div class="msg-bubble">${text}</div>`;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function showTyping() {
+    const messages = document.getElementById('noc-messages');
+    const typing = document.createElement('div');
+    typing.className = 'msg bot';
+    typing.id = 'noc-typing';
+    typing.innerHTML = `
+      <div class="msg-avatar" style="font-size:9px; padding:2px;"><img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NOC" style="padding:3px;"></div>
+      <div class="msg-bubble" style="padding:4px 10px;">
+        <div class="typing-dots"><span></span><span></span><span></span></div>
+      </div>`;
+    messages.appendChild(typing);
+    messages.scrollTop = messages.scrollHeight;
+    return typing;
+  }
+
+  function sendQuickReply(btn, key) {
+    const qr = document.getElementById('noc-quick-replies');
+    qr.style.display = 'none';
+
+    const response = RESPONSES[key];
+    addMessage(response.user, 'user');
+
+    const typing = showTyping();
+    setTimeout(() => {
+      typing.remove();
+      addMessage(response.bot, 'bot');
+
+      // Add follow-up quick replies after first response
+      if (key !== 'reunion') {
+        setTimeout(() => addFollowUp(), 400);
+      }
+    }, 1200);
+  }
+
+  function addFollowUp() {
+    const messages = document.getElementById('noc-messages');
+    const msg = document.createElement('div');
+    msg.className = 'msg bot';
+    msg.innerHTML = `
+      <div class="msg-avatar" style="font-size:9px; padding:2px;"><img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NOC" style="padding:3px;"></div>
+      <div class="msg-bubble">¿Te gustaría <strong>agendar una sesión gratuita</strong> con Omar Sierra para analizar tu caso?</div>`;
+    messages.appendChild(msg);
+
+    const qr = document.getElementById('noc-quick-replies');
+    qr.style.display = 'flex';
+    qr.innerHTML = `
+      <button class="quick-reply-btn" onclick="sendQuickReply(this,'reunion')">Sí, me interesa agendar</button>
+      <button class="quick-reply-btn" onclick="sendQuickReply(this,'problema')">Tengo un problema operacional</button>`;
+
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function sendUserMessage() {
+    const input = document.getElementById('noc-chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+
+    document.getElementById('noc-quick-replies').style.display = 'none';
+    addMessage(text, 'user');
+    input.value = '';
+
+    const typing = showTyping();
+    setTimeout(() => {
+      typing.remove();
+      const reply = getAutoReply(text.toLowerCase());
+      addMessage(reply, 'bot');
+    }, 1000);
+  }
+
+  function getAutoReply(text) {
+    if (text.includes('nomi') || text.includes('diagnos'))
+      return RESPONSES.nomi.bot;
+    if (text.includes('nos') || text.includes('metodolog') || text.includes('sistema'))
+      return RESPONSES.servicios.bot;
+    if (text.includes('reun') || text.includes('agendar') || text.includes('cita') || text.includes('contact'))
+      return RESPONSES.reunion.bot;
+    if (text.includes('pca') || text.includes('curso') || text.includes('taller') || text.includes('capacit'))
+      return `<strong>PCA™ — Pensamiento Crítico Aumentado™</strong> es nuestro programa de formación para líderes operacionales.<br><br>Incluye: talleres in-company, cursos online, entrenamiento para equipos y conferencias.<br><br>Módulos: Pensamiento Crítico, Resolución de Problemas, IA para Operaciones, Gestión con Datos, Lean Thinking.<br><br>¿Te interesa conocer disponibilidad y precios?`;
+    if (text.includes('precio') || text.includes('costo') || text.includes('cuanto') || text.includes('tarifa'))
+      return `Los precios varían según el alcance del proyecto y las necesidades de tu empresa.<br><br>El mejor primer paso es un <strong>diagnóstico NOMI™ Express gratuito</strong> para identificar exactamente qué necesitas.<br><br>📧 Escríbenos a <strong>osierra@nextgenopexco.com</strong> o agenda directamente desde aquí.`;
+    return `Gracias por tu mensaje. Para darte la mejor orientación, ¿podrías contarme un poco más sobre tu empresa y el principal reto operacional que enfrentas?<br><br>También puedes contactar a Omar directamente en:<br>📧 <strong>osierra@nextgenopexco.com</strong>`;
+  }
+</script>
+
+<style>
+  /* ── Scroll reveal base ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.reveal-left  { transform: translateX(-36px); }
+  .reveal.reveal-right { transform: translateX(36px); }
+  .reveal.reveal-scale { transform: scale(0.94); }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Stagger for grid children */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s;    opacity:1; transform:none; }
+  .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; opacity:1; transform:none; }
+  .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.24s; opacity:1; transform:none; }
+  .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.36s; opacity:1; transform:none; }
+  .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.48s; opacity:1; transform:none; }
+  .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.60s; opacity:1; transform:none; }
+</style>
+
+<script>
+(function() {
+  /* Attach reveal classes to key elements */
+  const selectors = [
+    { sel: '.section-label',       cls: '' },
+    { sel: '.section-title',       cls: '' },
+    { sel: '.section-sub',         cls: '' },
+    { sel: '.problema-card',       cls: '' },
+    { sel: '.libro-card',          cls: '' },
+    { sel: '.servicio-card',       cls: '' },
+    { sel: '.beneficio-card',      cls: '' },
+    { sel: '.fase',                cls: '' },
+    { sel: '.nos-header-card',     cls: '' },
+    { sel: '.consultor-card',      cls: 'reveal-left' },
+    { sel: '.consultor-bio',       cls: 'reveal-right' },
+    { sel: '.nomi-cta-box',        cls: 'reveal-scale' },
+    { sel: '.contacto-form-wrap',  cls: '' },
+    { sel: '.contacto-info',       cls: 'reveal-left' },
+    { sel: '.stat-row',            cls: '' },
+  ];
+
+  selectors.forEach(({ sel, cls }) => {
+    document.querySelectorAll(sel).forEach(el => {
+      /* Skip if already inside a stagger parent */
+      if (el.closest('.reveal-stagger')) return;
+      el.classList.add('reveal');
+      if (cls) el.classList.add(cls);
+    });
+  });
+
+  /* Stagger grids */
+  ['.trilogia-grid', '.problemas-grid', '.servicios-grid', '.beneficios-grid'].forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      el.classList.add('reveal-stagger');
+      /* Remove individual reveal from children that were already tagged */
+      el.querySelectorAll('.reveal').forEach(child => child.classList.remove('reveal'));
+    });
+  });
+
+  /* Intersection Observer */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+})();
+</script>
+
+</body>
+</html>
