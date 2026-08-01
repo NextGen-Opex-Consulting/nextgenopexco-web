@@ -1491,28 +1491,169 @@
     }
 
     /* ══════════════════════════════════════
-       RESPONSIVE (básico)
+       HAMBURGER MENU
+    ══════════════════════════════════════ */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2.5px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — TABLET (max 1100px)
     ══════════════════════════════════════ */
     @media (max-width: 1100px) {
-      .problemas-grid { grid-template-columns: repeat(3, 1fr); }
-      .beneficios-grid { grid-template-columns: repeat(3, 1fr); }
-      .servicios-grid { grid-template-columns: 1fr 1fr; }
       .hero-cards { display: none; }
-      .hero h1 { font-size: 38px; }
+      .hero h1 { font-size: 40px; }
+      .hero { padding: 80px 40px 70px; }
+      .section { padding: 72px 40px; }
+      .trilogia { padding: 72px 40px; }
+      .problemas-grid { grid-template-columns: repeat(2, 1fr); }
+      .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
+      .servicios-grid  { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 40px; }
     }
 
-    @media (max-width: 860px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .section { padding: 60px 28px; }
-      .hero { padding: 70px 28px 60px; }
-      .hero h1 { font-size: 32px; }
-      .nos-layout, .nomi-layout, .pca-layout,
-      .consultor-layout, .contacto-layout, .trilogia-grid,
-      .integ-grid, .servicios-grid { grid-template-columns: 1fr; }
-      .problemas-grid { grid-template-columns: 1fr 1fr; }
-      .beneficios-grid { grid-template-columns: 1fr 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
+    /* ══════════════════════════════════════
+       RESPONSIVE — MOBILE (max 768px)
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* NAV */
+      nav {
+        padding: 0 20px;
+        height: 68px;
+        position: sticky;
+        top: 0;
+      }
+      .nav-logo img { height: 52px !important; }
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 68px;
+        left: 0; right: 0;
+        background: linear-gradient(180deg, #1a3d8f, #0f2060);
+        padding: 24px 28px 32px;
+        gap: 6px;
+        z-index: 199;
+        transform: translateY(-110%);
+        transition: transform .35s ease;
+        box-shadow: 0 8px 32px rgba(0,0,0,.3);
+      }
+      .nav-links.mobile-open { transform: translateY(0); }
+      .nav-links li { list-style: none; }
+      .nav-links a {
+        display: block;
+        padding: 12px 0;
+        font-size: 15px !important;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        color: rgba(255,255,255,.9) !important;
+      }
+      .nav-links .nav-cta {
+        margin-top: 12px;
+        text-align: center;
+        border-radius: 8px;
+        border-bottom: none !important;
+        padding: 13px 0 !important;
+      }
+
+      /* HERO */
+      .hero {
+        padding: 52px 20px 48px;
+        min-height: auto;
+      }
+      .hero h1 { font-size: 28px; line-height: 1.25; }
+      .hero-desc { font-size: 14px; }
+      .hero-ctas { flex-direction: column; gap: 12px; }
+      .hero-ctas a { text-align: center; }
+      .hero-stats { flex-direction: column; gap: 14px; }
+      .hero-cards { display: none !important; }
+
+      /* SECTIONS */
+      .section { padding: 52px 20px; }
+      .trilogia { padding: 52px 20px; }
+      .section-title { font-size: 26px !important; }
+
+      /* GRIDS → 1 columna */
+      .trilogia-grid,
+      .problemas-grid,
+      .servicios-grid,
+      .beneficios-grid,
+      .nos-layout,
+      .nomi-layout,
+      .pca-layout,
+      .consultor-layout,
+      .contacto-layout,
+      .integ-grid { grid-template-columns: 1fr !important; }
+
+      /* LIBROS */
+      .libro-card { padding: 24px 20px; }
+
+      /* BANNER ECOSISTEMA */
+      #nos + div,
+      .ecosistema-banner {
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 40px 20px !important;
+        gap: 32px !important;
+      }
+
+      /* NOS FASES */
+      .nos-fases { grid-template-columns: 1fr !important; }
+
+      /* FORMULARIO CONTACTO */
+      .form-row { grid-template-columns: 1fr !important; }
+      .form-box { padding: 28px 20px !important; }
+      .contacto { padding: 52px 20px; }
+
+      /* NEWSLETTER */
+      #newsletter { padding: 52px 20px !important; }
+      #newsletter-form { flex-direction: column !important; gap: 10px; }
+      #newsletter-form input,
+      #newsletter-form button { flex: none !important; width: 100% !important; }
+
+      /* FOOTER */
+      .footer-top { grid-template-columns: 1fr !important; gap: 32px; }
+      footer { padding: 48px 20px 24px; }
+
+      /* CONSULTOR AVATAR */
+      .avatar-ring { width: 140px !important; height: 140px !important; }
+
+      /* NOMI / PCA CTA */
+      .nomi-cta-box { padding: 24px 18px !important; }
+
+      /* BENEFICIOS */
+      .beneficios-grid { grid-template-columns: 1fr !important; }
+
+      /* KPI HERO */
+      .hero-kpis-row { flex-direction: column; }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — MOBILE PEQUEÑO (max 400px)
+    ══════════════════════════════════════ */
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 24px; }
+      .section-title { font-size: 22px !important; }
+      .libro-num { font-size: 40px; }
     }
   </style>
 </head>
@@ -1524,15 +1665,19 @@
     <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™" style="height: 68px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));">
   </div>
 
-  <ul class="nav-links">
-    <li><a href="#problemas">Problemática</a></li>
-    <li><a href="#metodologia">Metodología</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#nomi">NOMI™</a></li>
-    <li><a href="#pca">PCA™</a></li>
-    <li><a href="#consultor">Consultor</a></li>
-    <li><a href="#newsletter">Newsletter</a></li>
-    <li><a href="#contacto" class="nav-cta">Diagnóstico Gratuito</a></li>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#problemas" onclick="closeMenu()">Problemática</a></li>
+    <li><a href="#metodologia" onclick="closeMenu()">Metodología</a></li>
+    <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
+    <li><a href="#nomi" onclick="closeMenu()">NOMI™</a></li>
+    <li><a href="#pca" onclick="closeMenu()">PCA™</a></li>
+    <li><a href="#consultor" onclick="closeMenu()">Consultor</a></li>
+    <li><a href="#newsletter" onclick="closeMenu()">Newsletter</a></li>
+    <li><a href="#contacto" class="nav-cta" onclick="closeMenu()">Diagnóstico Gratuito</a></li>
   </ul>
 </nav>
 
@@ -2435,6 +2580,27 @@
 </section>
 
 <script>
+/* ── Menú Hamburguesa ── */
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('mobile-open');
+});
+
+function closeMenu() {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('mobile-open');
+}
+
+/* Cierra el menú al hacer clic fuera */
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+    closeMenu();
+  }
+});
+
 /* ── Formulario de Diagnóstico → Web3Forms ── */
 document.getElementById('diagnostico-form').addEventListener('submit', async function(e) {
   e.preventDefault();
