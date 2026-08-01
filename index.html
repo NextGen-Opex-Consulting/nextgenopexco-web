@@ -2395,10 +2395,15 @@
 
     <!-- Formulario de suscripción -->
     <div style="max-width:560px; margin:0 auto; text-align:center;" class="reveal">
-      <form id="newsletter-form" onsubmit="handleNewsletter(event)" style="display:flex; gap:10px; margin-bottom:14px;">
+      <form id="newsletter-form" onsubmit="handleNewsletter(event)" style="display:flex; gap:10px; margin-bottom:14px;" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="e1a6b5f0-dca3-425f-b3db-64f437427fa3">
+        <input type="hidden" name="subject" value="Nueva Suscripción Newsletter — NextGen OPEX Consulting">
+        <input type="hidden" name="from_name" value="Newsletter NOC Web">
+        <input type="checkbox" name="botcheck" style="display:none;">
         <input
           type="text"
           id="nl-name"
+          name="nombre"
           placeholder="Tu nombre"
           required
           style="flex:1; padding:14px 18px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.1); color:#fff; font-family:'Poppins',sans-serif; font-size:14px; outline:none; backdrop-filter:blur(6px);"
@@ -2408,6 +2413,7 @@
         <input
           type="email"
           id="nl-email"
+          name="email"
           placeholder="tu@empresa.com"
           required
           style="flex:2; padding:14px 18px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.1); color:#fff; font-family:'Poppins',sans-serif; font-size:14px; outline:none; backdrop-filter:blur(6px);"
@@ -2457,14 +2463,31 @@ document.getElementById('diagnostico-form').addEventListener('submit', async fun
   }
 });
 
-function handleNewsletter(e) {
+async function handleNewsletter(e) {
   e.preventDefault();
   const name  = document.getElementById('nl-name').value.trim();
   const email = document.getElementById('nl-email').value.trim();
   if (!name || !email) return;
-  document.getElementById('newsletter-form').style.display = 'none';
-  document.getElementById('nl-success').style.display = 'block';
-  /* Aquí conectar con Mailchimp / ConvertKit / HubSpot via API */
+
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  const formData = new FormData(e.target);
+  try {
+    const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById('newsletter-form').style.display = 'none';
+      document.getElementById('nl-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Error — intenta de nuevo';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Error — intenta de nuevo';
+    btn.disabled = false;
+  }
 }
 </script>
 
