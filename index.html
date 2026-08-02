@@ -1746,6 +1746,7 @@
     <li><a href="#pca" onclick="closeMenu()">PCA™</a></li>
     <li><a href="#consultor" onclick="closeMenu()">Consultor</a></li>
     <li><a href="#newsletter" onclick="closeMenu()">Newsletter</a></li>
+    <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
     <li><a href="#contacto" class="nav-cta" onclick="closeMenu()">Diagnóstico Gratuito</a></li>
   </ul>
 </nav>
@@ -2873,6 +2874,132 @@ async function handleNewsletter(e) {
   </div>
 </section>
 
+<!-- ══════════ FAQ ══════════ -->
+<section id="faq" style="background:#F4F7FA; padding:86px 64px;">
+  <div style="max-width:860px; margin:0 auto;">
+
+    <div style="text-align:center; margin-bottom:52px;" class="reveal">
+      <span style="display:inline-block; font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; color:var(--azul); letter-spacing:3px; text-transform:uppercase; margin-bottom:14px;">Preguntas Frecuentes</span>
+      <h2 style="font-family:'Montserrat',sans-serif; font-size:36px; font-weight:900; color:var(--azul-deep); margin-bottom:14px; line-height:1.2;">Todo lo que necesitas saber<br>antes de dar el primer paso</h2>
+      <p style="color:var(--gris); font-size:16px; max-width:560px; margin:0 auto;">Resolvemos las dudas más comunes de directores y dueños de empresa antes de agendar su diagnóstico.</p>
+    </div>
+
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Para qué tipo de empresa es NextGen OPEX Consulting?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Trabajamos principalmente con empresas manufactureras: plásticos, metalmecánica, alimentos, logística, ventanas y puertas. Sin embargo, la metodología NOS™ aplica a cualquier empresa que tenga procesos operativos repetibles y quiera mejorar su rentabilidad.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Para qué tamaño de empresa es?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Desde PyMEs de 10 empleados hasta medianas empresas de 500+. El diagnóstico NOMI™ se adapta al tamaño y complejidad de cada organización.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cuánto cuesta la consultoría?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>El costo varía según el alcance y las necesidades de cada empresa. El primer paso siempre es un diagnóstico NOMI™ Express gratuito de 30 minutos, donde identificamos exactamente qué necesitas y te presentamos una propuesta personalizada.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cuánto tiempo dura el diagnóstico NOMI™?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>El NOMI™ Express dura 30 minutos y es completamente gratuito. El diagnóstico completo, con análisis profundo de indicadores y procesos, toma entre 2 y 3 semanas de trabajo conjunto con tu equipo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Necesito tener un especialista en mi equipo para trabajar con ustedes?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>No. Trabajamos directamente con el director general y los líderes operativos que ya tienes. Parte de nuestra metodología es desarrollar las capacidades internas de tu equipo durante el proceso, no generar dependencia del consultor externo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Trabajan fuera de Monterrey?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Sí. Atendemos empresas en todo México y podemos trabajar de forma remota o presencial según el proyecto.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Necesito algún sistema o software especial?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>No. Diseñamos soluciones que funcionan con los recursos que ya tienes. Si en alguna fase del proyecto se requiere una herramienta específica, lo evaluamos juntos y siempre buscamos la opción más práctica para tu realidad operativa.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Implementan herramientas de Inteligencia Artificial?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Sí. Utilizamos la IA para encontrar áreas de oportunidad mediante analítica de datos, acelerar diagnósticos, monitorear indicadores y validar las mejores alternativas de mejora — lo que antes requería semanas de análisis manual. Esto es parte de nuestra propuesta de valor diferenciada. Si en el análisis encontramos que alguna herramienta digital, software o agente de IA es necesaria, contamos con partners que nos ayudan a desarrollar dichas aplicaciones.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Con qué certificaciones cuentan?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>NextGen OPEX Consulting cuenta con consultor certificado EC0566 por CONOCER, certificación oficial de competencias laborales en México, además de certificación Lean Six Sigma Black Belt. La firma desarrolló metodologías propias —NOS™, NOMI™ y PCA™— respaldadas por más de una década de aplicación en operaciones manufactureras reales.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué garantía ofrecen?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Nuestro compromiso es generar resultados medibles y documentados. Trabajamos con indicadores claros desde el inicio de cada proyecto para que puedas ver el impacto en números reales. En los proyectos de consultoría, definimos juntos los objetivos y métricas de éxito antes de comenzar, de modo que el avance siempre sea transparente y verificable.</p>
+        </div>
+      </div>
+
+    </div><!-- /faq-list -->
+
+    <div style="text-align:center; margin-top:48px;" class="reveal">
+      <p style="color:var(--gris); margin-bottom:20px; font-size:15px;">¿Tienes otra pregunta? Escríbenos directamente.</p>
+      <a href="mailto:osierra@nextgenopexco.com" style="display:inline-flex; align-items:center; gap:8px; color:var(--azul); font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px; border:2px solid var(--azul); padding:12px 24px; border-radius:8px; transition:background .2s, color .2s;"
+        onmouseover="this.style.background='var(--azul)'; this.style.color='#fff'"
+        onmouseout="this.style.background='transparent'; this.style.color='var(--azul)'">
+        osierra@nextgenopexco.com
+      </a>
+    </div>
+
+  </div>
+</section>
+
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
   <div class="footer-top">
@@ -3469,6 +3596,74 @@ Los problemas más frecuentes que resolvemos:<br><br>
 </script>
 
 <style>
+  /* ══ FAQ ACORDEÓN ══ */
+  .faq-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .faq-item {
+    background: #fff;
+    border: 1px solid #E8EDF4;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .faq-item:hover { box-shadow: 0 4px 18px rgba(0,0,0,.09); }
+
+  .faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--azul-deep);
+    text-align: left;
+    transition: color .2s;
+  }
+  .faq-q:hover { color: var(--azul); }
+  .faq-q.open { color: var(--azul); }
+
+  .faq-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform .3s ease;
+    color: var(--verde);
+  }
+  .faq-q.open .faq-icon { transform: rotate(180deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease, padding .35s ease;
+    padding: 0 24px;
+  }
+  .faq-a.open {
+    max-height: 300px;
+    padding: 0 24px 20px;
+  }
+  .faq-a p {
+    color: var(--gris);
+    font-size: 14px;
+    line-height: 1.75;
+    border-top: 1px solid #E8EDF4;
+    padding-top: 16px;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    #faq { padding: 56px 20px; }
+    .faq-q { font-size: 14px; padding: 16px 18px; }
+    .faq-a { padding: 0 18px; }
+    .faq-a.open { padding: 0 18px 16px; }
+  }
+
   /* ── Scroll reveal base ── */
   .reveal {
     opacity: 0;
@@ -3549,6 +3744,82 @@ Los problemas más frecuentes que resolvemos:<br><br>
 
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
 })();
+
+/* ══ FAQ Acordeón ══ */
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  // Cierra todos
+  document.querySelectorAll('.faq-q.open').forEach(b => {
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  // Abre el clickeado si estaba cerrado
+  if (!isOpen) {
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
+}
+</script>
+
+<!-- Schema.org FAQPage para SEO rich snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué tipo de empresa es NextGen OPEX Consulting?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Trabajamos principalmente con empresas manufactureras: plásticos, metalmecánica, alimentos, logística, ventanas y puertas. Sin embargo, la metodología NOS™ aplica a cualquier empresa que tenga procesos operativos repetibles y quiera mejorar su rentabilidad." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Para qué tamaño de empresa es?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Desde PyMEs de 10 empleados hasta medianas empresas de 500+. El diagnóstico NOMI™ se adapta al tamaño y complejidad de cada organización." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta la consultoría?",
+      "acceptedAnswer": { "@type": "Answer", "text": "El costo varía según el alcance y las necesidades de cada empresa. El primer paso siempre es un diagnóstico NOMI™ Express gratuito de 30 minutos, donde identificamos exactamente qué necesitas y te presentamos una propuesta personalizada." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo dura el diagnóstico NOMI™?",
+      "acceptedAnswer": { "@type": "Answer", "text": "El NOMI™ Express dura 30 minutos y es completamente gratuito. El diagnóstico completo, con análisis profundo de indicadores y procesos, toma entre 2 y 3 semanas de trabajo conjunto con tu equipo." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito tener un especialista en mi equipo para trabajar con ustedes?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Trabajamos directamente con el director general y los líderes operativos que ya tienes. Parte de nuestra metodología es desarrollar las capacidades internas de tu equipo durante el proceso, no generar dependencia del consultor externo." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Trabajan fuera de Monterrey?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Atendemos empresas en todo México y podemos trabajar de forma remota o presencial según el proyecto." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito algún sistema o software especial?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Diseñamos soluciones que funcionan con los recursos que ya tienes. Si en alguna fase del proyecto se requiere una herramienta específica, lo evaluamos juntos y siempre buscamos la opción más práctica para tu realidad operativa." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Implementan herramientas de Inteligencia Artificial?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Utilizamos la IA para encontrar áreas de oportunidad mediante analítica de datos, acelerar diagnósticos, monitorear indicadores y validar las mejores alternativas de mejora. Si en el análisis encontramos que alguna herramienta digital, software o agente de IA es necesaria, contamos con partners que nos ayudan a desarrollar dichas aplicaciones." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Con qué certificaciones cuentan?",
+      "acceptedAnswer": { "@type": "Answer", "text": "NextGen OPEX Consulting cuenta con consultor certificado EC0566 por CONOCER, certificación oficial de competencias laborales en México, además de certificación Lean Six Sigma Black Belt. La firma desarrolló metodologías propias —NOS™, NOMI™ y PCA™— respaldadas por más de una década de aplicación en operaciones manufactureras reales." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué garantía ofrecen?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nuestro compromiso es generar resultados medibles y documentados. Trabajamos con indicadores claros desde el inicio de cada proyecto para que puedas ver el impacto en números reales. En los proyectos de consultoría, definimos juntos los objetivos y métricas de éxito antes de comenzar, de modo que el avance siempre sea transparente y verificable." }
+    }
+  ]
+}
 </script>
 
 </body>
