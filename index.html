@@ -3059,28 +3059,54 @@ async function handleNewsletter(e) {
   }
 
   #noc-toggle-btn {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #1E3A8A, #6DBE45);
+    width: 72px;
+    height: 72px;
+    background: transparent;
     border-radius: 50%;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 24px rgba(30,58,138,0.45);
-    transition: transform .2s, box-shadow .2s;
+    box-shadow: none;
+    transition: transform .2s;
     position: relative;
+    padding: 0;
   }
 
-  #noc-toggle-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 10px 32px rgba(30,58,138,0.55);
+  #noc-toggle-btn:hover { transform: scale(1.1); }
+
+  #noc-toggle-btn img.noca-btn-img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: drop-shadow(0 6px 16px rgba(30,58,138,0.35));
   }
 
-  #noc-toggle-btn svg {
-    width: 28px; height: 28px;
-    stroke: #fff; fill: none; stroke-width: 2;
+  /* Tooltip ¿Necesitas ayuda? */
+  #noca-tooltip {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    background: #fff;
+    color: #1A2340;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 20px 20px 4px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    border: 1px solid #E8EDF4;
+  }
+  #noca-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   #noc-unread-dot {
@@ -3375,8 +3401,11 @@ async function handleNewsletter(e) {
 
 <!-- BUBBLE BUTTON -->
 <div id="noc-chat-bubble">
-  <button id="noc-toggle-btn" onclick="toggleChat()" title="Asistente NOC">
-    <svg id="chat-icon" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+  <div id="noca-tooltip">¿Necesitas ayuda?</div>
+  <button id="noc-toggle-btn" onclick="toggleChat()" title="Asistente NOCA"
+    onmouseenter="document.getElementById('noca-tooltip').classList.add('visible')"
+    onmouseleave="document.getElementById('noca-tooltip').classList.remove('visible')">
+    <img src="NOCA SALUDANDO.png" alt="NOCA" class="noca-btn-img" id="noca-btn-img">
     <div id="noc-unread-dot">1</div>
   </button>
 </div>
@@ -3387,11 +3416,11 @@ async function handleNewsletter(e) {
   <!-- Header -->
   <div class="chat-header">
     <div class="chat-header-left">
-      <div class="chat-avatar">
-        <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NOC" style="padding:4px;">
+      <div class="chat-avatar" style="background:transparent; overflow:visible;">
+        <img src="NOCA SALUDANDO.png" alt="NOCA" style="width:44px; height:44px; object-fit:cover; border-radius:50%; filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));">
       </div>
       <div>
-        <div class="chat-agent-name">Asistente NOC</div>
+        <div class="chat-agent-name">NOCA — Asistente NOC</div>
         <div class="chat-status">En línea · Impulsado por IA</div>
       </div>
     </div>
@@ -3511,6 +3540,22 @@ Los problemas más frecuentes que resolvemos:<br><br>
     messages.scrollTop = messages.scrollHeight;
   }
 
+  /* Tooltip auto al cargar */
+  setTimeout(() => {
+    const tooltip = document.getElementById('noca-tooltip');
+    if (tooltip) {
+      tooltip.classList.add('visible');
+      setTimeout(() => tooltip.classList.remove('visible'), 4000);
+    }
+  }, 2500);
+
+  /* NOCA expresiones */
+  function nocaThinking(on) {
+    const img = document.getElementById('noca-btn-img');
+    if (!img) return;
+    img.src = on ? 'NOCA PENSANDO.png' : 'NOCA SALUDANDO.png';
+  }
+
   function showTyping() {
     const messages = document.getElementById('noc-messages');
     const typing = document.createElement('div');
@@ -3533,9 +3578,11 @@ Los problemas más frecuentes que resolvemos:<br><br>
     const response = RESPONSES[key];
     addMessage(response.user, 'user');
 
+    nocaThinking(true);
     const typing = showTyping();
     setTimeout(() => {
       typing.remove();
+      nocaThinking(false);
       addMessage(response.bot, 'bot');
 
       // Add follow-up quick replies after first response
@@ -3572,9 +3619,11 @@ Los problemas más frecuentes que resolvemos:<br><br>
     addMessage(text, 'user');
     input.value = '';
 
+    nocaThinking(true);
     const typing = showTyping();
     setTimeout(() => {
       typing.remove();
+      nocaThinking(false);
       const reply = getAutoReply(text.toLowerCase());
       addMessage(reply, 'bot');
     }, 1000);
