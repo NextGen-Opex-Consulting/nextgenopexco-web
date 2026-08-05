@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artículos & Insights | NextGen OPEX Consulting™ — Excelencia Operacional</title>
+
+  <meta name="description" content="Artículos semanales sobre Excelencia Operacional, Lean Manufacturing, diagnóstico NOMI™ y Sistema NOS™ para PyMEs manufactureras. Suscríbete y recibe cada publicación.">
+  <meta name="keywords" content="excelencia operacional, lean manufacturing, mejora continua, NOMI, NOS, consultoría manufactura, PyME, liderazgo operacional, Lean Six Sigma, OPEX">
+  <meta name="author" content="Omar Sierra — NextGen OPEX Consulting">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.nextgenopexco.com/articulos.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.nextgenopexco.com/articulos.html">
+  <meta property="og:title" content="Artículos & Insights | NextGen OPEX Consulting™">
+  <meta property="og:description" content="Conocimiento práctico sobre Excelencia Operacional para líderes de manufactura. Un artículo nuevo cada semana.">
+  <meta property="og:image" content="https://www.nextgenopexco.com/NextGen OPEX Consulting logo design sin fondo.png">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM9RZH6ZGF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BM9RZH6ZGF');
+  </script>
+
+  <link rel="icon" type="image/png" href="isotipo noc.png">
+  <link rel="apple-touch-icon" href="isotipo noc.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul:      #1E3A8A;
+      --azul-deep: #0f2060;
+      --verde:     #6DBE45;
+      --azul-tec:  #00AEEF;
+      --gris:      #4B5563;
+      --blanco:    #FFFFFF;
+      --bg-light:  #F4F7FA;
+      --bg-mid:    #E8EDF4;
+      --texto:     #1A2340;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--texto);
+      background: #fff;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══ NAV ═══ */
+    nav {
+      background: linear-gradient(90deg, #2a5cc8 0%, #1a3a8a 100%);
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 2px 28px rgba(0,0,0,0.22);
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 13px; }
+    .logo-wordmark { font-family: 'Montserrat', sans-serif; line-height: 1.15; }
+    .logo-wordmark .line1 { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
+    .logo-wordmark .line1 .g { color: var(--verde); }
+    .logo-wordmark .line2 { font-size: 11px; font-weight: 700; color: var(--verde); letter-spacing: 3px; text-transform: uppercase; }
+    .logo-wordmark .line3 { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.55); letter-spacing: 2px; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.78); font-family: 'Montserrat', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.4px; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--verde); }
+    .nav-cta { background: var(--verde); color: #fff !important; padding: 10px 22px; border-radius: 5px; font-weight: 700 !important; transition: background .2s !important; }
+    .nav-cta:hover { background: #5aaa38 !important; }
+
+    /* ═══ PAGE HERO ═══ */
+    .page-hero {
+      background: linear-gradient(130deg, rgba(10,22,70,0.93) 0%, rgba(22,50,130,0.88) 60%, rgba(18,70,140,0.82) 100%),
+        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      padding: 72px 64px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero-grid {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .page-hero-content { max-width: 700px; position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--verde);
+      margin-bottom: 20px;
+      background: rgba(109,190,69,.12); border: 1px solid rgba(109,190,69,.3);
+      padding: 7px 16px; border-radius: 20px;
+    }
+    .hero-eyebrow span { display: inline-block; width: 6px; height: 6px; background: var(--verde); border-radius: 50%; }
+
+    .page-hero h1 { font-size: 42px; font-weight: 900; color: #fff; line-height: 1.13; margin-bottom: 18px; letter-spacing: -0.5px; }
+    .page-hero h1 em { color: var(--verde); font-style: normal; }
+    .page-hero p { font-size: 16px; color: rgba(255,255,255,.75); line-height: 1.75; max-width: 560px; }
+
+    .hero-meta {
+      display: flex; gap: 32px; margin-top: 32px; padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.14);
+    }
+    .meta-item { text-align: left; }
+    .meta-num { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 900; color: var(--verde); line-height: 1; }
+    .meta-label { font-size: 12px; color: rgba(255,255,255,.55); margin-top: 3px; }
+
+    /* ═══ SUBSCRIBE BANNER ═══ */
+    .subscribe-banner {
+      background: linear-gradient(90deg, var(--azul-deep) 0%, #1a3a8a 100%);
+      padding: 0 64px;
+    }
+
+    .subscribe-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; padding: 38px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .sub-text h2 {
+      font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 6px;
+    }
+    .sub-text h2 em { color: var(--verde); font-style: normal; }
+    .sub-text p { font-size: 14px; color: rgba(255,255,255,.62); }
+
+    .sub-form {
+      display: flex; gap: 10px; flex-shrink: 0; align-items: center;
+    }
+
+    .sub-form input[type="text"],
+    .sub-form input[type="email"] {
+      padding: 12px 18px;
+      border: 1.5px solid rgba(255,255,255,.2);
+      border-radius: 6px;
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+      min-width: 180px;
+    }
+
+    .sub-form input::placeholder { color: rgba(255,255,255,.4); }
+    .sub-form input:focus { border-color: var(--verde); }
+
+    .sub-btn {
+      background: var(--verde);
+      color: #fff;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .sub-btn:hover { background: #5aaa38; transform: translateY(-1px); }
+
+    .sub-badges {
+      display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+    }
+    .sub-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: rgba(255,255,255,.55);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .sub-badge svg { width: 14px; height: 14px; stroke: var(--verde); fill: none; stroke-width: 2; }
+
+    /* Success message */
+    .sub-success {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      color: var(--verde);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .sub-success svg { width: 22px; height: 22px; stroke: var(--verde); fill: none; stroke-width: 2.5; }
+
+    /* ═══ LINKEDIN BANNER ═══ */
+    .linkedin-bar {
+      background: #0077B5;
+      padding: 14px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .li-left {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .li-icon { width: 36px; height: 36px; background: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .li-icon svg { width: 22px; height: 22px; }
+    .li-left p { font-size: 14px; color: rgba(255,255,255,.9); font-family: 'Montserrat', sans-serif; font-weight: 600; }
+    .li-left p em { color: #fff; font-style: normal; font-weight: 800; }
+    .li-btn {
+      background: #fff; color: #0077B5; padding: 9px 22px; border-radius: 5px;
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      transition: opacity .2s; white-space: nowrap; flex-shrink: 0;
+    }
+    .li-btn:hover { opacity: .9; }
+
+    /* ═══ MAIN CONTENT ═══ */
+    .main-wrap {
+      max-width: 1200px; margin: 0 auto;
+      padding: 64px 64px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ═══ ARTICLE CARDS ═══ */
+    .section-label {
+      display: block; font-family: 'Montserrat', sans-serif; font-size: 11px;
+      font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--verde); margin-bottom: 8px;
+    }
+
+    .articles-header { margin-bottom: 36px; }
+    .articles-header h2 { font-size: 28px; font-weight: 800; color: var(--azul); }
+
+    /* Featured article */
+    .article-featured {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1.5px solid var(--bg-mid);
+      margin-bottom: 32px;
+      transition: box-shadow .22s, transform .22s;
+      background: #fff;
+    }
+    .article-featured:hover {
+      box-shadow: 0 12px 40px rgba(30,58,138,.1);
+      transform: translateY(-3px);
+    }
+
+    .featured-img {
+      width: 100%; height: 260px;
+      background: linear-gradient(130deg, var(--azul-deep) 0%, #1a348a 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .featured-img-bg {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .featured-badge {
+      position: absolute; top: 20px; left: 20px;
+      background: var(--verde); color: #fff;
+      font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 20px;
+    }
+
+    .featured-num {
+      font-family: 'Montserrat', sans-serif; font-size: 80px; font-weight: 900;
+      color: rgba(255,255,255,.06); position: absolute; right: 30px; bottom: -10px;
+      line-height: 1;
+    }
+
+    .featured-title-overlay {
+      position: relative; z-index: 2; text-align: center; padding: 0 40px;
+    }
+    .featured-title-overlay .topic-tag {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--azul-tec);
+      margin-bottom: 14px;
+    }
+    .featured-title-overlay h2 {
+      font-size: 26px; font-weight: 900; color: #fff; line-height: 1.25;
+    }
+    .featured-title-overlay h2 em { color: var(--verde); font-style: normal; }
+
+    .featured-body { padding: 28px 32px 32px; }
+
+    .article-meta {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 14px;
+    }
+    .meta-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 12px;
+    }
+    .tag-nomi { background: rgba(30,58,138,.08); color: var(--azul); }
+    .tag-nos  { background: rgba(109,190,69,.1); color: #3a8a1a; }
+    .tag-pca  { background: rgba(0,174,239,.1); color: #006fa8; }
+    .tag-liderazgo { background: rgba(124,58,237,.1); color: #5b21b6; }
+    .tag-lean { background: rgba(234,179,8,.1); color: #92690a; }
+    .tag-ia   { background: rgba(239,68,68,.1); color: #b91c1c; }
+
+    .meta-date { font-size: 12px; color: var(--gris); }
+    .meta-read { font-size: 12px; color: var(--gris); display: flex; align-items: center; gap: 4px; }
+    .meta-read svg { width: 13px; height: 13px; stroke: var(--gris); fill: none; stroke-width: 2; }
+
+    .featured-body h3 { font-size: 22px; font-weight: 800; color: var(--azul); margin-bottom: 10px; line-height: 1.3; }
+    .featured-body p { font-size: 14px; color: var(--gris); line-height: 1.75; margin-bottom: 22px; }
+
+    .read-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--azul); color: #fff;
+      padding: 12px 24px; border-radius: 6px;
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      transition: background .2s, transform .15s;
+    }
+    .read-btn:hover { background: #152d6e; transform: translateY(-1px); }
+    .read-btn svg { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+    .li-share-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 1.5px solid #0077B5; color: #0077B5;
+      padding: 11px 20px; border-radius: 6px;
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      margin-left: 10px;
+      transition: background .2s;
+    }
+    .li-share-btn:hover { background: rgba(0,119,181,.06); }
+    .li-share-btn svg { width: 14px; height: 14px; }
+
+    /* Article grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .article-card {
+      border: 1.5px solid var(--bg-mid); border-radius: 12px;
+      padding: 24px; background: #fff;
+      transition: all .22s; position: relative; overflow: hidden;
+    }
+    .article-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--azul), var(--verde));
+      transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .article-card:hover::after { transform: scaleX(1); }
+    .article-card:hover { box-shadow: 0 8px 28px rgba(30,58,138,.1); transform: translateY(-3px); border-color: transparent; }
+
+    .card-num {
+      font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 900;
+      color: var(--bg-mid); line-height: 1; margin-bottom: 10px;
+    }
+
+    .article-card h3 { font-size: 15px; font-weight: 700; color: var(--azul); line-height: 1.35; margin: 10px 0 8px; }
+    .article-card p { font-size: 13px; color: var(--gris); line-height: 1.65; margin-bottom: 14px; }
+
+    .card-footer { display: flex; justify-content: space-between; align-items: center; }
+    .coming-badge {
+      display: inline-block;
+      background: var(--bg-light); color: var(--gris);
+      font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 12px;
+    }
+
+    .card-read-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--azul); transition: color .2s;
+    }
+    .card-read-link:hover { color: var(--verde); }
+    .card-read-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    /* ═══ SIDEBAR ═══ */
+    .sidebar { position: sticky; top: 100px; }
+
+    .sidebar-card {
+      background: var(--bg-light); border-radius: 14px; padding: 28px 24px; margin-bottom: 20px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 16px; font-weight: 800; color: var(--azul); margin-bottom: 6px;
+    }
+    .sidebar-card h3 em { color: var(--verde); font-style: normal; }
+    .sidebar-card p { font-size: 13px; color: var(--gris); line-height: 1.65; margin-bottom: 18px; }
+
+    .sidebar-input {
+      width: 100%; padding: 11px 14px; border: 1.5px solid #D0DAE8;
+      border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 13px;
+      color: var(--texto); background: #fff; outline: none;
+      transition: border-color .2s; margin-bottom: 10px;
+    }
+    .sidebar-input:focus { border-color: var(--azul); }
+
+    .sidebar-btn {
+      width: 100%; background: var(--verde); color: #fff; border: none;
+      padding: 13px; border-radius: 6px; font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700; cursor: pointer;
+      transition: background .2s; margin-bottom: 10px;
+    }
+    .sidebar-btn:hover { background: #5aaa38; }
+
+    .sidebar-note { font-size: 11px; color: var(--gris); text-align: center; }
+
+    /* Topics sidebar */
+    .topics-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .topic-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 12px; border-radius: 16px; border: 1.5px solid var(--bg-mid);
+      font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+      color: var(--gris); background: #fff; cursor: pointer;
+      transition: all .2s;
+    }
+    .topic-chip:hover, .topic-chip.active { border-color: var(--azul); color: var(--azul); background: rgba(30,58,138,.05); }
+
+    /* Calendar sidebar */
+    .calendar-list { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .cal-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; background: #fff; border-radius: 8px;
+      border-left: 3px solid var(--verde);
+    }
+    .cal-week {
+      font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+      color: var(--verde); text-transform: uppercase; letter-spacing: 1px;
+      white-space: nowrap; margin-top: 2px;
+    }
+    .cal-title { font-size: 12px; color: var(--texto); font-weight: 500; line-height: 1.4; }
+
+    /* Consultant card */
+    .consultor-mini {
+      background: linear-gradient(130deg, var(--azul-deep), #1a3a8a);
+      border-radius: 14px; padding: 28px 24px; text-align: center;
+    }
+    .mini-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde), var(--azul-tec));
+      margin: 0 auto 14px; display: flex; align-items: center; justify-content: center;
+    }
+    .mini-initials {
+      font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; color: #fff;
+    }
+    .mini-name { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+    .mini-role { font-size: 12px; color: var(--verde); font-family: 'Montserrat', sans-serif; font-weight: 600; margin-bottom: 14px; }
+    .mini-bio { font-size: 12.5px; color: rgba(255,255,255,.65); line-height: 1.65; margin-bottom: 18px; }
+    .mini-btn {
+      display: block; background: var(--verde); color: #fff; padding: 11px 20px;
+      border-radius: 6px; font-family: 'Montserrat', sans-serif; font-size: 13px;
+      font-weight: 700; transition: background .2s; text-align: center;
+    }
+    .mini-btn:hover { background: #5aaa38; }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      background: #060f2e;
+      padding: 52px 64px 28px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand p { font-size: 13px; color: rgba(255,255,255,.48); line-height: 1.75; margin-top: 18px; max-width: 280px; }
+    .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; color: var(--verde); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 11px; transition: color .2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,.35); }
+
+    /* ═══ ARTICLE DETAIL (hidden by default) ═══ */
+    .article-detail { display: none; }
+    .article-detail.active {
+      display: block;
+      max-width: 780px; margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--azul); margin-bottom: 36px; cursor: pointer;
+      transition: color .2s;
+    }
+    .detail-back:hover { color: var(--verde); }
+    .detail-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    .detail-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+
+    .detail-h1 { font-size: 36px; font-weight: 900; color: var(--azul); line-height: 1.18; margin-bottom: 18px; }
+    .detail-h1 em { color: var(--verde); font-style: normal; }
+
+    .detail-lead { font-size: 17px; color: var(--gris); line-height: 1.8; margin-bottom: 36px; border-left: 4px solid var(--verde); padding-left: 20px; }
+
+    .detail-body h2 { font-size: 24px; font-weight: 800; color: var(--azul); margin: 36px 0 14px; }
+    .detail-body h3 { font-size: 19px; font-weight: 700; color: var(--azul); margin: 28px 0 12px; }
+    .detail-body p { font-size: 15px; color: var(--gris); line-height: 1.85; margin-bottom: 18px; }
+    .detail-body ul, .detail-body ol { margin: 16px 0 20px 24px; }
+    .detail-body li { font-size: 15px; color: var(--gris); line-height: 1.75; margin-bottom: 8px; }
+
+    .detail-box {
+      background: linear-gradient(130deg, rgba(30,58,138,.06), rgba(0,174,239,.04));
+      border: 1.5px solid rgba(30,58,138,.12);
+      border-left: 4px solid var(--azul);
+      border-radius: 8px; padding: 24px 26px; margin: 28px 0;
+    }
+    .detail-box h4 { font-size: 13px; font-weight: 700; color: var(--azul); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; font-family: 'Montserrat', sans-serif; }
+    .detail-box p { font-size: 14px; color: var(--gris); margin: 0; line-height: 1.7; }
+
+    .detail-cta {
+      background: linear-gradient(130deg, var(--azul-deep), #1E3A8A);
+      border-radius: 14px; padding: 36px; text-align: center; margin: 40px 0;
+    }
+    .detail-cta h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .detail-cta h3 em { color: var(--verde); font-style: normal; }
+    .detail-cta p { font-size: 14px; color: rgba(255,255,255,.7); margin-bottom: 22px; }
+    .detail-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-primary {
+      background: var(--verde); color: #fff; padding: 13px 28px; border-radius: 6px;
+      font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700;
+      transition: background .2s;
+    }
+    .cta-primary:hover { background: #5aaa38; }
+    .cta-secondary {
+      border: 2px solid rgba(255,255,255,.4); color: #fff;
+      padding: 11px 24px; border-radius: 6px;
+      font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600;
+      transition: border-color .2s;
+    }
+    .cta-secondary:hover { border-color: #fff; }
+
+    .detail-share {
+      display: flex; align-items: center; gap: 14px;
+      padding: 22px 0; border-top: 1.5px solid var(--bg-mid); margin-top: 40px;
+    }
+    .share-label { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--azul); text-transform: uppercase; letter-spacing: 1.5px; }
+    .share-li {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #0077B5; color: #fff; padding: 9px 18px; border-radius: 6px;
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      transition: opacity .2s;
+    }
+    .share-li:hover { opacity: .88; }
+    .share-li svg { width: 15px; height: 15px; }
+
+    /* ═══ MOBILE ═══ */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .page-hero { padding: 48px 24px 40px; }
+      .page-hero h1 { font-size: 30px; }
+      .subscribe-banner { padding: 0 24px; }
+      .subscribe-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .sub-form { flex-direction: column; width: 100%; }
+      .sub-form input { min-width: 100%; }
+      .sub-badges { display: none; }
+      .linkedin-bar { padding: 14px 24px; }
+      .main-wrap { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      footer { padding: 40px 24px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™" style="height:68px; width:auto; object-fit:contain; filter:drop-shadow(0 2px 6px rgba(0,0,0,0.25));">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="index.html#nomi">NOMI™</a></li>
+    <li><a href="index.html#nos">NOS™</a></li>
+    <li><a href="articulos.html" class="active">Artículos</a></li>
+    <li><a href="index.html#contacto" class="nav-cta">Diagnóstico Sin Costo</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="hero-eyebrow">
+      <span></span>
+      Insights Semanales
+    </div>
+    <h1>Conocimiento que <em>transforma</em> tu operación</h1>
+    <p>Artículos prácticos sobre Excelencia Operacional, Lean Manufacturing e IA Aplicada para líderes de manufactura PyME. Publicamos cada semana.</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-num">1</div>
+        <div class="meta-label">Artículo por semana</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-num">12</div>
+        <div class="meta-label">Temas en este ciclo</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-num">5</div>
+        <div class="meta-label">Min. de lectura</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SUBSCRIBE BANNER ═══ -->
+<section class="subscribe-banner">
+  <div class="subscribe-inner">
+    <div class="sub-text">
+      <h2>No te pierdas el próximo artículo. <em>Suscríbete gratis.</em></h2>
+      <p>Un email semanal con el artículo completo + recursos descargables. Sin spam.</p>
+    </div>
+    <div id="subFormWrap">
+      <form class="sub-form" onsubmit="handleSubscribe(event)">
+        <input type="text" placeholder="Tu nombre" id="subName" required>
+        <input type="email" placeholder="tu@correo.com" id="subEmail" required>
+        <button type="submit" class="sub-btn">Suscribirme →</button>
+      </form>
+    </div>
+    <div id="subSuccess" class="sub-success">
+      <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      ¡Listo! Revisa tu correo para confirmar.
+    </div>
+    <div class="sub-badges">
+      <div class="sub-badge">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Sin spam
+      </div>
+      <div class="sub-badge">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Cancela cuando quieras
+      </div>
+      <div class="sub-badge">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        100% gratuito
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LINKEDIN BANNER ═══ -->
+<div class="linkedin-bar">
+  <div class="li-left">
+    <div class="li-icon">
+      <svg viewBox="0 0 24 24" fill="#0077B5">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+        <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+      </svg>
+    </div>
+    <p>También publicamos en LinkedIn. <em>Síguenos</em> para recibir cada artículo directo en tu feed.</p>
+  </div>
+  <a href="https://www.linkedin.com/company/nextgen-opex-consulting" target="_blank" class="li-btn">Seguir en LinkedIn →</a>
+</div>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<div class="main-wrap">
+
+  <!-- ARTICLES COLUMN -->
+  <main id="articlesView">
+
+    <div class="articles-header">
+      <span class="section-label">Biblioteca de Conocimiento</span>
+      <h2>Artículos & Insights OPEX</h2>
+    </div>
+
+    <!-- FEATURED ARTICLE #1 -->
+    <article class="article-featured" onclick="openArticle('art1')">
+      <div class="featured-img">
+        <div class="featured-img-bg"></div>
+        <div class="featured-badge">✦ Artículo Más Reciente</div>
+        <div class="featured-num">01</div>
+        <div class="featured-title-overlay">
+          <div class="topic-tag">Diagnóstico Operacional · NOMI™</div>
+          <h2>¿Por qué tu planta <em>pierde dinero</em> sin saberlo?</h2>
+        </div>
+      </div>
+      <div class="featured-body">
+        <div class="article-meta">
+          <span class="meta-tag tag-nomi">NOMI™</span>
+          <span class="meta-date">Semana 1 · Agosto 2026</span>
+          <span class="meta-read">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            5 min lectura
+          </span>
+        </div>
+        <h3>¿Por qué tu planta pierde dinero sin saberlo? El diagnóstico operacional que toda PyME manufacturera necesita</h3>
+        <p>La mayoría de los directores de operaciones saben que algo falla, pero no exactamente qué. Los números de producción se ven aceptables, las entregas llegan (casi siempre), y el equipo trabaja duro. Sin embargo, el margen no mejora. Este artículo revela las 5 fugas silenciosas de rentabilidad más comunes en PyMEs manufactureras y cómo el Diagnóstico NOMI™ las detecta en menos de 10 días.</p>
+        <div>
+          <a class="read-btn" onclick="openArticle('art1'); event.stopPropagation();">
+            Leer artículo completo
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/nextgen-opex-consulting" target="_blank" class="li-share-btn" onclick="event.stopPropagation();">
+            <svg viewBox="0 0 24 24" fill="#0077B5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            Ver en LinkedIn
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- UPCOMING ARTICLES GRID -->
+    <div class="articles-grid">
+
+      <article class="article-card">
+        <div class="card-num">02</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-nos">NOS™</span>
+          <span class="meta-date">Semana 2</span>
+        </div>
+        <h3>NOS™: El sistema que convierte el caos operativo en procesos que escalan</h3>
+        <p>Por qué los procedimientos en papel no funcionan y cómo el Sistema NOS™ crea cultura operacional sostenible.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">03</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-liderazgo">Liderazgo</span>
+          <span class="meta-date">Semana 3</span>
+        </div>
+        <h3>El líder operacional que necesita tu planta: más allá del "jefe de producción"</h3>
+        <p>Las 6 competencias que distinguen a un Director de Operaciones de alto impacto en manufactura PyME.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">04</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-lean">Lean</span>
+          <span class="meta-date">Semana 4</span>
+        </div>
+        <h3>Lean Manufacturing sin consultor gigante: cómo empezar en tu planta esta semana</h3>
+        <p>3 herramientas Lean que puedes implementar mañana con tu equipo actual, sin inversión en software.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">05</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-pca">PCA</span>
+          <span class="meta-date">Semana 5</span>
+        </div>
+        <h3>PCA™: Cómo certificar a tu equipo en Excelencia Operacional sin parar la producción</h3>
+        <p>El programa que convierte a tus mandos medios en agentes de cambio certificados internamente.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">06</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-ia">IA Aplicada</span>
+          <span class="meta-date">Semana 6</span>
+        </div>
+        <h3>IA en el piso de planta: casos reales de PyMEs manufactureras mexicanas</h3>
+        <p>No es ciencia ficción. Cómo tres empresas como la tuya usan IA para reducir scrap y mejorar OEE.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">07</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-nomi">NOMI™</span>
+          <span class="meta-date">Semana 7</span>
+        </div>
+        <h3>Los 6 niveles de madurez operacional: ¿en cuál está tu empresa hoy?</h3>
+        <p>Radiografía de las 6 etapas del Modelo NOMI™ y el roadmap para subir de nivel en 90 días.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">08</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-nos">NOS™</span>
+          <span class="meta-date">Semana 8</span>
+        </div>
+        <h3>KPIs que sí importan: cómo medir el desempeño operativo sin ahogarte en datos</h3>
+        <p>Los 7 indicadores clave que todo Director de Operaciones debe tener en su tablero de control.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">09</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-lean">Lean</span>
+          <span class="meta-date">Semana 9</span>
+        </div>
+        <h3>Reducir merma en 30 días: el método de los 5 pasos para PyMEs</h3>
+        <p>Caso de estudio real: cómo una empresa bajó su tasa de scrap de 8% a 2.3% en un mes.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">10</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-liderazgo">Liderazgo</span>
+          <span class="meta-date">Semana 10</span>
+        </div>
+        <h3>Cultura de mejora continua: por qué falla el 80% de los programas y cómo evitarlo</h3>
+        <p>Los errores de implementación más costosos en Kaizen y cómo el enfoque NOS™ los previene.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">11</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-pca">PCA</span>
+          <span class="meta-date">Semana 11</span>
+        </div>
+        <h3>ROI de la consultoría operacional: cómo calcular el retorno antes de contratar</h3>
+        <p>La fórmula honesta para saber si invertir en mejora operativa tiene sentido para tu PyME.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="card-num">12</div>
+        <div class="article-meta">
+          <span class="meta-tag tag-ia">IA + OPEX</span>
+          <span class="meta-date">Semana 12</span>
+        </div>
+        <h3>El futuro de la manufactura PyME en México: OPEX + IA como ventaja competitiva</h3>
+        <p>El panorama para 2027 y por qué las empresas que actúen hoy dominarán su mercado.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
+      </article>
+
+    </div><!-- /articles-grid -->
+
+  </main><!-- /articlesView -->
+
+  <!-- ARTICLE DETAIL VIEW (hidden) -->
+  <div id="articleDetail" class="article-detail">
+    <div onclick="closeArticle()" class="detail-back">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Volver a artículos
+    </div>
+    <div id="articleContent"></div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Subscription card -->
+    <div class="sidebar-card">
+      <h3>Recibe cada artículo <em>en tu correo</em></h3>
+      <p>Un email semanal con el artículo completo. Conocimiento práctico, sin relleno.</p>
+      <form onsubmit="handleSidebarSubscribe(event)">
+        <input type="text" class="sidebar-input" placeholder="Tu nombre" id="sidebarName" required>
+        <input type="email" class="sidebar-input" placeholder="tu@correo.com" id="sidebarEmail" required>
+        <button type="submit" class="sidebar-btn">Suscribirme gratis →</button>
+      </form>
+      <p class="sidebar-note" id="sidebarNote">Sin spam · Cancela cuando quieras · 100% gratis</p>
+    </div>
+
+    <!-- Topics filter -->
+    <div class="sidebar-card">
+      <h3>Temas</h3>
+      <div class="topics-list">
+        <span class="topic-chip active">Todos</span>
+        <span class="topic-chip">NOMI™</span>
+        <span class="topic-chip">NOS™</span>
+        <span class="topic-chip">PCA™</span>
+        <span class="topic-chip">Lean</span>
+        <span class="topic-chip">Liderazgo</span>
+        <span class="topic-chip">IA Aplicada</span>
+      </div>
+    </div>
+
+    <!-- Calendar -->
+    <div class="sidebar-card">
+      <span class="section-label">Ciclo Actual</span>
+      <h3>Próximas publicaciones</h3>
+      <div class="calendar-list">
+        <div class="cal-item">
+          <div class="cal-week">Sem 1</div>
+          <div class="cal-title">¿Por qué tu planta pierde dinero sin saberlo? → Publicado</div>
+        </div>
+        <div class="cal-item" style="border-left-color: var(--bg-mid);">
+          <div class="cal-week" style="color:var(--gris);">Sem 2</div>
+          <div class="cal-title">NOS™: El sistema que convierte el caos operativo</div>
+        </div>
+        <div class="cal-item" style="border-left-color: var(--bg-mid);">
+          <div class="cal-week" style="color:var(--gris);">Sem 3</div>
+          <div class="cal-title">El líder operacional que necesita tu planta</div>
+        </div>
+        <div class="cal-item" style="border-left-color: var(--bg-mid);">
+          <div class="cal-week" style="color:var(--gris);">Sem 4</div>
+          <div class="cal-title">Lean Manufacturing sin consultor gigante</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consultant mini -->
+    <div class="consultor-mini">
+      <div class="mini-avatar" style="background:transparent; padding:0; width:80px; height:80px; border-radius:50%; overflow:hidden; margin:0 auto 12px;">
+        <img src="NOCA SALUDANDO.png" alt="NOCA" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+      </div>
+      <div class="mini-name">Omar Sierra</div>
+      <div class="mini-role">Fundador · NextGen OPEX Consulting™</div>
+      <div class="mini-bio">Consultor certificado EC0566 CONOCER. Especialista en Lean Six Sigma y transformación operacional para PyMEs manufactureras.</div>
+      <a href="index.html#contacto" class="mini-btn">Agenda un diagnóstico Sin Costo →</a>
+    </div>
+
+  </aside>
+
+</div><!-- /main-wrap -->
+
+<!-- ═══ ARTICLE #1 CONTENT ═══ -->
+<script>
+  const articles = {
+    art1: `
+      <div class="detail-eyebrow">
+        <span class="meta-tag tag-nomi">NOMI™</span>
+        <span class="meta-date">Semana 1 · Agosto 2026 · 5 min lectura</span>
+      </div>
+      <h1 class="detail-h1">¿Por qué tu planta <em>pierde dinero</em> sin saberlo?<br>El diagnóstico que toda PyME manufacturera necesita</h1>
+      <p class="detail-lead">La mayoría de los directores de operaciones saben que algo falla, pero no exactamente qué. Los números se ven aceptables, las entregas llegan (casi siempre) y el equipo trabaja duro. Sin embargo, el margen no mejora. Este artículo revela las 5 fugas silenciosas de rentabilidad más comunes y cómo detectarlas.</p>
+
+      <div class="detail-body">
+
+        <h2>El problema que nadie nombra</h2>
+        <p>En los últimos cinco años he visitado docenas de plantas manufactureras en México —empresas de plástico, metal, alimento, empaque— y en casi todas encuentro la misma situación: hay trabajo, hay movimiento, hay reuniones. Pero cuando pregunto "¿cuánto te cuesta hacer una pieza hoy versus hace dos años?", la mayoría no lo sabe con exactitud.</p>
+        <p>Eso no es un problema de contabilidad. Es un problema de visibilidad operacional.</p>
+        <p>Y la falta de visibilidad es el primer síntoma de que tu operación tiene fugas que hoy no puedes ver, y por eso tampoco puedes cerrar.</p>
+
+        <h2>Las 5 fugas silenciosas de rentabilidad</h2>
+
+        <h3>1. Retrabajo no registrado</h3>
+        <p>El retrabajo existe en casi todas las plantas. El problema no es que exista: es que muchas empresas no lo registran sistemáticamente. Se corrige, se manda de nuevo a línea, y el costo desaparece en el mar de las horas-hombre. En una planta típica PyME, el retrabajo no registrado puede representar entre el 3% y el 8% del costo de producción. Es invisible en los estados financieros, pero muy real en el piso de planta.</p>
+
+        <h3>2. Tiempos de setup subestimados</h3>
+        <p>¿Cuánto tarda realmente hacer un cambio de modelo o herramienta en tu línea? No el tiempo oficial del procedimiento, sino el tiempo real, con interrupciones, búsqueda de herramientas y los primeros cinco intentos fallidos. La diferencia entre el tiempo estimado y el tiempo real de setup es, en promedio, 2.3 veces mayor en las PyMEs que no han aplicado SMED.</p>
+
+        <h3>3. Inventario en proceso "invisible"</h3>
+        <p>El WIP (Work In Process) estancado entre estaciones de trabajo es capital detenido. No genera valor, ocupa espacio y con frecuencia se daña o vence. Las plantas que mapean su flujo de valor con detalle descubren que entre el 20% y el 40% del tiempo que un producto pasa en planta es tiempo de espera, no de transformación.</p>
+
+        <h3>4. Variabilidad del desempeño por turno</h3>
+        <p>¿Produce igual el turno matutino que el vespertino? La mayoría diría que "más o menos". Pero cuando se mide con precisión, la variabilidad turno-a-turno suele ser de 15% a 30%. Eso significa que tienes el potencial de producir más sin contratar a nadie más, simplemente estandarizando las mejores prácticas del turno más eficiente.</p>
+
+        <h3>5. Costos de calidad ocultos</h3>
+        <p>Los costos de calidad se dividen en cuatro categorías: prevención, evaluación, fallas internas y fallas externas. La mayoría de las PyMEs mide solo las fallas externas (devoluciones de clientes). Las fallas internas, la evaluación excesiva y la falta de prevención pueden sumar 2 a 4 veces el costo de las fallas externas visibles.</p>
+
+        <div class="detail-box">
+          <h4>¿Reconoces alguna de estas fugas en tu operación?</h4>
+          <p>Si identificaste dos o más, tu planta tiene potencial de mejora de rentabilidad significativo sin necesidad de nueva inversión en maquinaria. La herramienta para detectarlas con precisión se llama Diagnóstico NOMI™.</p>
+        </div>
+
+        <h2>Cómo funciona el Diagnóstico NOMI™</h2>
+        <p>NOMI™ (Nivel Operacional de Madurez Industrial) es una metodología de diagnóstico estructurado que evalúa tu operación en 6 dimensiones: Liderazgo Operacional, Gestión de Procesos, Calidad Integrada, Gestión de Activos, Cultura de Mejora Continua y Uso de Datos.</p>
+        <p>En 10 días de trabajo conjunto —sin interrumpir tu operación— generamos un mapa completo de dónde estás hoy, cuánto te cuestan tus fugas actuales y cuál es el camino más rápido para cerrarlas.</p>
+        <p>El resultado no es un reporte de 200 páginas que se archiva. Es un plan de acción de 90 días con responsables, métricas y una estimación de retorno de inversión.</p>
+
+        <h2>El primer paso: la conversación de diagnóstico</h2>
+        <p>Antes de cualquier propuesta, agendamos una conversación de 45 minutos donde revisamos juntos los síntomas específicos de tu operación. Sin costo, sin compromiso. El objetivo es que tú tengas claridad, independientemente de si trabajamos juntos o no.</p>
+        <p>Si después de esa conversación tu operación tiene oportunidades claras y el momento es el adecuado, hablamos de cómo el NOMI™ puede darte el mapa para capitalizarlas.</p>
+
+      </div>
+
+      <div class="detail-cta">
+        <h3>¿Quieres saber cuánto le cuestan a tu planta <em>sus fugas invisibles</em>?</h3>
+        <p>Agenda una conversación de diagnóstico sin costo. 45 minutos. Sin venta, sin presión.</p>
+        <div class="detail-cta-btns">
+          <a href="index.html#contacto" class="cta-primary">Agendar diagnóstico Sin Costo →</a>
+          <a href="index.html#nomi" class="cta-secondary">Conocer el NOMI™</a>
+        </div>
+      </div>
+
+      <div class="detail-share">
+        <span class="share-label">Compartir</span>
+        <a href="https://www.linkedin.com/company/nextgen-opex-consulting" target="_blank" class="share-li">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Compartir en LinkedIn
+        </a>
+      </div>
+    `
+  };
+
+  function openArticle(id) {
+    const content = articles[id];
+    if (!content) return;
+    document.getElementById('articleContent').innerHTML = content;
+    document.getElementById('articlesView').style.display = 'none';
+    document.getElementById('articleDetail').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    gtag('event', 'article_view', { article_id: id });
+  }
+
+  function closeArticle() {
+    document.getElementById('articleDetail').classList.remove('active');
+    document.getElementById('articlesView').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  async function handleSubscribe(e) {
+    e.preventDefault();
+    const name = document.getElementById('subName').value;
+    const email = document.getElementById('subEmail').value;
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'e1a6b5f0-dca3-425f-b3db-64f437427fa3',
+          subject: 'Nueva suscripción al newsletter — Banner',
+          name, email,
+          from_name: 'Newsletter NextGen OPEX'
+        })
+      });
+    } catch(_) {}
+    document.getElementById('subFormWrap').style.display = 'none';
+    document.getElementById('subSuccess').style.display = 'flex';
+    gtag('event', 'newsletter_subscribe', { method: 'banner' });
+  }
+
+  async function handleSidebarSubscribe(e) {
+    e.preventDefault();
+    const name = document.getElementById('sidebarName').value;
+    const email = document.getElementById('sidebarEmail').value;
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'e1a6b5f0-dca3-425f-b3db-64f437427fa3',
+          subject: 'Nueva suscripción al newsletter — Sidebar',
+          name, email,
+          from_name: 'Newsletter NextGen OPEX'
+        })
+      });
+    } catch(_) {}
+    document.getElementById('sidebarNote').textContent = '✓ ¡Suscripción confirmada! Revisa tu correo.';
+    document.getElementById('sidebarNote').style.color = '#3a8a1a';
+    gtag('event', 'newsletter_subscribe', { method: 'sidebar' });
+  }
+
+  // Topic chip filter (visual only — connect to filter logic when articles grow)
+  document.querySelectorAll('.topic-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo-wordmark">
+        <div class="line1" style="color:#fff;">Next<span style="color:var(--verde);">G</span>en™</div>
+        <div class="line2">OPEX Consulting</div>
+      </div>
+      <p>Consultoría especializada en Excelencia Operacional para PyMEs manufactureras. Diagnóstico NOMI™, Sistema NOS™ y metodología Lean Six Sigma.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <a href="index.html#nomi">Diagnóstico NOMI™</a>
+      <a href="index.html#nos">Sistema NOS™</a>
+      <a href="index.html#pca">Programa PCA™</a>
+      <a href="index.html#servicios">Ver todos</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contenido</h4>
+      <a href="articulos.html">Artículos & Insights</a>
+      <a href="articulos.html#art1">Artículo #1: NOMI™</a>
+      <a href="https://www.linkedin.com/company/nextgen-opex-consulting" target="_blank">LinkedIn Newsletter</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="mailto:osierra@nextgenopexco.com">osierra@nextgenopexco.com</a>
+      <a href="index.html#contacto">Agenda diagnóstico</a>
+      <a href="aviso-privacidad.html">Aviso de privacidad</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 NextGen OPEX Consulting™. Todos los derechos reservados.</p>
+    <p>Consultor certificado EC0566 CONOCER</p>
+  </div>
+</footer>
+
+</body>
+</html>
