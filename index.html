@@ -1745,8 +1745,8 @@
     <li><a href="#nomi" onclick="closeMenu()">NOMI™</a></li>
     <li><a href="#pca" onclick="closeMenu()">PCA™</a></li>
     <li><a href="#consultor" onclick="closeMenu()">Consultor</a></li>
-    <li><a href="#newsletter" onclick="closeMenu()">Newsletter</a></li>
     <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+    <li><a href="articulos.html" onclick="closeMenu()">Artículos</a></li>
     <li><a href="#contacto" class="nav-cta" onclick="closeMenu()">Diagnóstico Gratuito</a></li>
   </ul>
 </nav>
@@ -1771,7 +1771,7 @@
     </p>
 
     <div class="hero-ctas">
-      <a href="#contacto" class="btn-green">Solicitar Diagnóstico Gratuito →</a>
+      <a href="#contacto" class="btn-green">Solicitar Diagnóstico Sin Costo →</a>
       <a href="#metodologia" class="btn-ghost">Conocer la Metodología</a>
     </div>
 
@@ -2698,31 +2698,11 @@ document.addEventListener('click', (e) => {
 });
 
 /* ── Formulario de Diagnóstico → Web3Forms ── */
-document.getElementById('diagnostico-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
+document.getElementById('diagnostico-form').addEventListener('submit', function() {
   const btn = document.getElementById('submit-btn');
   btn.textContent = 'Enviando...';
   btn.disabled = true;
-
-  const formData = new FormData(this);
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    });
-    const data = await res.json();
-    if (data.success) {
-      this.reset();
-      document.getElementById('form-success').style.display = 'block';
-      btn.style.display = 'none';
-    } else {
-      btn.textContent = 'Error — intenta de nuevo';
-      btn.disabled = false;
-    }
-  } catch {
-    btn.textContent = 'Error — intenta de nuevo';
-    btn.disabled = false;
-  }
+  // Web3Forms redirige automáticamente a gracias.html via campo hidden "redirect"
 });
 
 async function handleNewsletter(e) {
@@ -2818,8 +2798,9 @@ async function handleNewsletter(e) {
 
       <form id="diagnostico-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="e1a6b5f0-dca3-425f-b3db-64f437427fa3">
-        <input type="hidden" name="subject" value="Nuevo Diagnóstico Gratuito — NextGen OPEX Consulting">
+        <input type="hidden" name="subject" value="Nuevo Diagnóstico Sin Costo — NextGen OPEX Consulting">
         <input type="hidden" name="from_name" value="Formulario NOC Web">
+        <input type="hidden" name="redirect" value="https://www.nextgenopexco.com/gracias.html?origen=formulario">
         <input type="checkbox" name="botcheck" style="display:none;">
 
         <div class="form-row">
@@ -2863,7 +2844,7 @@ async function handleNewsletter(e) {
           <textarea name="reto" placeholder="Cuéntanos brevemente el principal problema que enfrentas en tu operación..." required></textarea>
         </div>
 
-        <button type="submit" class="btn-submit" id="submit-btn">Solicitar Diagnóstico Gratuito →</button>
+        <button type="submit" class="btn-submit" id="submit-btn">Solicitar Diagnóstico Sin Costo →</button>
         <p class="form-note">🔒 Tu información es confidencial. Sin spam, sin compromisos. Al enviar aceptas nuestro <a href="aviso-privacidad.html" target="_blank" style="color:#1E3A8A; text-decoration:underline;">Aviso de Privacidad</a>.</p>
 
         <div id="form-success" style="display:none; margin-top:16px; padding:14px 18px; background:#f0fdf4; border:1px solid #6DBE45; border-radius:8px; color:#2d7a1f; font-family:'Montserrat',sans-serif; font-size:14px; font-weight:600; text-align:center;">
@@ -3539,6 +3520,13 @@ Los problemas más frecuentes que resolvemos:<br><br>
     messages.appendChild(msg);
     messages.scrollTop = messages.scrollHeight;
   }
+
+  /* Calendly → redirigir a gracias cuando se agenda */
+  window.addEventListener('message', function(e) {
+    if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+      window.location.href = 'gracias.html?origen=calendly';
+    }
+  });
 
   /* Tooltip auto al cargar */
   setTimeout(() => {

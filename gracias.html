@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Gracias! | NextGen OPEX Consulting™</title>
+  <link rel="icon" type="image/png" href="isotipo noc.png">
+  <link rel="apple-touch-icon" href="isotipo noc.png">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM9RZH6ZGF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BM9RZH6ZGF');
+
+    // Evento de conversión según origen
+    const params = new URLSearchParams(window.location.search);
+    const origen = params.get('origen') || 'desconocido';
+    gtag('event', 'conversion', {
+      event_category: 'Lead',
+      event_label: origen === 'calendly' ? 'Cita Agendada' : 'Formulario Enviado',
+      value: 1
+    });
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #F4F7FA;
+      color: #1A2340;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      background: linear-gradient(90deg, #2a5cc8 0%, #1a3a8a 100%);
+      padding: 0 64px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    nav img { height: 56px; width: auto; }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+      background: linear-gradient(135deg, #0f2060 0%, #1a3d8f 60%, #0f2060 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(109,190,69,.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -60px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0,174,239,.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 56px 48px;
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+      position: relative;
+      z-index: 2;
+    }
+
+    .noca-img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      display: block;
+      filter: drop-shadow(0 6px 18px rgba(30,58,138,.25));
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .check-badge {
+      width: 56px;
+      height: 56px;
+      background: #6DBE45;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .check-badge svg {
+      width: 28px; height: 28px;
+      stroke: #fff; fill: none; stroke-width: 3;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: #6DBE45;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #0f2060;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: #4B5563;
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .msg-calendly, .msg-form {
+      display: none;
+    }
+
+    .next-steps {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .step {
+      background: #F4F7FA;
+      border: 1px solid #E8EDF4;
+      border-radius: 12px;
+      padding: 18px 20px;
+      flex: 1;
+      min-width: 160px;
+      text-align: left;
+    }
+    .step-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1E3A8A;
+      line-height: 1.4;
+    }
+    .step span {
+      font-size: 11px;
+      font-weight: 400;
+      color: #4B5563;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #E8EDF4;
+      margin: 32px 0;
+    }
+
+    .ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #6DBE45;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 13px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: #5aaa38; transform: translateY(-2px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #1E3A8A;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 13px 24px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-secondary:hover { background: #1E3A8A; color: #fff; }
+
+    footer {
+      background: #0f2060;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 20px 32px;
+      font-size: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    footer a { color: #6DBE45; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      nav img { height: 44px; }
+      .card { padding: 36px 24px; }
+      h1 { font-size: 26px; }
+      .next-steps { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">
+    <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™">
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="card">
+
+    <img src="NOCA FESTEJANDO.png" alt="NOCA" class="noca-img">
+
+    <div class="check-badge">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <span class="tag" id="tag-text">Solicitud recibida</span>
+
+    <h1 id="titulo">¡Listo! Tu diagnóstico<br>está en camino.</h1>
+
+    <p class="subtitle" id="subtitulo">
+      Omar Sierra revisará tu información y te contactará en menos de 24 horas para coordinar tu sesión de diagnóstico NOMI™ Express sin costo.
+    </p>
+
+    <div class="next-steps" id="pasos">
+      <div class="step">
+        <div class="step-icon">📧</div>
+        <p>Revisa tu correo</p>
+        <span>Recibirás una confirmación en breve</span>
+      </div>
+      <div class="step">
+        <div class="step-icon">📅</div>
+        <p>Prepara tu agenda</p>
+        <span>La sesión dura 30 minutos</span>
+      </div>
+      <div class="step">
+        <div class="step-icon">📊</div>
+        <p>Ten a la mano</p>
+        <span>Tus principales indicadores operativos</span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <p style="font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; color:#4B5563; letter-spacing:1px; text-transform:uppercase; margin-bottom:16px;">Mientras tanto</p>
+
+    <div class="ctas">
+      <a href="Brochure NOC.pdf" download class="btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar Brochure
+      </a>
+      <a href="https://www.linkedin.com/company/nextgen-opex-consulting" target="_blank" class="btn-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        Seguir en LinkedIn
+      </a>
+      <a href="index.html" class="btn-secondary">← Volver al sitio</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 NextGen OPEX Consulting™ &nbsp;|&nbsp; <a href="mailto:osierra@nextgenopexco.com">osierra@nextgenopexco.com</a> &nbsp;|&nbsp; <a href="aviso-privacidad.html">Aviso de Privacidad</a></p>
+</footer>
+
+<script>
+  // Personaliza el mensaje según si vino del formulario o de Calendly
+  const params = new URLSearchParams(window.location.search);
+  const origen = params.get('origen');
+
+  if (origen === 'calendly') {
+    document.getElementById('tag-text').textContent = '¡Cita confirmada!';
+    document.getElementById('titulo').innerHTML = '¡Tu sesión está<br>agendada con Omar!';
+    document.getElementById('subtitulo').textContent = 'Recibirás una invitación a tu correo con el enlace de Teams para tu sesión de diagnóstico NOMI™ Express. ¡Nos vemos pronto!';
+    document.getElementById('pasos').innerHTML = `
+      <div class="step">
+        <div class="step-icon">📩</div>
+        <p>Revisa tu correo</p>
+        <span>Tienes una invitación de Teams esperándote</span>
+      </div>
+      <div class="step">
+        <div class="step-icon">🕐</div>
+        <p>Llega puntual</p>
+        <span>La sesión dura 30 minutos exactos</span>
+      </div>
+      <div class="step">
+        <div class="step-icon">📊</div>
+        <p>Ten a la mano</p>
+        <span>Tus principales indicadores operativos</span>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
