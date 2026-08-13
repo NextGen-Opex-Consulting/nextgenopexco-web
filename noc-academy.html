@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOC Academy™ — Próximamente | NextGen OPEX Consulting</title>
+<meta name="description" content="NOC Academy™: cursos y certificaciones en Excelencia Operacional, Lean, Six Sigma e IA Aplicada para la industria manufacturera. Próximamente.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde:    #6DBE45;
+    --azul:     #1E3A8A;
+    --azul-mid: #2a4da8;
+    --bg-light: #F4F7FA;
+    --bg-mid:   #E8EDF4;
+    --text-main:#1A2340;
+    --text-sub: #4B5563;
+    --text-muted:#9CA3AF;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html, body {
+    min-height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: linear-gradient(90deg, #2a5cc8 0%, #1a3a8a 100%);
+    padding: 0 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 84px;
+    position: sticky; top: 0; z-index: 200;
+    box-shadow: 0 2px 28px rgba(0,0,0,0.18);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-logo { display:flex; align-items:center; gap:13px; }
+  .nav-logo img { height:68px; width:auto; object-fit:contain; filter:drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
+  .nav-back {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+    color: rgba(255,255,255,0.65); transition: color .2s; text-decoration: none;
+  }
+  .nav-back:hover { color: var(--verde); }
+  .nav-back svg { transition: transform .2s; }
+  .nav-back:hover svg { transform: translateX(-3px); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 80px 64px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, #1a4db5 0%, #1232a0 40%, #0a1646 100%);
+  }
+  /* Grid sutil */
+  .hero-bg::before {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+  /* Círculos geométricos flotantes */
+  .hero-geo {
+    position:absolute; inset:0; overflow:hidden; pointer-events:none;
+  }
+  .geo-circle {
+    position:absolute; border-radius:50%; border:1px solid rgba(109,190,69,0.15);
+  }
+  .geo-c1 { width:420px; height:420px; right:-80px; top:-100px;
+    animation: geoSpin 28s linear infinite; }
+  .geo-c2 { width:240px; height:240px; right:50px; top:-10px;
+    border-color: rgba(255,255,255,0.06);
+    animation: geoSpin 18s linear infinite reverse; }
+  .geo-c3 { width:600px; height:600px; left:-180px; bottom:-200px;
+    border-color: rgba(30,58,138,0.4);
+    animation: geoSpin 36s linear infinite; }
+  .geo-dot {
+    position:absolute; border-radius:50%; background:rgba(109,190,69,0.25);
+  }
+  .geo-d1 { width:6px; height:6px; right:160px; top:90px; animation: geoPulse 3s ease-in-out infinite; }
+  .geo-d2 { width:4px; height:4px; right:280px; top:160px; animation: geoPulse 4s ease-in-out infinite 1s; }
+  .geo-d3 { width:5px; height:5px; left:200px; bottom:80px; animation: geoPulse 3.5s ease-in-out infinite 0.5s; }
+  /* Líneas diagonales abstractas */
+  .geo-line {
+    position:absolute; background:rgba(109,190,69,0.08); border-radius:2px;
+    transform-origin: left center;
+  }
+  .geo-l1 { width:200px; height:1px; right:100px; top:40%; transform:rotate(-35deg); }
+  .geo-l2 { width:120px; height:1px; right:180px; top:55%; transform:rotate(-35deg); opacity:.5; }
+  @keyframes geoSpin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  @keyframes geoPulse { 0%,100%{opacity:.25;transform:scale(1);} 50%{opacity:1;transform:scale(1.8);} }
+  /* Top accent line */
+  .hero::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background: linear-gradient(90deg, transparent 5%, var(--verde) 35%, var(--verde) 65%, transparent 95%);
+    z-index:2;
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    max-width: 780px;
+  }
+
+  /* Academy logo */
+  .academy-logo {
+    height: 220px; width: auto;
+    margin-bottom: 32px;
+    filter: drop-shadow(0 6px 24px rgba(109,190,69,0.3));
+    animation: floatLogo 4s ease-in-out infinite;
+  }
+  @keyframes floatLogo {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 18px;
+    border: 1px solid rgba(109,190,69,0.45); border-radius: 50px;
+    font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase; color: var(--verde);
+    margin-bottom: 22px;
+    background: rgba(109,190,69,0.08);
+  }
+  .badge-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--verde); box-shadow: 0 0 8px var(--verde);
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(.7);} }
+
+  /* Headline */
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(30px, 4.5vw, 58px);
+    font-weight: 900; line-height: 1.06; letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .hero h1 em { color: var(--verde); font-style: normal; }
+
+  .hero-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(13px, 1.4vw, 17px); font-weight: 700;
+    color: rgba(255,255,255,0.45); margin-bottom: 0;
+  }
+
+  /* ── BODY SECTIONS ── */
+  .body-wrap {
+    background: var(--bg-light);
+    padding: 70px 64px 80px;
+  }
+  .body-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+  }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .description {
+    font-size: clamp(13px, 1.2vw, 16px);
+    color: var(--text-sub); line-height: 1.8;
+    max-width: 620px;
+  }
+  .description strong { color: var(--text-main); }
+
+  /* Divider */
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--verde), var(--azul));
+    border-radius: 2px; margin: 36px 0;
+  }
+
+  /* Pillars */
+  .pillars {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 56px;
+  }
+  .pillar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    background: #fff;
+    border: 1px solid var(--bg-mid);
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+    color: var(--azul);
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .pillar:hover { box-shadow: 0 6px 20px rgba(30,58,138,.1); transform: translateY(-2px); }
+  .pillar-icon { font-size: 16px; }
+
+  /* Countdown */
+  .countdown-wrap { margin-bottom: 56px; width: 100%; }
+  .countdown-label {
+    font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .countdown {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  }
+  .cd-block {
+    display: flex; flex-direction: column; align-items: center;
+    background: #fff; border: 1px solid var(--bg-mid);
+    border-radius: 14px; padding: 20px 24px; min-width: 80px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.06);
+  }
+  .cd-num {
+    font-family: 'Montserrat', sans-serif; font-size: 38px; font-weight: 900;
+    color: var(--azul); line-height: 1;
+  }
+  .cd-unit {
+    font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700;
+    color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* Waitlist form */
+  .form-wrap { width: 100%; max-width: 500px; }
+  .form-label {
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 14px; display: block;
+  }
+  .form-row { display: flex; gap: 10px; }
+  .form-row input {
+    flex: 1; padding: 14px 18px;
+    background: #fff; border: 1.5px solid var(--bg-mid);
+    border-radius: 8px; color: var(--text-main);
+    font-family: 'Poppins', sans-serif; font-size: 14px;
+    outline: none; transition: border-color .2s;
+  }
+  .form-row input::placeholder { color: var(--text-muted); }
+  .form-row input:focus { border-color: var(--azul); }
+  .form-row button {
+    padding: 14px 24px;
+    background: var(--verde); color: #fff; border: none; cursor: pointer;
+    border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; white-space: nowrap;
+    box-shadow: 0 6px 24px rgba(109,190,69,0.3);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .form-row button:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(109,190,69,0.45); }
+  .form-success {
+    display: none; margin-top: 14px;
+    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+    color: var(--verde); letter-spacing: 0.5px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--azul);
+    padding: 22px 64px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  footer p { font-size: 11px; color: rgba(255,255,255,0.4); }
+  footer a { color: rgba(109,190,69,0.7); text-decoration: none; }
+  footer a:hover { color: var(--verde); }
+
+  @media (max-width: 680px) {
+    nav { padding: 18px 20px; }
+    .hero { padding: 60px 24px; min-height: 400px; }
+    .body-wrap { padding: 50px 24px 60px; }
+    .form-row { flex-direction: column; }
+    footer { padding: 18px 20px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™">
+  </a>
+  <a href="index.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Volver al sitio principal
+  </a>
+</nav>
+
+<!-- HERO con imagen -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-geo">
+    <div class="geo-circle geo-c1"></div>
+    <div class="geo-circle geo-c2"></div>
+    <div class="geo-circle geo-c3"></div>
+    <div class="geo-dot geo-d1"></div>
+    <div class="geo-dot geo-d2"></div>
+    <div class="geo-dot geo-d3"></div>
+    <div class="geo-line geo-l1"></div>
+    <div class="geo-line geo-l2"></div>
+  </div>
+  <div class="hero-content">
+    <img src="NOC Academy Logo.png" alt="NOC Academy™" class="academy-logo">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      En Construcción · Lanzamiento Próximo
+    </div>
+    <h1>Aprende. Certifícate.<br><em>Transforma.</em></h1>
+    <p class="hero-sub">La plataforma de formación en Excelencia Operacional de NextGen OPEX</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="body-wrap">
+  <div class="body-inner">
+
+    <!-- Descripción -->
+    <p class="section-label">¿Qué es NOC Academy™?</p>
+    <p class="description">
+      <strong>NOC Academy™</strong> será el espacio donde líderes operativos, dueños de PyMEs y equipos de manufactura aprenderán a implementar <strong>Lean, Six Sigma, IA Aplicada</strong> y el <strong>Sistema NOS™</strong> con cursos prácticos y certificaciones reconocidas.
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Pillars -->
+    <div class="pillars">
+      <div class="pillar"><span class="pillar-icon">🏭</span> Excelencia Operacional</div>
+      <div class="pillar"><span class="pillar-icon">📊</span> Lean & Six Sigma</div>
+      <div class="pillar"><span class="pillar-icon">🤖</span> IA Aplicada a la Industria</div>
+      <div class="pillar"><span class="pillar-icon">🎓</span> Certificaciones NOS™</div>
+      <div class="pillar"><span class="pillar-icon">🧠</span> Método PCA™</div>
+      <div class="pillar"><span class="pillar-icon">⚡</span> Cursos en Línea</div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap">
+      <div class="countdown-label">Lanzamiento estimado en</div>
+      <div class="countdown">
+        <div class="cd-block"><div class="cd-num" id="cd-d">--</div><div class="cd-unit">Días</div></div>
+        <div class="cd-block"><div class="cd-num" id="cd-h">--</div><div class="cd-unit">Horas</div></div>
+        <div class="cd-block"><div class="cd-num" id="cd-m">--</div><div class="cd-unit">Min</div></div>
+        <div class="cd-block"><div class="cd-num" id="cd-s">--</div><div class="cd-unit">Seg</div></div>
+      </div>
+    </div>
+
+    <!-- Waitlist -->
+    <div class="form-wrap">
+      <span class="form-label">Sé el primero en enterarte del lanzamiento</span>
+      <form class="form-row" id="waitForm">
+        <input type="email" id="waitEmail" placeholder="tu@empresa.com" required>
+        <button type="submit">Notificarme →</button>
+      </form>
+      <div class="form-success" id="waitSuccess">✓ ¡Listo! Te avisamos en cuanto abramos.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="index.html">NextGen OPEX Consulting™</a> · Todos los derechos reservados</p>
+  <p>NOC Academy™ es una división de NextGen OPEX Consulting</p>
+</footer>
+
+<script>
+  /* ── COUNTDOWN ── Meta: 1 Enero 2027 */
+  const target = new Date('2026-11-11T00:00:00');
+  function updateCD() {
+    const diff = target - new Date();
+    if (diff <= 0) {
+      ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00');
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000)  / 60000);
+    const s = Math.floor((diff % 60000)    / 1000);
+    document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  }
+  updateCD();
+  setInterval(updateCD, 1000);
+
+  /* ── WAITLIST FORM ── */
+  document.getElementById('waitForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('waitEmail').value;
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'e1a6b5f0-dca3-425f-b3db-64f437427fa3',
+          subject: 'Lista de espera NOC Academy™',
+          email,
+          from_name: 'NOC Academy Waitlist'
+        })
+      });
+    } catch(_) {}
+    this.style.display = 'none';
+    document.getElementById('waitSuccess').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
