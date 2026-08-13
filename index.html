@@ -197,249 +197,163 @@
        HERO
     ══════════════════════════════════════ */
     .hero {
-      background:
-        linear-gradient(130deg, rgba(10,22,70,0.91) 0%, rgba(22,50,130,0.86) 50%, rgba(18,70,140,0.80) 100%),
-        url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      padding: 92px 64px 80px;
       position: relative;
-      overflow: hidden;
-      min-height: 580px;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-glow-1 {
-      position: absolute;
-      top: -120px; right: -80px;
-      width: 650px; height: 650px;
-      background: radial-gradient(circle, rgba(109,190,69,.14) 0%, transparent 68%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-glow-2 {
-      position: absolute;
-      bottom: -100px; left: 40%;
-      width: 480px; height: 480px;
-      background: radial-gradient(circle, rgba(0,174,239,.09) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    /* Decorative grid lines */
-    .hero-grid {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-
-    .hero-content {
-      max-width: 700px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--verde);
-      margin-bottom: 22px;
-      background: rgba(109,190,69,.12);
-      border: 1px solid rgba(109,190,69,.3);
-      padding: 7px 16px;
-      border-radius: 20px;
-    }
-
-    .hero-eyebrow span { display: inline-block; width: 6px; height: 6px; background: var(--verde); border-radius: 50%; }
-
-    .hero h1 {
-      font-size: 46px;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.13;
-      margin-bottom: 24px;
-      letter-spacing: -0.5px;
-    }
-
-    .hero h1 em { color: var(--verde); font-style: normal; }
-
-    .hero-desc {
-      font-size: 17px;
-      color: rgba(255,255,255,.78);
-      margin-bottom: 38px;
-      max-width: 580px;
-      line-height: 1.75;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 52px;
-    }
-
-    .btn-green {
-      background: var(--verde);
-      color: #fff;
-      padding: 16px 36px;
-      border-radius: 5px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-      box-shadow: 0 6px 20px rgba(109,190,69,.35);
-      transition: all .2s;
-      display: inline-block;
-    }
-
-    .btn-green:hover {
-      background: #5aaa38;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(109,190,69,.45);
-    }
-
-    .btn-ghost {
-      border: 2px solid rgba(255,255,255,.45);
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 5px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      transition: all .2s;
-      display: inline-block;
-    }
-
-    .btn-ghost:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,.1);
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 48px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(255,255,255,.14);
-    }
-
-    .stat-number {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 34px;
-      font-weight: 900;
-      color: var(--verde);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: rgba(255,255,255,.58);
-      margin-top: 4px;
-    }
-
-    /* Floating KPI panel */
-    .hero-cards {
-      position: absolute;
-      right: 64px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 2;
+      width: 100%;
+      min-height: calc(100vh - 84px);
       display: flex;
       flex-direction: column;
-      gap: 0;
-      width: 300px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 60px 64px 140px;
     }
-
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(130deg, rgba(10,22,70,0.91) 0%, rgba(22,50,130,0.84) 50%, rgba(18,70,140,0.78) 100%),
+        url('planta despues.png') center 35% / cover no-repeat;
+      animation: hSlowZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes hSlowZoom { from { transform: scale(1.0); } to { transform: scale(1.05); } }
+    .hero-glow {
+      position: absolute; top: -10%; right: -5%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(109,190,69,0.11) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-topline {
+      position: absolute; top:0; left:0; right:0; height:3px;
+      background: linear-gradient(90deg, transparent 5%, var(--verde) 35%, var(--verde) 65%, transparent 95%);
+      opacity: 0; animation: hFadeIn 0.6s 0.2s forwards;
+    }
+    .hero-content {
+      position: relative; z-index: 2; width: 100%; max-width: 1100px;
+      display: flex; align-items: center; justify-content: space-between; gap: 48px;
+    }
+    .hero-left { flex: 1; min-width: 0; }
+    .hero-right {
+      flex-shrink: 0; display: flex; flex-direction: column; gap: 14px; align-items: flex-end;
+      opacity: 0; animation: hFadeUp 0.8s 1.0s forwards;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 16px; border: 1px solid rgba(109,190,69,0.35); border-radius: 50px;
+      font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--verde); margin-bottom: 20px;
+      opacity: 0; animation: hFadeUp 0.7s 0.4s forwards;
+    }
+    .hero-eyebrow span {
+      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--verde); box-shadow: 0 0 8px var(--verde);
+      animation: hPulse 2s infinite;
+    }
+    @keyframes hPulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.45; transform:scale(.7); } }
+    .hero h1 {
+      font-size: clamp(28px, 3.8vw, 50px);
+      font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 18px;
+      opacity: 0; animation: hFadeUp 0.8s 0.6s forwards;
+    }
+    .hero h1 em { color: var(--verde); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(12px, 1.1vw, 15px);
+      color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 460px;
+      opacity: 0; animation: hFadeUp 0.8s 0.8s forwards;
+    }
+    .logos-row {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 28px;
+      opacity: 0; animation: hFadeUp 0.8s 1.2s forwards;
+    }
+    .logo-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px; padding: 7px 13px;
+    }
+    .logo-chip img { height: 24px; width: auto; }
+    .logo-chip .chip-text { font-family: 'Poppins', sans-serif; font-size: 10px; color: rgba(255,255,255,0.52); line-height: 1.3; }
+    .logo-chip .chip-text strong { display:block; color: rgba(255,255,255,0.82); font-size: 10px; }
+    .btn-green {
+      background: var(--verde); color: #fff;
+      padding: 15px 32px; border-radius: 6px;
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
+      letter-spacing: 0.4px; box-shadow: 0 6px 24px rgba(109,190,69,.35);
+      transition: all .2s; display: inline-flex; align-items: center; gap: 9px; white-space: nowrap;
+    }
+    .btn-green:hover { background: #5aaa38; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(109,190,69,.5); }
+    .btn-ghost {
+      border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.8);
+      padding: 14px 32px; border-radius: 6px; font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 600; white-space: nowrap;
+      transition: border-color .2s, color .2s; display: inline-block;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.55); color: #fff; }
+    .stats-strip {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      display: flex; background: rgba(6,14,40,0.75); backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255,255,255,0.08); z-index: 3;
+      opacity: 0; animation: hFadeIn 0.8s 1.4s forwards;
+    }
+    .stat-item {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 18px 12px; border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(22px, 2.5vw, 32px); font-weight: 900; color: var(--verde); line-height: 1;
+    }
+    .stat-val.blue { color: #00AEEF; }
+    .stat-label {
+      font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 4px;
+      letter-spacing: 1px; text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+    }
+    .stat-delta { font-size: 9px; color: var(--verde); font-weight: 700; margin-top: 2px; font-family: 'Montserrat', sans-serif; }
+    .scroll-hint {
+      position: absolute; bottom: 76px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      opacity: 0; animation: hFadeIn 1s 1.8s forwards; z-index: 4;
+    }
+    .scroll-hint span {
+      font-family: 'Montserrat', sans-serif; font-size: 8px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.2);
+    }
+    .scroll-line {
+      width: 1px; height: 28px;
+      background: linear-gradient(to bottom, var(--verde), transparent);
+      animation: hScrollAnim 1.8s 2s infinite;
+    }
+    @keyframes hScrollAnim {
+      0%   { opacity:0; transform:scaleY(0); transform-origin:top; }
+      40%  { opacity:1; transform:scaleY(1); transform-origin:top; }
+      80%  { opacity:0; transform:scaleY(1); transform-origin:bottom; }
+      100% { opacity:0; }
+    }
+    @keyframes hFadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes hFadeIn  { from { opacity:0; } to { opacity:1; } }
     .hero-phrase-block {
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.14);
       backdrop-filter: blur(14px);
       border-radius: 12px;
-      padding: 22px 24px;
-      margin-bottom: 12px;
+      padding: 18px 22px;
+      width: 100%;
     }
-
     .hero-phrase-label {
       font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
-      font-weight: 700;
-      color: rgba(255,255,255,.45);
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      font-size: 9px; font-weight: 700;
+      color: rgba(255,255,255,.45); letter-spacing: 2.5px;
+      text-transform: uppercase; margin-bottom: 10px;
     }
-
     .hero-phrase-text {
       font-family: 'Montserrat', sans-serif;
-      font-size: 20px;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.35;
+      font-size: 18px; font-weight: 900; color: #fff; line-height: 1.35;
     }
-
-    .hero-phrase-text em {
-      color: var(--verde);
-      font-style: normal;
-    }
-
+    .hero-phrase-text em { color: var(--verde); font-style: normal; }
     .hero-phrase-text2 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: rgba(255,255,255,.9);
-      line-height: 1.5;
+      font-size: 14px; font-weight: 700; color: rgba(255,255,255,.9); line-height: 1.5;
     }
-
-    .hero-phrase-text2 em {
-      color: var(--azul-tec);
-      font-style: normal;
-    }
-
-    .hero-kpis-row {
-      display: flex;
-      gap: 8px;
-    }
-
-    .kpi-card {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.2);
-      backdrop-filter: blur(12px);
-      border-radius: 10px;
-      padding: 12px 10px;
-      flex: 1;
-      text-align: center;
-    }
-
-    .kpi-label {
-      font-size: 9px;
-      color: rgba(255,255,255,.6);
-      font-family: 'Montserrat', sans-serif;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .kpi-value {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--verde);
-    }
-
-    .kpi-sub {
-      font-size: 9px;
-      color: rgba(255,255,255,.5);
-      margin-top: 2px;
-    }
+    .hero-phrase-text2 em { color: #00AEEF; font-style: normal; }
 
     /* ══════════════════════════════════════
        SECTION COMMONS
@@ -1587,9 +1501,8 @@
        RESPONSIVE — TABLET (max 1100px)
     ══════════════════════════════════════ */
     @media (max-width: 1100px) {
-      .hero-cards { display: none; }
-      .hero h1 { font-size: 40px; }
-      .hero { padding: 80px 40px 70px; }
+      .hero { padding: 60px 40px 140px; }
+      .hero-right { flex-direction: row; align-items: center; justify-content: flex-start; }
       .section { padding: 72px 40px; }
       .trilogia { padding: 72px 40px; }
       .problemas-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1649,12 +1562,13 @@
         padding: 52px 20px 48px;
         min-height: auto;
       }
-      .hero h1 { font-size: 28px; line-height: 1.25; }
-      .hero-desc { font-size: 14px; }
-      .hero-ctas { flex-direction: column; gap: 12px; }
-      .hero-ctas a { text-align: center; }
-      .hero-stats { flex-direction: column; gap: 14px; }
-      .hero-cards { display: none !important; }
+      .hero { padding: 40px 20px 130px; min-height: auto; }
+      .hero-content { flex-direction: column; gap: 28px; }
+      .hero-right { flex-direction: column; align-items: stretch; width: 100%; }
+      .hero-right a { text-align: center; justify-content: center; }
+      .logos-row { gap: 10px; }
+      .stat-item { padding: 14px 8px; }
+      .scroll-hint { display: none; }
 
       /* SECTIONS */
       .section { padding: 52px 20px; }
@@ -1753,91 +1667,99 @@
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" id="hero">
-  <div class="hero-glow-1"></div>
-  <div class="hero-glow-2"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-topline"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span></span>
-      Consultoría en Excelencia Operacional · PyMEs Manufactureras
+    <!-- Izquierda: headline + desc + logos -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span></span>
+        Consultoría en Excelencia Operacional · PyMEs Manufactureras
+      </div>
+      <h1>Recupera el control<br>de tu <em>operación</em>.<br>Construye una empresa<br>que crezca <em>con estructura</em>.</h1>
+      <p class="hero-desc">
+        Transformamos empresas manufactureras reactivas en organizaciones disciplinadas,
+        rentables y menos dependientes de sus dueños. Metodología propia. Resultados medibles.
+      </p>
+      <div class="logos-row">
+        <div class="logo-chip">
+          <img src="NOS logo sf.png" alt="NOS™">
+          <span class="chip-text"><strong>Sistema NOS™</strong>Transformación Operacional</span>
+        </div>
+        <div class="logo-chip">
+          <img src="NOMI logo sf.png" alt="NOMI™">
+          <span class="chip-text"><strong>Diagnóstico NOMI™</strong>Evaluación de Madurez</span>
+        </div>
+        <div class="logo-chip">
+          <img src="Logo PCA sf.png" alt="PCA™">
+          <span class="chip-text"><strong>Método PCA™</strong>Pensamiento Crítico Aplicado</span>
+        </div>
+      </div>
     </div>
 
-    <h1>Recupera el control<br>de tu <em>operación</em>.<br>Construye una empresa<br>que crezca <em>con estructura</em>.</h1>
+    <!-- Derecha: frases + botones -->
+    <div class="hero-right">
 
-    <p class="hero-desc">
-      Transformamos empresas manufactureras reactivas en organizaciones disciplinadas,
-      rentables y menos dependientes de sus dueños. Metodología propia. Resultados medibles.
-    </p>
-
-    <div class="hero-ctas">
-      <a href="#contacto" class="btn-green">Solicitar Diagnóstico Sin Costo →</a>
-      <a href="#metodologia" class="btn-ghost">Conocer la Metodología</a>
-    </div>
-
-    <div class="hero-stats">
-      <div style="display:flex; align-items:center; gap:14px;">
-        <div style="background:rgba(255,255,255,0.96); border-radius:8px; padding:7px 14px; display:flex; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,.2);">
-          <img src="NOS logo sf.png" alt="NOS™" style="height:32px; width:auto;">
+      <!-- Nuestra Filosofía -->
+      <div class="hero-phrase-block">
+        <div class="hero-phrase-label">Nuestra Filosofía</div>
+        <div class="hero-phrase-text">
+          Pensar Mejor.<br>
+          <em>Liderar Mejor.</em><br>
+          Operar Mejor.
         </div>
-        <div class="stat-label">Sistema de Transformación<br>Operacional Propietario</div>
       </div>
-      <div style="display:flex; align-items:center; gap:14px;">
-        <div style="background:rgba(255,255,255,0.96); border-radius:8px; padding:7px 14px; display:flex; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,.2);">
-          <img src="NOMI logo sf.png" alt="NOMI™" style="height:32px; width:auto;">
+
+      <!-- Nuestro Compromiso -->
+      <div class="hero-phrase-block">
+        <div class="hero-phrase-label">Nuestro Compromiso</div>
+        <div class="hero-phrase-text2">
+          <em>Transformamos operaciones.</em><br>
+          Generamos resultados.
         </div>
-        <div class="stat-label">Evaluación de Madurez<br>en 6 Dimensiones</div>
       </div>
-      <div style="display:flex; align-items:center; gap:14px;">
-        <div style="background:rgba(255,255,255,0.96); border-radius:8px; padding:7px 14px; display:flex; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,.2);">
-          <img src="Logo PCA sf.png" alt="PCA™" style="height:32px; width:auto;">
-        </div>
-        <div class="stat-label">Pensamiento Crítico<br>Aumentado</div>
+
+      <!-- Botones (con separación) -->
+      <div style="display:flex; flex-direction:column; gap:14px; margin-top:10px; align-items:flex-end;">
+        <a href="#contacto" class="btn-green">
+          Solicitar Diagnóstico Sin Costo
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#metodologia" class="btn-ghost">Conocer la Metodología</a>
       </div>
     </div>
   </div>
 
-  <!-- Hero right panel -->
-  <div class="hero-cards">
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
 
-    <!-- Frase 1 -->
-    <div class="hero-phrase-block">
-      <div class="hero-phrase-label">Nuestra Filosofía</div>
-      <div class="hero-phrase-text">
-        Pensar Mejor.<br>
-        <em>Liderar Mejor.</em><br>
-        Operar Mejor.
-      </div>
+  <!-- Stats strip animado -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-val" id="h-s1">0%</div>
+      <div class="stat-label">Productividad OEE</div>
+      <div class="stat-delta">↑ Promedio en 90 días</div>
     </div>
-
-    <!-- Frase 2 -->
-    <div class="hero-phrase-block">
-      <div class="hero-phrase-label">Nuestro Compromiso</div>
-      <div class="hero-phrase-text2">
-        <em>Transformamos operaciones.</em><br>
-        Generamos resultados.
-      </div>
+    <div class="stat-item">
+      <div class="stat-val" id="h-s2">0%</div>
+      <div class="stat-label">Reducción de Scrap</div>
+      <div class="stat-delta">↓ Retrabajos eliminados</div>
     </div>
-
-    <!-- KPIs en fila -->
-    <div class="hero-kpis-row">
-      <div class="kpi-card">
-        <div class="kpi-label">Productividad</div>
-        <div class="kpi-value">+35%</div>
-        <div class="kpi-sub">Mejora operacional</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Desperdicios</div>
-        <div class="kpi-value">−40%</div>
-        <div class="kpi-sub">Scrap y retrabajos</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">OTD</div>
-        <div class="kpi-value">+90%</div>
-        <div class="kpi-sub">On-time delivery</div>
-      </div>
+    <div class="stat-item">
+      <div class="stat-val blue" id="h-s3">0%</div>
+      <div class="stat-label">Entregas a Tiempo</div>
+      <div class="stat-delta">↑ OTIF promedio NOS™</div>
     </div>
-
+    <div class="stat-item">
+      <div class="stat-val" id="h-s4">0%</div>
+      <div class="stat-label">Dependencia del Dueño</div>
+      <div class="stat-delta">✓ Autonomía operativa</div>
+    </div>
   </div>
 </section>
 
@@ -3895,6 +3817,27 @@ function toggleFaq(btn) {
     }
   ]
 }
+</script>
+
+<script>
+  /* Contadores animados del hero strip */
+  function hCounter(id, target, prefix, suffix, duration) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    let cur = 0;
+    const step = target / (duration / 16);
+    const t = setInterval(() => {
+      cur += step;
+      if (cur >= target) { cur = target; clearInterval(t); }
+      el.textContent = prefix + Math.round(cur) + suffix;
+    }, 16);
+  }
+  setTimeout(() => {
+    hCounter('h-s1', 35, '+', '%', 1400);
+    hCounter('h-s2', 40, '−', '%', 1400);
+    hCounter('h-s3', 90, '+', '%', 1400);
+    hCounter('h-s4', 70, '−', '%', 1400);
+  }, 1500);
 </script>
 
 </body>
