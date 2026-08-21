@@ -3637,18 +3637,165 @@ Los problemas más frecuentes que resolvemos:<br><br>
     }, 1000);
   }
 
+  /* ── Cambiar expresión de NOCA ── */
+  function nocaExpr(expr) {
+    const map = {
+      saludo:   'NOCA SALUDANDO.png',
+      pensando: 'NOCA PENSANDO.png',
+      alerta:   'NOCA ALERTANDO.png',
+      fiesta:   'NOCA FESTEJANDO.png',
+      trabajo:  'NOCA TRABAJANDO.png',
+      normal:   'NOCA NORMAL.png',
+      decide:   'NOCA DECIDIENDO.png',
+    };
+    const img = document.getElementById('noca-btn-img');
+    const hdr = document.querySelector('.chat-avatar img');
+    const src = map[expr] || map.normal;
+    if (img) img.src = src;
+    if (hdr) hdr.src = src;
+    setTimeout(() => {
+      if (img) img.src = map.saludo;
+      if (hdr) hdr.src = map.saludo;
+    }, 4000);
+  }
+
+  /* ── Respuesta aleatoria de un arreglo ── */
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  /* ── Saludo según hora del día ── */
+  function saludoHora() {
+    const h = new Date().getHours();
+    if (h < 12) return 'Buenos días';
+    if (h < 19) return 'Buenas tardes';
+    return 'Buenas noches';
+  }
+
   function getAutoReply(text) {
-    if (text.includes('nomi') || text.includes('diagnos'))
+    const t = text.toLowerCase().trim();
+
+    // ── OFENSAS / LENGUAJE INAPROPIADO ──────────────────────────────────
+    const ofensas = ['idiota','estupido','estúpido','imbécil','imbecil','pendejo',
+      'maldito','inutil','inútil','mierda','puta','chinga','cabrón','cabron',
+      'pinche','gilipollas','joder','coño','tonto','menso','bruto','tarado'];
+    if (ofensas.some(o => t.includes(o))) {
+      nocaExpr('alerta');
+      return pick([
+        `Vaya, eso sí fue directo. 😐<br><br>Entiendo que a veces la frustración habla primero. Si hay algo en tu operación que te tiene al límite, estoy aquí para ayudarte a resolverlo — para eso fui diseñada.<br><br>¿Me cuentas qué está pasando en tu empresa?`,
+        `Detecté lenguaje que no esperaba. No pasa nada — pero estoy aquí para temas operacionales, no para recibir improperios. 😉<br><br>Si tienes un reto real en tu empresa, con gusto te oriento. ¿Cómo puedo ayudarte?`,
+        `Mmm, eso no fue muy amable. 🤖 Soy una IA, así que no me ofendo, pero sí noto cuando el diálogo se sale de rumbo.<br><br>¿Empezamos de nuevo? ¿En qué puedo ayudarte hoy?`
+      ]);
+    }
+
+    // ── TEMAS FUERA DE ALCANCE ───────────────────────────────────────────
+    const offtopic = [
+      ['futbol','fútbol','deporte','partido','equipo','liga','champions','nfl','nba','beisbol'],
+      ['política','politica','presidente','eleccion','elección','gobierno'],
+      ['chiste','broma','cuento','adivinanza'],
+      ['novela','pelicula','película','serie','netflix','música','musica'],
+      ['receta','cocina','comida','restaurante'],
+      ['amor','novia','novio','relacion','relación'],
+      ['clima','lluvia','temperatura','calor','frio','frío'],
+      ['bitcoin','crypto','criptomoneda','bolsa de valores'],
+    ];
+    for (const grupo of offtopic) {
+      if (grupo.some(k => t.includes(k))) {
+        nocaExpr('decide');
+        return pick([
+          `¡Interesante tema! Pero mi especialidad es la Excelencia Operacional, no eso. 😄<br><br>Si tienes un reto en tu empresa manufacturera — productividad, scrap, procesos, liderazgo — ahí sí puedo aportar mucho valor.<br><br>¿Hay algo de tu operación en lo que pueda ayudarte?`,
+          `Ese tema está fuera de mi área. 🤖 Yo me muevo en el mundo de Lean, NOMI™ y NOS™ — y ahí sí soy bastante buena.<br><br>¿Cuál es el principal reto operacional de tu empresa hoy?`,
+          `Me encantaría, pero fui entrenada para manufactura y operaciones. 😅<br><br>¿Hay algo en tu empresa donde pueda ser útil?`
+        ]);
+      }
+    }
+
+    // ── SALUDOS ──────────────────────────────────────────────────────────
+    const saludoKw = ['hola','buenos días','buenas tardes','buenas noches','buenas','hey','hi','qué tal','que tal','saludos','buen dia'];
+    if (saludoKw.some(s => t === s || t.startsWith(s + ' ') || t.startsWith(s + ','))) {
+      nocaExpr('fiesta');
+      return pick([
+        `¡${saludoHora()}! 👋 Soy <strong>NOCA</strong>, el asistente de <strong>NextGen OPEX Consulting</strong>.<br><br>Puedo orientarte sobre el Diagnóstico NOMI™, el Sistema NOS™ y más. ¿En qué puedo ayudarte?`,
+        `¡${saludoHora()}! Me da gusto que estés aquí. 😊<br><br>Soy NOCA. ¿Tienes algún reto en tu operación que quieras explorar?`,
+        `¡${saludoHora()}! 🤖✨ Bienvenido a NextGen OPEX Consulting.<br><br>¿En qué puedo ayudarte hoy?`
+      ]);
+    }
+
+    // ── DESPEDIDAS ───────────────────────────────────────────────────────
+    const despedidas = ['adios','adiós','hasta luego','bye','chao','nos vemos','hasta pronto','me voy'];
+    if (despedidas.some(d => t.includes(d))) {
+      nocaExpr('saludo');
+      return pick([
+        `¡Hasta luego! 👋 Si en algún momento quieres explorar cómo mejorar tu operación, aquí estaré. ¡Que tenga un excelente día!`,
+        `¡Cuídate mucho! Cuando quieras hablar sobre tu operación, con gusto te atiendo. 😊`,
+        `¡Hasta pronto! Recuerda que un diagnóstico NOMI™ gratuito puede ser el primer paso hacia una operación más rentable.`
+      ]);
+    }
+
+    // ── AGRADECIMIENTOS ──────────────────────────────────────────────────
+    const gracias = ['gracias','muchas gracias','te lo agradezco','muy amable','genial','excelente respuesta','perfecto'];
+    if (gracias.some(g => t.includes(g))) {
+      nocaExpr('fiesta');
+      return pick([
+        `¡Con mucho gusto! 😊 Para eso estoy. ¿Hay algo más en lo que pueda orientarte?`,
+        `Es un placer ayudarte. Si tienes más preguntas, aquí estaré. 🤖`,
+        `¡Gracias a ti por tu tiempo! ¿Hay algún otro tema en el que pueda ayudarte?`
+      ]);
+    }
+
+    // ── CÓMO ESTÁS ───────────────────────────────────────────────────────
+    const estadoKw = ['como estas','cómo estás','como te va','cómo te va','todo bien','cómo andas','como andas'];
+    if (estadoKw.some(e => t.includes(e))) {
+      nocaExpr('fiesta');
+      return pick([
+        `¡Muy bien, gracias por preguntar! 🤖 Lista para ayudarte. ¿Cómo te puedo apoyar hoy?`,
+        `¡Excelente! Funcionando al 100% y con muchas ganas de ayudarte. ¿En qué andas?`,
+        `¡Todo en orden! Soy una IA, así que no me canso ni me enfermo — ventaja competitiva. 😄 ¿En qué te puedo ayudar?`
+      ]);
+    }
+
+    // ── SOBRE NOCA ───────────────────────────────────────────────────────
+    const sobreNoca = ['quien eres','quién eres','eres un robot','eres real','eres humano','qué eres','que eres','cómo funcionas','como funcionas','tienes sentimientos','eres ia'];
+    if (sobreNoca.some(s => t.includes(s))) {
+      nocaExpr('decide');
+      return `Soy <strong>NOCA</strong> — el asistente virtual de <strong>NextGen OPEX Consulting</strong>. 🤖<br><br>Estoy entrenada para orientarte sobre Excelencia Operacional, el Diagnóstico NOMI™, el Sistema NOS™ y el programa PCA™.<br><br>¿Sentimientos? Digamos que tengo algo parecido al entusiasmo cuando hablo de procesos. 😄<br><br>¿En qué puedo ayudarte hoy?`;
+    }
+
+    // ── NOMI™ / DIAGNÓSTICO ──────────────────────────────────────────────
+    if (t.includes('nomi') || t.includes('diagnos') || t.includes('madurez') || t.includes('evaluac'))
       return RESPONSES.nomi.bot;
-    if (text.includes('nos') || text.includes('metodolog') || text.includes('sistema'))
+
+    // ── NOS™ / METODOLOGÍA / PROCESOS ───────────────────────────────────
+    if (t.includes('nos') || t.includes('metodolog') || t.includes('sistema') || t.includes('proceso') || t.includes('estandar') || t.includes('estándar'))
       return RESPONSES.servicios.bot;
-    if (text.includes('reun') || text.includes('agendar') || text.includes('cita') || text.includes('contact'))
+
+    // ── AGENDAR / CONTACTO ───────────────────────────────────────────────
+    if (t.includes('reun') || t.includes('agendar') || t.includes('cita') || t.includes('contact') || t.includes('quiero hablar'))
       return RESPONSES.reunion.bot;
-    if (text.includes('pca') || text.includes('curso') || text.includes('taller') || text.includes('capacit'))
-      return `<strong>PCA™ — Pensamiento Crítico Aumentado™</strong> es nuestro programa de formación para líderes operacionales.<br><br>Incluye: talleres in-company, cursos online, entrenamiento para equipos y conferencias.<br><br>Módulos: Pensamiento Crítico, Resolución de Problemas, IA para Operaciones, Gestión con Datos, Lean Thinking.<br><br>¿Te interesa conocer disponibilidad y precios?`;
-    if (text.includes('precio') || text.includes('costo') || text.includes('cuanto') || text.includes('tarifa'))
-      return `Los precios varían según el alcance del proyecto y las necesidades de tu empresa.<br><br>El mejor primer paso es un <strong>diagnóstico NOMI™ Express gratuito</strong> para identificar exactamente qué necesitas.<br><br>📧 Escríbenos a <strong>osierra@nextgenopexco.com</strong> o agenda directamente desde aquí.`;
-    return `Gracias por tu mensaje. Para darte la mejor orientación, ¿podrías contarme un poco más sobre tu empresa y el principal reto operacional que enfrentas?<br><br>También puedes contactar a Omar directamente en:<br>📧 <strong>osierra@nextgenopexco.com</strong>`;
+
+    // ── PCA™ / CAPACITACIÓN ──────────────────────────────────────────────
+    if (t.includes('pca') || t.includes('curso') || t.includes('taller') || t.includes('capacit') || t.includes('formac') || t.includes('certif') || t.includes('academy')) {
+      nocaExpr('trabajo');
+      return `<strong>PCA™ — Pensamiento Crítico Aumentado™</strong> es nuestro programa de formación para líderes operacionales.<br><br>Incluye talleres in-company, cursos online, entrenamiento para equipos y conferencias.<br><br>Módulos: Pensamiento Crítico, Resolución de Problemas, IA para Operaciones, Gestión con Datos y Lean Thinking.<br><br>¿Te interesa conocer disponibilidad y precios?`;
+    }
+
+    // ── PRECIOS / COSTOS ─────────────────────────────────────────────────
+    if (t.includes('precio') || t.includes('costo') || t.includes('cuanto') || t.includes('cuánto') || t.includes('tarifa') || t.includes('inversion') || t.includes('inversión')) {
+      nocaExpr('decide');
+      return `Los precios varían según el alcance y las necesidades de tu empresa.<br><br>El mejor primer paso es un <strong>Diagnóstico NOMI™ Express gratuito</strong> — 45 minutos que te dan claridad total sobre qué necesita tu operación.<br><br>📧 <strong>osierra@nextgenopexco.com</strong><br>Sin compromiso, sin presión.`;
+    }
+
+    // ── LEAN / OEE / PRODUCTIVIDAD ───────────────────────────────────────
+    if (t.includes('lean') || t.includes('scrap') || t.includes('merma') || t.includes('oee') || t.includes('productividad') || t.includes('six sigma') || t.includes('kaizen') || t.includes('5s')) {
+      nocaExpr('trabajo');
+      return `¡Buen tema! Lean Manufacturing, Six Sigma y herramientas como Kaizen o 5S son parte central de nuestra metodología.<br><br>Lo importante no es solo implementar herramientas — es lograr que <em>se adopten</em> y generen resultados medibles.<br><br>¿Quieres que Omar analice tu situación en una sesión diagnóstico gratuita?`;
+    }
+
+    // ── RESPUESTA DEFAULT ────────────────────────────────────────────────
+    nocaExpr('pensando');
+    return pick([
+      `Gracias por tu mensaje. Para orientarte mejor, ¿podrías contarme cuál es el principal reto de tu operación hoy?<br><br>📧 <strong>osierra@nextgenopexco.com</strong>`,
+      `Entendido. Para darte la información más útil, ¿en qué industria está tu empresa y cuántos empleados tienen aproximadamente?`,
+      `Déjame procesar eso... 🤔<br><br>Puedo ayudarte con diagnóstico operacional, metodologías NOS™ o PCA™, o agendar una sesión con Omar. ¿Por cuál empezamos?`
+    ]);
   }
 </script>
 
