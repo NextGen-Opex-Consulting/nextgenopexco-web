@@ -948,18 +948,24 @@ function renderRes(scores,avg,nc,nt){
 const _IMGS={};
 async function preloadImgs(){
   const targets={
-    noc:'NextGen OPEX Consulting logo design sin fondo.png',
-    nomi:'NOMI logo sf.png'
+    noc:'NextGen-OPEX-Consulting-Logo-byn2sf.png',
+    nomi:'nomi-logo-byn.png'
   };
+  const MAX_W={noc:400,nomi:500};
   await Promise.all(Object.entries(targets).map(([k,url])=>
-    fetch(url).then(r=>r.blob()).then(b=>new Promise(res=>{
-      const fr=new FileReader();fr.onload=e=>{_IMGS[k]=e.target.result;res();};fr.onerror=()=>res();fr.readAsDataURL(b);
-    })).catch(()=>{
-      return new Promise(res=>{
-        const img=new Image();img.crossOrigin='anonymous';
-        img.onload=()=>{const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext('2d').drawImage(img,0,0);try{_IMGS[k]=c.toDataURL('image/png');}catch(e){}res();};
-        img.onerror=()=>res();img.src=url;
-      });
+    new Promise(res=>{
+      const img=new Image();
+      img.onload=()=>{
+        const mw=MAX_W[k]||400;
+        const scale=Math.min(1,mw/img.naturalWidth);
+        const c=document.createElement('canvas');
+        c.width=Math.round(img.naturalWidth*scale);
+        c.height=Math.round(img.naturalHeight*scale);
+        c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+        try{_IMGS[k]=c.toDataURL('image/png');}catch(e){}res();
+      };
+      img.onerror=()=>res();
+      img.src=url;
     })
   ));
 }
