@@ -590,12 +590,12 @@ const TV=[
 ];
 
 const LEVELS=[
-  {n:1,name:'Caótico',   color:'#C0392B',desc:'Operación completamente reactiva. Sin estándares ni visibilidad real.'},
-  {n:2,name:'Reactivo',  color:'#D85A30',desc:'Se resuelven problemas sin prevención. Las urgencias son el modo normal.'},
-  {n:3,name:'Estable',   color:'#BA7517',desc:'Procesos básicos documentados. Alta dependencia del esfuerzo individual.'},
-  {n:4,name:'Controlado',color:'#2A7A3A',desc:'KPIs monitoreados, estándares activos y mejoras sostenidas.'},
-  {n:5,name:'Optimizado',color:'#1A4B8C',desc:'Operación predecible, digitalización avanzada, mejora continua institucional.'},
-  {n:6,name:'Inteligente',color:'#4A2E8C',desc:'IA integrada, operación autónoma y escalable. Referente de clase mundial.'}
+  {n:1,name:'Caótico',            color:'#C0392B',desc:'No existe un sistema. La operación depende de la reacción y el heroísmo.'},
+  {n:2,name:'Reactivo',           color:'#D85A30',desc:'Se actúa ante los problemas. No hay control ni previsión consistente.'},
+  {n:3,name:'Control Básico',     color:'#BA7517',desc:'Existen procesos e indicadores básicos, pero no son consistentes.'},
+  {n:4,name:'Gestión Controlada', color:'#2A7A3A',desc:'La operación es estable y gestionada mediante datos y disciplina.'},
+  {n:5,name:'Optimizado',         color:'#1A4B8C',desc:'Mejora continua, tecnología y análisis para optimizar el desempeño.'},
+  {n:6,name:'World Class / Autónomo',color:'#4A2E8C',desc:'Inteligencia operacional, automatización avanzada y aprendizaje continuo.'}
 ];
 
 const PRIO=[
@@ -713,123 +713,49 @@ async function enviarEmail(scores,nc,nt){
   const sorted=[...scores.map((s,i)=>({s,i}))].sort((a,b)=>a.s-b.s).slice(0,3);
   const PRIO_LVL=(s,i)=>{const lvl=s<2?0:s<4?1:2;return PRIO[i][lvl];};
 
-  const dimRows=BLOCKS.map((b,i)=>`
-    <tr>
-      <td style="padding:8px 12px;font-family:Arial,sans-serif;font-size:13px;color:#1A2340;">${b.ico} ${b.title}</td>
-      <td style="padding:8px 12px;text-align:center;">
-        <span style="display:inline-block;background:${scores[i]<2?'#C0392B':scores[i]<3?'#D85A30':scores[i]<4?'#BA7517':scores[i]<5?'#2A7A3A':'#1A4B8C'};color:#fff;padding:3px 10px;border-radius:99px;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;">${scores[i].toFixed(1)}/5.0</span>
-      </td>
-    </tr>`).join('');
+  const dimScores=BLOCKS.map((b,i)=>`${b.title}: ${scores[i].toFixed(1)}/5.0`).join('\n');
+  const prioTxt=sorted.map(({s,i})=>`• ${BLOCKS[i].title} (${scores[i].toFixed(1)}/5) → ${PRIO_LVL(s,i)}`).join('\n');
+  const tvTxt=TV.map((tv,i)=>`${tv.lbl}: ${tv.opts[(TVANS[i]||1)-1]}`).join('\n');
 
-  const prioRows=sorted.map(({s,i})=>`
-    <tr>
-      <td style="padding:8px 12px;font-family:Arial,sans-serif;font-size:13px;color:#1A2340;border-left:4px solid #6DBE45;">
-        <strong>${BLOCKS[i].title}</strong> — ${PRIO_LVL(s,i)}
-      </td>
-    </tr>`).join('');
+  const mensaje=`🏭 NUEVO LEAD — NOMI Express™
+${'═'.repeat(50)}
 
-  const tvRows=TV.map((tv,i)=>`
-    <tr>
-      <td style="padding:5px 12px;font-family:Arial,sans-serif;font-size:12px;color:#4B5563;">${tv.lbl}</td>
-      <td style="padding:5px 12px;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1E3A8A;">${tv.opts[(TVANS[i]||1)-1]}</td>
-    </tr>`).join('');
+DATOS DE CONTACTO
+Nombre:    ${R.nom}
+Cargo:     ${R.cargo||'—'}
+Empresa:   ${R.emp}
+Correo:    ${R.cor}
+Teléfono:  ${R.tel||'—'}
+Industria: ${R.ind}
+Tamaño:    ${R.ems}
 
-  const html=`
-<!DOCTYPE html><html><body style="margin:0;padding:0;background:#F4F7FA;font-family:Arial,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 16px;">
-<table width="620" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(30,58,138,.12);">
+${'─'.repeat(50)}
+RESULTADO NOMI™
+${'─'.repeat(50)}
+NOMI CURRENT → Nivel ${nc} — ${lc.name}
+NOMI TARGET  → Nivel ${nt} — ${lt.name}
+Brecha:         ${R.gap} niveles
+Score operacional: ${R.pct}%
+Horizonte recomendado: ${R.hor}
 
-  <!-- HEADER -->
-  <tr><td style="background:linear-gradient(90deg,#1E3A8A,#2E76E0);padding:28px 32px;">
-    <p style="margin:0;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);">NOMI Express™ — Diagnóstico completado</p>
-    <h1 style="margin:8px 0 4px;font-size:22px;color:#fff;">Nuevo lead: ${R.nom}</h1>
-    <p style="margin:0;font-size:14px;color:rgba(255,255,255,.75);">${R.emp} · ${R.ind} · ${R.ems}</p>
-  </td></tr>
+${'─'.repeat(50)}
+SCORES POR DIMENSIÓN
+${'─'.repeat(50)}
+${dimScores}
 
-  <!-- CONTACTO -->
-  <tr><td style="background:#0f2060;padding:14px 32px;">
-    <table width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td style="font-size:12px;color:rgba(255,255,255,.7);">📧 <a href="mailto:${R.cor}" style="color:#6DBE45;">${R.cor}</a></td>
-      <td style="font-size:12px;color:rgba(255,255,255,.7);">${R.tel?'📞 '+R.tel:''}</td>
-      <td style="font-size:12px;color:rgba(255,255,255,.7);">${R.cargo?'💼 '+R.cargo:''}</td>
-    </tr></table>
-  </td></tr>
+${'─'.repeat(50)}
+TOP 3 PRIORIDADES DE TRANSFORMACIÓN
+${'─'.repeat(50)}
+${prioTxt}
 
-  <!-- NIVELES -->
-  <tr><td style="padding:28px 32px 12px;">
-    <table width="100%" cellpadding="0" cellspacing="0">
-      <tr>
-        <td width="46%" style="background:${lc.color};border-radius:10px;padding:16px;text-align:center;">
-          <p style="margin:0 0 4px;font-size:9px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);">NOMI CURRENT</p>
-          <p style="margin:0;font-size:18px;font-weight:bold;color:#fff;">Nivel ${nc} — ${lc.name}</p>
-          <p style="margin:6px 0 0;font-size:11px;color:rgba(255,255,255,.75);">${lc.desc}</p>
-        </td>
-        <td width="8%" style="text-align:center;font-size:22px;color:#ccc;">→</td>
-        <td width="46%" style="background:${lt.color};border-radius:10px;padding:16px;text-align:center;">
-          <p style="margin:0 0 4px;font-size:9px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);">NOMI TARGET</p>
-          <p style="margin:0;font-size:18px;font-weight:bold;color:#fff;">Nivel ${nt} — ${lt.name}</p>
-          <p style="margin:6px 0 0;font-size:11px;color:rgba(255,255,255,.75);">${lt.desc}</p>
-        </td>
-      </tr>
-    </table>
-    <!-- KPIs -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
-      <tr>
-        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
-          <p style="margin:0;font-size:22px;font-weight:bold;color:${lc.color};">${nc}/6</p>
-          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Current</p>
-        </td>
-        <td width="10"></td>
-        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
-          <p style="margin:0;font-size:22px;font-weight:bold;color:${lt.color};">${nt}/6</p>
-          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Target</p>
-        </td>
-        <td width="10"></td>
-        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
-          <p style="margin:0;font-size:22px;font-weight:bold;color:#6DBE45;">${R.gap}</p>
-          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Brecha</p>
-        </td>
-        <td width="10"></td>
-        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
-          <p style="margin:0;font-size:22px;font-weight:bold;color:#1E3A8A;">${R.pct}%</p>
-          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Score</p>
-        </td>
-        <td width="10"></td>
-        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
-          <p style="margin:0;font-size:14px;font-weight:bold;color:#1E3A8A;">${R.hor}</p>
-          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Horizonte</p>
-        </td>
-      </tr>
-    </table>
-  </td></tr>
+${'─'.repeat(50)}
+VARIABLES ESTRATÉGICAS NOMI TARGET
+${'─'.repeat(50)}
+${tvTxt}
 
-  <!-- SCORES POR DIMENSIÓN -->
-  <tr><td style="padding:8px 32px 4px;">
-    <p style="font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#1E3A8A;border-bottom:2px solid #E8EDF4;padding-bottom:8px;margin-bottom:0;">Scores por dimensión</p>
-    <table width="100%" cellpadding="0" cellspacing="0">${dimRows}</table>
-  </td></tr>
-
-  <!-- PRIORIDADES -->
-  <tr><td style="padding:16px 32px 4px;">
-    <p style="font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#1E3A8A;border-bottom:2px solid #E8EDF4;padding-bottom:8px;margin-bottom:0;">Top 3 prioridades de transformación</p>
-    <table width="100%" cellpadding="0" cellspacing="0">${prioRows}</table>
-  </td></tr>
-
-  <!-- VARIABLES TV -->
-  <tr><td style="padding:16px 32px 4px;">
-    <p style="font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#1E3A8A;border-bottom:2px solid #E8EDF4;padding-bottom:8px;margin-bottom:0;">Variables estratégicas NOMI Target</p>
-    <table width="100%" cellpadding="0" cellspacing="0">${tvRows}</table>
-  </td></tr>
-
-  <!-- FOOTER -->
-  <tr><td style="background:#0f2060;padding:20px 32px;margin-top:24px;">
-    <p style="margin:0;font-size:12px;color:rgba(255,255,255,.6);">NextGen OPEX Consulting™ · <a href="https://nextgenopexco.com" style="color:#6DBE45;">nextgenopexco.com</a> · <a href="mailto:contacto@nextgenopexco.com" style="color:#6DBE45;">contacto@nextgenopexco.com</a></p>
-    <p style="margin:6px 0 0;font-size:11px;color:rgba(255,255,255,.4);">Este correo fue generado automáticamente por NOMI Express™.</p>
-  </td></tr>
-
-</table>
-</td></tr></table>
-</body></html>`;
+${'═'.repeat(50)}
+NextGen OPEX Consulting™
+contacto@nextgenopexco.com | nextgenopexco.com`;
 
   await fetch('https://api.web3forms.com/submit',{
     method:'POST',
@@ -840,8 +766,7 @@ async function enviarEmail(scores,nc,nt){
       from_name:'NOMI Express™ — NextGen OPEX',
       name:R.nom,
       email:R.cor,
-      message:html,
-      is_html:true,
+      message:mensaje,
       replyto:R.cor
     })
   });
