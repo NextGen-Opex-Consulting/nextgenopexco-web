@@ -187,6 +187,8 @@
     .q-opt input:checked+label{border-color:var(--azul);background:var(--azul);color:#fff;}
     .q-opt label:hover:not(.checked){border-color:var(--azul-tec);background:rgba(0,174,239,.07);}
     .q-scale-labels{display:flex;justify-content:space-between;margin-top:5px;font-size:9.5px;color:#9CA3AF;font-style:italic;padding:0 2px;}
+    .q-desc{display:none;font-size:11.5px;color:var(--azul);background:rgba(30,58,138,.06);border-left:3px solid var(--azul);border-radius:0 6px 6px 0;padding:8px 12px;margin-top:8px;line-height:1.55;}
+    .q-desc.visible{display:block;}
 
     /* ══ TV ══ */
     .tv-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
@@ -493,81 +495,81 @@
 /* ═══════════════════════ DATA ═══════════════════════ */
 const BLOCKS=[
   {id:'proc',ico:'⚙️',color:'#1E3A8A',bg:'#EBF3FF',title:'Procesos',qs:[
-    '¿Los procesos clave están documentados?',
-    '¿Existen instrucciones claras por cada operación?',
-    '¿Los procesos se siguen de forma consistente?',
-    '¿Los procesos se actualizan regularmente?',
-    '¿Se eliminan actividades que no generan valor?',
-    '¿Existe un flujo definido para cada proceso?',
-    '¿Se mide el tiempo de ciclo de cada proceso?',
-    '¿Se tienen estándares operativos formales?',
-    '¿Se identifican y atacan los cuellos de botella?',
-    '¿Los procesos están alineados entre áreas?',
-    '¿Existe control de versiones para los procesos?',
-    '¿Se audita el cumplimiento de procesos?',
-    '¿Se documentan los cambios a procesos?',
-    '¿Los procesos son simples y fáciles de seguir?',
-    '¿Los procesos se diseñan pensando en eficiencia?'
+    {q:'¿Los procesos clave están documentados?',opts:['Los procesos clave no están documentados; el conocimiento reside principalmente en las personas.','Existen documentos informales o desactualizados para algunos procesos, pero hay brechas importantes.','La mayoría de los procesos clave están documentados, aunque existen vacíos, versiones antiguas o uso inconsistente.','Todos los procesos clave están documentados, vigentes y disponibles para quienes los ejecutan.','La documentación está estandarizada, controlada, integrada a la operación y se actualiza sistemáticamente.']},
+    {q:'¿Existen instrucciones claras por cada operación?',opts:['Las actividades se aprenden verbalmente, por observación o por experiencia individual.','Existen instrucciones solo para algunas operaciones o dependen del criterio del supervisor.','Hay instrucciones para la mayoría de las operaciones, aunque su claridad o uso es inconsistente.','Las operaciones cuentan con instrucciones claras, visuales y utilizadas regularmente.','Las instrucciones están optimizadas, accesibles en punto de uso y se mejoran con retroalimentación de los operadores.']},
+    {q:'¿Los procesos se siguen de forma consistente?',opts:['Cada persona o turno ejecuta el proceso de manera diferente.','Existe una forma definida, pero las desviaciones son frecuentes y poco controladas.','El proceso generalmente se sigue, aunque existen diferencias relevantes entre personas, turnos o áreas.','El proceso estándar se sigue de forma consistente y las desviaciones son excepcionales.','El cumplimiento se monitorea sistemáticamente y las desviaciones generan acciones y aprendizaje.']},
+    {q:'¿Los procesos se actualizan regularmente?',opts:['Los procesos no se revisan ni actualizan de forma estructurada.','Se actualizan solo cuando ocurre un problema importante, auditoría o cambio crítico.','Existen revisiones, pero no con frecuencia ni responsables plenamente definidos.','Los procesos tienen responsables y una frecuencia definida de revisión y actualización.','La actualización está integrada a la mejora continua, cambios, datos y lecciones aprendidas.']},
+    {q:'¿Se eliminan actividades que no generan valor?',opts:['No existe una práctica para reconocer actividades que no agregan valor.','Se eliminan desperdicios solo cuando son muy visibles o generan problemas graves.','Se realizan ejercicios ocasionales para identificar y eliminar actividades sin valor agregado.','Existe una práctica sistemática para identificar y reducir desperdicios en los procesos.','Los procesos se optimizan continuamente mediante análisis de flujo, desperdicio y valor para el cliente.']},
+    {q:'¿Existe un flujo definido para cada proceso?',opts:['El flujo depende de decisiones del momento y conocimiento informal.','Se conoce de manera general, pero no está claramente definido o documentado.','El flujo está documentado en la mayoría de los procesos importantes.','Los flujos están definidos, estandarizados y son conocidos por las áreas involucradas.','El flujo se monitorea y optimiza para minimizar esperas, movimientos, WIP e interrupciones.']},
+    {q:'¿Se mide el tiempo de ciclo de cada proceso?',opts:['No se conocen tiempos estándar ni tiempos reales de los procesos.','Se manejan estimaciones basadas principalmente en experiencia.','Existen tiempos medidos para algunas operaciones o procesos críticos.','Los principales procesos cuentan con tiempos estándar y medición de desempeño.','Los tiempos se capturan y analizan sistemáticamente para detectar variación y oportunidades de mejora.']},
+    {q:'¿Se tienen estándares operativos formales?',opts:['No existen estándares definidos de operación.','Existen formas conocidas de trabajar, pero dependen de cada persona.','Hay estándares definidos para las principales operaciones, aunque el cumplimiento varía.','Los estándares están formalizados, entrenados y utilizados consistentemente.','Los estándares se gestionan como base de mejora continua y se actualizan con mejores prácticas.']},
+    {q:'¿Se identifican y atacan los cuellos de botella?',opts:['Los cuellos de botella se descubren cuando ya generan atrasos o crisis.','Se conocen algunas restricciones por experiencia, pero no se analizan sistemáticamente.','Se identifican mediante observación o indicadores en procesos críticos.','Existe análisis periódico de capacidad, carga y restricciones.','Las restricciones se monitorean anticipadamente y se gestionan con análisis de capacidad y optimización.']},
+    {q:'¿Los procesos están alineados entre áreas?',opts:['Cada área opera de forma independiente y existen conflictos o transferencias deficientes.','La coordinación depende de personas clave, llamadas o acuerdos informales.','Hay mecanismos de coordinación, aunque persisten problemas entre funciones.','Responsabilidades, entregables e interfaces entre áreas están claramente definidos.','Las áreas gestionan procesos de extremo a extremo con objetivos e indicadores compartidos.']},
+    {q:'¿Existe control de versiones para los procesos?',opts:['No se sabe con certeza qué documento o versión es la vigente.','Los documentos están identificados, pero pueden circular versiones anteriores.','Existe control documental, aunque su cumplimiento es inconsistente.','Las versiones vigentes están controladas y las obsoletas son retiradas.','El control es digital, trazable y asegura acceso a la versión vigente.']},
+    {q:'¿Se audita el cumplimiento de procesos?',opts:['No se verifica de manera formal si los procesos se cumplen.','Se revisa solo ante problemas, quejas o auditorías externas.','Se realizan auditorías por muestreo o con frecuencia irregular.','Existe un programa de verificación con responsables, frecuencia y seguimiento.','El cumplimiento se monitorea continuamente y los hallazgos alimentan la mejora.']},
+    {q:'¿Se documentan los cambios a procesos?',opts:['Los cambios se realizan sin registro formal ni trazabilidad.','Algunos cambios importantes se comunican, pero no existe trazabilidad completa.','Los cambios suelen registrarse, aunque de forma irregular.','Todo cambio relevante se documenta, autoriza y comunica.','Existe gestión de cambio con trazabilidad, evaluación de impacto y verificación de efectividad.']},
+    {q:'¿Los procesos son simples y fáciles de seguir?',opts:['Los procesos son confusos, dependen de interpretación y contienen pasos innecesarios.','Algunos procesos son claros, pero existen complejidades y retrabajos frecuentes.','La mayoría puede ejecutarse correctamente, aunque aún hay oportunidades de simplificación.','Los procesos están diseñados para ser claros, simples y fáciles de ejecutar.','Se simplifican continuamente mediante diseño visual, prevención de errores y eliminación de complejidad.']},
+    {q:'¿Los procesos se diseñan pensando en eficiencia?',opts:['Los procesos evolucionaron por necesidad sin considerar sistemáticamente eficiencia.','La eficiencia se considera solo cuando aparecen problemas de capacidad o costo.','Algunos procesos han sido rediseñados para mejorar productividad o flujo.','La eficiencia es un criterio formal en el diseño y modificación de procesos.','Los procesos se diseñan considerando flujo, capacidad, calidad, costo, ergonomía y automatización.']}
   ]},
   {id:'oper',ico:'🏭',color:'#0F6E56',bg:'#E1F5EE',title:'Operación',qs:[
-    '¿La operación es estable y predecible día a día?',
-    '¿La variabilidad en resultados es baja?',
-    '¿La operación depende menos del operador individual?',
-    '¿Los retrabajos son mínimos o inexistentes?',
-    '¿Los tiempos muertos son controlados?',
-    '¿El flujo de producción es continuo?',
-    '¿Se balancea la carga de trabajo entre estaciones?',
-    '¿Se identifican y reducen desperdicios activamente?',
-    '¿Se trabaja para reducir tiempos de cambio?',
-    '¿Se controla la calidad dentro del proceso?'
+    {q:'¿La operación es estable y predecible día a día?',opts:['El desempeño cambia significativamente cada día y predominan urgencias.','Existen periodos estables, pero las interrupciones y cambios son frecuentes.','La operación es razonablemente estable, aunque presenta variaciones relevantes.','Los resultados son consistentes y las desviaciones se gestionan rápidamente.','La operación es altamente predecible, controlada y capaz de anticipar desviaciones.']},
+    {q:'¿La variabilidad en resultados es baja?',opts:['La variabilidad es alta y no se conocen ni controlan sus causas.','Existen variaciones frecuentes y se corrigen principalmente de forma reactiva.','La variabilidad se mide y algunas causas relevantes son conocidas.','La variabilidad está controlada dentro de rangos definidos.','La variabilidad se monitorea estadísticamente, se predice y se reduce continuamente.']},
+    {q:'¿La operación depende menos del operador individual?',opts:['El resultado depende fuertemente de quién ejecuta la operación.','Existen personas clave cuya ausencia afecta considerablemente el desempeño.','Hay estándares y capacitación, pero aún existen diferencias relevantes entre operadores.','Personas calificadas pueden ejecutar el proceso con resultados consistentes.','El proceso está estandarizado y diseñado para minimizar la dependencia del conocimiento individual.']},
+    {q:'¿Los retrabajos son mínimos o inexistentes?',opts:['Los retrabajos son frecuentes y generalmente no se cuantifican.','Se conocen algunos retrabajos, pero se atienden caso por caso.','Los principales retrabajos se registran y analizan parcialmente.','Los retrabajos son bajos, medidos y cuentan con acciones sistemáticas de reducción.','El proceso previene errores desde el origen y el retrabajo es excepcional.']},
+    {q:'¿Los tiempos muertos son controlados?',opts:['Los tiempos muertos son frecuentes, relevantes y no se registran adecuadamente.','Se identifican causas principales, pero la respuesta es principalmente reactiva.','Los tiempos muertos se registran y se actúa sobre los motivos principales.','Se monitorean sistemáticamente y se mantienen dentro de objetivos definidos.','Se anticipan con datos y se reducen continuamente mediante mantenimiento, planeación y mejora.']},
+    {q:'¿El flujo de producción es continuo?',opts:['Existen acumulaciones, esperas y movimientos frecuentes entre operaciones.','El flujo depende de prioridades y urgencias del momento.','Algunas áreas cuentan con flujo controlado, pero permanecen interrupciones relevantes.','El flujo está diseñado y gestionado para minimizar interrupciones e inventario en proceso.','La operación está sincronizada por demanda, capacidad y restricciones con flujo altamente optimizado.']},
+    {q:'¿Se balancea la carga de trabajo entre estaciones?',opts:['La carga se distribuye según disponibilidad inmediata o experiencia.','Se realizan ajustes cuando aparecen saturaciones.','Se utilizan datos básicos de capacidad para distribuir trabajo.','La carga se balancea considerando demanda, capacidad y tiempos estándar.','El balance se ajusta dinámicamente usando desempeño y capacidad actualizados.']},
+    {q:'¿Se identifican y reducen desperdicios activamente?',opts:['No existe una práctica formal para identificar desperdicios.','Se identifican solo desperdicios muy visibles.','Se realizan actividades periódicas de identificación de desperdicios.','El equipo identifica y registra desperdicios de forma sistemática.','La detección y eliminación de desperdicios forma parte del sistema diario de gestión.']},
+    {q:'¿Se trabaja para reducir tiempos de cambio?',opts:['No se miden ni gestionan los tiempos de cambio.','Se conocen aproximadamente, pero dependen de la experiencia del personal.','Se miden y se han realizado algunas mejoras.','Existen estándares y metodologías estructuradas para reducirlos.','Los cambios están optimizados, monitoreados y mejorados sistemáticamente.']},
+    {q:'¿Se controla la calidad dentro del proceso?',opts:['Los defectos se detectan principalmente al final del proceso o por el cliente.','Existen inspecciones en algunos puntos críticos.','Se realizan controles en proceso, aunque no siempre previenen defectos.','Existen controles efectivos en origen y respuesta estructurada ante desviaciones.','La calidad está integrada mediante prevención, poka-yoke y control estadístico o predictivo.']}
   ]},
   {id:'gest',ico:'📊',color:'#4A2E8C',bg:'#EEEDFE',title:'Gestión',qs:[
-    '¿Existen KPIs claramente definidos?',
-    '¿Los KPIs se miden y registran diariamente?',
-    '¿Los datos de KPIs se usan para tomar decisiones?',
-    '¿Hay reuniones operativas estructuradas y frecuentes?',
-    '¿Se comparan regularmente los resultados vs meta?',
-    '¿Se actúa rápidamente sobre desviaciones detectadas?',
-    '¿Se utilizan tableros visuales de gestión?',
-    '¿Los datos operativos son confiables y verificables?',
-    '¿Hay seguimiento formal a acciones correctivas?',
-    '¿Las decisiones operativas se basan en datos?'
+    {q:'¿Existen KPIs claramente definidos?',opts:['No existen indicadores operativos formalmente definidos.','Se revisan algunos números, pero sin estructura, responsable o meta clara.','Existen KPI para las principales áreas, aunque no están completamente alineados.','Hay KPI definidos con responsables, metas y frecuencias claras.','Los KPI están jerarquizados, conectados con la estrategia y utilizados para anticipar desempeño.']},
+    {q:'¿Los KPIs se miden y registran diariamente?',opts:['No se miden diariamente o se revisan solo esporádicamente.','Algunos se revisan a diario, pero la información llega tarde o incompleta.','Los principales KPI se actualizan diariamente con cierta disciplina.','Existe una rutina diaria consistente de actualización y revisión.','Los indicadores se actualizan automáticamente o casi en tiempo real y generan alertas.']},
+    {q:'¿Los datos de KPIs se usan para tomar decisiones?',opts:['Las decisiones se basan principalmente en experiencia, percepción o urgencia.','Los indicadores se consultan, pero rara vez determinan acciones.','Algunas decisiones relevantes utilizan datos de forma consistente.','Los KPI son una entrada habitual y obligatoria para la toma de decisiones.','Las decisiones utilizan datos integrados, tendencias, escenarios y modelos predictivos.']},
+    {q:'¿Hay reuniones operativas estructuradas y frecuentes?',opts:['Las reuniones ocurren principalmente cuando existen problemas.','Hay reuniones frecuentes, pero sin agenda, KPI o seguimiento consistente.','Existe una estructura básica con indicadores y acciones.','Las reuniones tienen frecuencia, agenda, KPI, responsables y seguimiento definidos.','Forman parte de un sistema escalonado de gestión diaria con resolución y escalamiento estructurado.']},
+    {q:'¿Se comparan regularmente los resultados vs meta?',opts:['No existen metas claras o no se comparan con resultados.','La comparación ocurre principalmente al cierre de periodos.','Se revisan resultados contra metas regularmente.','Cada KPI relevante muestra resultado, meta y desviación.','Además de meta, se analizan tendencias y desempeño esperado futuro.']},
+    {q:'¿Se actúa rápidamente sobre desviaciones detectadas?',opts:['Las desviaciones suelen aceptarse o atenderse solo cuando se vuelven críticas.','Se toman acciones rápidas sin seguimiento formal.','Las desviaciones importantes generan acciones y responsables.','Existe proceso sistemático de reacción, causa raíz, acción y seguimiento.','Las desviaciones se detectan anticipadamente y activan respuestas preventivas.']},
+    {q:'¿Se utilizan tableros visuales de gestión?',opts:['No existen tableros visibles de desempeño.','Existen tableros, pero están desactualizados o tienen poca utilidad operacional.','Los principales indicadores se muestran visualmente y se actualizan regularmente.','Los tableros están en puntos de gestión y se utilizan diariamente.','Los tableros son dinámicos, integrados y permiten detectar desviaciones y acciones rápidamente.']},
+    {q:'¿Los datos operativos son confiables y verificables?',opts:['Existen discrepancias frecuentes y nadie confía plenamente en la información.','Los datos requieren revisiones o ajustes manuales frecuentes.','La información principal es razonablemente confiable.','Existen controles que aseguran integridad, consistencia y trazabilidad.','La calidad de datos se monitorea y existe gobernanza formal de información.']},
+    {q:'¿Hay seguimiento formal a acciones correctivas?',opts:['Los acuerdos dependen de memoria, mensajes o seguimiento personal.','Algunas acciones se registran, pero frecuentemente vencen sin cierre.','Existe una lista formal con responsables y fechas.','Las acciones tienen responsable, fecha, estado, evidencia y revisión periódica.','El sistema prioriza, alerta, escala retrasos y mide la efectividad de los cierres.']},
+    {q:'¿Las decisiones operativas se basan en datos?',opts:['Predominan intuición, experiencia y opinión.','Los datos se utilizan como referencia secundaria.','Las decisiones importantes suelen sustentarse con información disponible.','Existe disciplina para sustentar decisiones con datos y análisis.','Se utilizan análisis avanzados, escenarios y predicciones para optimizar decisiones.']}
   ]},
   {id:'mej',ico:'🚀',color:'#2A6A0F',bg:'#EAF3DE',title:'Mejora Continua',qs:[
-    '¿Se realizan proyectos formales de mejora?',
-    '¿Se usan metodologías estructuradas (Lean, Six Sigma)?',
-    '¿Se identifican y atacan causas raíz de problemas?',
-    '¿Existe un sistema para generar y registrar ideas de mejora?',
-    '¿Las mejoras se priorizan por impacto en el negocio?',
-    '¿Se mide el impacto económico de las mejoras?',
-    '¿Las mejoras se estandarizan para que perduren?',
-    '¿Existe una cultura de mejora continua en el equipo?',
-    '¿El equipo operativo participa activamente en mejoras?',
-    '¿Se documentan y comparten los aprendizajes de mejoras?'
+    {q:'¿Se realizan proyectos formales de mejora?',opts:['No existe una práctica formal de proyectos de mejora.','Se realizan mejoras aisladas cuando aparece un problema.','Existen proyectos periódicos en áreas prioritarias.','Hay un portafolio formal de proyectos alineado a objetivos operativos.','La mejora opera como sistema permanente con portafolio, beneficios, gobernanza y priorización estratégica.']},
+    {q:'¿Se usan metodologías estructuradas (Lean, Six Sigma)?',opts:['Los problemas se resuelven sin metodología definida.','Algunas personas conocen herramientas, pero su aplicación es aislada.','Se utilizan herramientas estructuradas en determinados proyectos.','Existen metodologías estandarizadas y personal capacitado para aplicarlas.','Lean, Six Sigma y otras metodologías están integradas al sistema de gestión y se eligen según el problema.']},
+    {q:'¿Se identifican y atacan causas raíz de problemas?',opts:['Se corrigen síntomas para restablecer la operación.','Se preguntan causas, pero el análisis suele detenerse rápidamente.','Se utilizan herramientas de causa raíz para problemas importantes.','Existe una metodología formal y se verifica la efectividad de las soluciones.','El análisis causal se integra a datos, aprendizaje organizacional y prevención de recurrencias.']},
+    {q:'¿Existe un sistema para generar y registrar ideas de mejora?',opts:['No existe un mecanismo para proponer mejoras.','Las ideas dependen de iniciativas personales.','Existen mecanismos para captar ideas, aunque la participación es variable.','El equipo genera y revisa ideas regularmente.','Existe un sistema activo que captura, prioriza, reconoce e implementa ideas de todos los niveles.']},
+    {q:'¿Las mejoras se priorizan por impacto en el negocio?',opts:['Las mejoras se ejecutan según quién las solicita o cuál problema hace más ruido.','Se considera impacto de forma informal.','Se utilizan criterios básicos de impacto, esfuerzo o urgencia.','Existe metodología de priorización basada en beneficio, esfuerzo, riesgo y estrategia.','El portafolio se optimiza cuantitativamente considerando valor económico, capacidad y alineación estratégica.']},
+    {q:'¿Se mide el impacto económico de las mejoras?',opts:['No se cuantifican los resultados de las mejoras.','Los beneficios se describen principalmente de forma cualitativa.','Se miden algunos indicadores antes y después.','Cada proyecto tiene baseline, objetivo y validación de beneficios.','Los beneficios operativos y financieros se validan, sostienen y consolidan sistemáticamente.']},
+    {q:'¿Las mejoras se estandarizan para que perduren?',opts:['Una mejora puede desaparecer después de implementarse.','Algunas mejoras se comunican, pero no se modifican estándares.','Las mejoras importantes actualizan documentos o capacitación.','Toda mejora efectiva se integra formalmente al trabajo estándar.','La estandarización incluye documentación, capacitación, auditoría, control y replicación.']},
+    {q:'¿Existe una cultura de mejora continua en el equipo?',opts:['Mejorar se considera responsabilidad de una sola área o de la dirección.','Algunas personas participan cuando se les solicita.','Existe participación regular en ciertas áreas o niveles.','La mejora forma parte de las responsabilidades y rutinas del personal.','Identificar, experimentar, aprender y mejorar forma parte natural de la cultura organizacional.']},
+    {q:'¿El equipo operativo participa activamente en mejoras?',opts:['Las soluciones se diseñan sin consultar a quienes ejecutan el proceso.','El personal participa ocasionalmente.','Los operadores participan en algunos análisis o proyectos.','Quienes realizan el trabajo participan activamente en diagnóstico y solución.','Los equipos tienen autonomía, herramientas y responsabilidad para impulsar mejoras continuamente.']},
+    {q:'¿Se documentan y comparten los aprendizajes de mejoras?',opts:['El conocimiento generado se pierde o permanece en personas.','Existen reportes aislados difíciles de consultar.','Los principales proyectos documentan resultados y aprendizajes.','Existe un repositorio accesible de lecciones aprendidas y mejores prácticas.','El conocimiento se captura, clasifica, comparte y reutiliza sistemáticamente.']}
   ]},
   {id:'tec',ico:'💻',color:'#7A4A0A',bg:'#FAEEDA',title:'Tecnología',qs:[
-    '¿Se usan sistemas digitales para gestionar la operación?',
-    '¿Los sistemas de gestión están integrados entre sí?',
-    '¿Se automatizan tareas repetitivas con tecnología?',
-    '¿La información operativa se digitaliza en lugar de usarse en papel?',
-    '¿Se usan dashboards digitales para seguimiento?',
-    '¿Se están reduciendo los procesos manuales activamente?',
-    '¿Se captura data operativa en tiempo real?',
-    '¿Existe trazabilidad digital del producto/proceso?',
-    '¿Se usan herramientas de análisis de datos?',
-    '¿La tecnología disponible soporta la toma de decisiones?'
+    {q:'¿Se usan sistemas digitales para gestionar la operación?',opts:['La gestión depende principalmente de papel, archivos individuales o comunicación verbal.','Se utilizan herramientas digitales aisladas como Excel o aplicaciones sin integración.','Existen sistemas para procesos importantes, pero con brechas o duplicidad.','Los principales procesos están soportados por sistemas adecuados.','Los sistemas están integrados y forman una arquitectura digital coherente para gestionar la operación.']},
+    {q:'¿Los sistemas de gestión están integrados entre sí?',opts:['Los sistemas no intercambian información.','La información se transfiere manualmente entre plataformas.','Existen algunas interfaces o integraciones parciales.','Los principales sistemas intercambian datos automáticamente.','Existe una arquitectura integrada que permite flujo de información prácticamente en tiempo real.']},
+    {q:'¿Se automatizan tareas repetitivas con tecnología?',opts:['Las actividades repetitivas se realizan manualmente.','Existen automatizaciones puntuales.','Se han automatizado varias tareas de alto volumen o bajo valor.','Existe un proceso sistemático para identificar y automatizar tareas repetitivas.','Workflows y agentes digitales gestionan tareas rutinarias con intervención humana por excepción.']},
+    {q:'¿La información operativa se digitaliza en lugar de usarse en papel?',opts:['Gran parte de la información relevante existe en papel o conocimiento informal.','Existen documentos digitales, pero dispersos y sin estructura común.','La mayoría de la información operacional se captura digitalmente.','La información clave es digital, estructurada, accesible y trazable.','La captura es digital desde origen y alimenta automáticamente análisis y decisiones.']},
+    {q:'¿Se usan dashboards digitales para seguimiento?',opts:['No existen dashboards digitales.','Se generan reportes digitales manuales de manera periódica.','Existen dashboards para algunos indicadores o áreas.','Los principales KPI están disponibles en dashboards actualizados y usados en gestión.','Integran tiempo real, tendencias, alertas y análisis predictivo.']},
+    {q:'¿Se están reduciendo los procesos manuales activamente?',opts:['La mayoría de los procesos administrativos y operativos requieren intervención manual.','Se han eliminado algunas actividades manuales puntuales.','Existen iniciativas específicas de digitalización y automatización.','Los procesos manuales se revisan y reducen sistemáticamente.','La intervención humana se concentra principalmente en juicio, supervisión y valor agregado.']},
+    {q:'¿Se captura data operativa en tiempo real?',opts:['Los datos se registran después de ocurrir los eventos o al final del turno/periodo.','Algunas variables se capturan automáticamente, pero predominan registros manuales.','Los procesos críticos cuentan con captura frecuente o parcialmente automática.','La información operacional relevante se captura prácticamente en tiempo real.','Existe captura automática, contextualizada y conectada a alertas y decisiones.']},
+    {q:'¿Existe trazabilidad digital del producto/proceso?',opts:['Reconstruir qué ocurrió depende de papel, memoria o investigación manual.','Existe trazabilidad digital solo para ciertos procesos o productos.','Los principales eventos tienen registros digitales identificables.','Existe trazabilidad de materiales, procesos, personas, parámetros y resultados relevantes.','La trazabilidad es integrada y permite reconstruir automáticamente la historia operacional.']},
+    {q:'¿Se usan herramientas de análisis de datos?',opts:['El análisis se limita a revisar datos básicos.','Se utilizan hojas de cálculo para análisis manuales.','Algunas áreas utilizan BI, estadística u otras herramientas especializadas.','Las herramientas analíticas forman parte habitual de la gestión.','Se utilizan analítica avanzada, modelos predictivos, optimización e IA según la necesidad.']},
+    {q:'¿La tecnología disponible soporta la toma de decisiones?',opts:['La tecnología principalmente almacena información.','Genera reportes, pero la interpretación depende totalmente de las personas.','Proporciona indicadores útiles para algunas decisiones.','Los sistemas generan información, alertas y análisis directamente utilizados para decidir.','La tecnología recomienda acciones, simula escenarios y apoya decisiones de forma contextual.']}
   ]},
   {id:'ia',ico:'🤖',color:'#0F4761',bg:'#E0F2FA',title:'Analítica e IA',qs:[
-    '¿Se analizan datos históricos para entender tendencias?',
-    '¿Se identifican patrones y tendencias operativas con datos?',
-    '¿Se hacen predicciones basadas en datos (ej. demanda, fallas)?',
-    '¿Se usan modelos analíticos para optimizar decisiones?',
-    '¿Alguna decisión operativa se automatiza con base en datos?',
-    '¿Se optimizan procesos usando análisis de datos?',
-    '¿Se usa inteligencia artificial en alguna parte de la operación?',
-    '¿Los datos se integran entre diferentes áreas del negocio?',
-    '¿Se generan insights de forma automática a partir de datos?',
-    '¿Los datos se usan sistemáticamente para impulsar la mejora continua?'
+    {q:'¿Se analizan datos históricos para entender tendencias?',opts:['Los datos históricos no están disponibles o no se utilizan.','Se consultan principalmente cuando aparece un problema.','Se realizan análisis periódicos de desempeño histórico.','Los datos históricos se utilizan sistemáticamente para comprender patrones y causas.','El histórico alimenta modelos analíticos para aprendizaje, predicción y optimización.']},
+    {q:'¿Se identifican patrones y tendencias operativas con datos?',opts:['La organización observa principalmente el resultado actual.','Algunas tendencias se detectan visualmente o por experiencia.','Los KPI importantes incluyen análisis básico de tendencia.','Las tendencias se analizan sistemáticamente y generan decisiones preventivas.','Los sistemas detectan automáticamente tendencias, anomalías y cambios de comportamiento.']},
+    {q:'¿Se hacen predicciones basadas en datos (ej. demanda, fallas)?',opts:['La gestión se basa únicamente en lo que ya ocurrió.','Se hacen estimaciones principalmente con experiencia.','Existen pronósticos básicos para algunas variables importantes.','Se utilizan modelos formales para anticipar demanda, desempeño, fallas u otras variables.','Los modelos predictivos se actualizan continuamente y se integran en decisiones operacionales.']},
+    {q:'¿Se usan modelos analíticos para optimizar decisiones?',opts:['No se utilizan modelos formales de análisis.','Se realizan cálculos o análisis básicos en casos particulares.','Se utilizan modelos estadísticos o analíticos en determinados procesos.','Los modelos analíticos apoyan regularmente decisiones importantes.','Existe un ecosistema de modelos descriptivos, predictivos y prescriptivos integrado a la operación.']},
+    {q:'¿Alguna decisión operativa se automatiza con base en datos?',opts:['Todas las decisiones requieren intervención humana.','Existen reglas automáticas básicas o aisladas.','Algunas decisiones repetitivas se ejecutan automáticamente bajo reglas definidas.','Diversas decisiones de bajo riesgo están automatizadas con controles y excepciones.','Existe automatización inteligente con gobernanza, supervisión humana y escalamiento por riesgo.']},
+    {q:'¿Se optimizan procesos usando análisis de datos?',opts:['Las mejoras se basan principalmente en experiencia u observación.','Se consultan datos ocasionalmente para validar mejoras.','Los datos se utilizan habitualmente para identificar oportunidades.','El rediseño y optimización se fundamenta en análisis cuantitativo.','Los procesos se optimizan continuamente mediante datos, modelos y experimentación.']},
+    {q:'¿Se usa inteligencia artificial en alguna parte de la operación?',opts:['No se utiliza IA en procesos de negocio u operación.','Existen pruebas individuales o uso informal sin integración.','Hay casos de uso implementados en alguna función o proceso.','La IA está integrada en varios procesos y genera beneficios medibles.','Existe una estrategia de IA gobernada, escalable e integrada al modelo operativo y de decisión.']},
+    {q:'¿Los datos se integran entre diferentes áreas del negocio?',opts:['Cada área administra información de forma aislada.','La información se comparte manualmente cuando es necesaria.','Existen bases o reportes compartidos entre algunas funciones.','Los principales datos están integrados y disponibles entre áreas.','Existe una arquitectura común de datos con definiciones, gobernanza y acceso integrado.']},
+    {q:'¿Se generan insights de forma automática a partir de datos?',opts:['Los usuarios deben buscar y analizar manualmente la información.','Los sistemas generan indicadores, pero no interpretación.','Existen alertas automáticas sobre algunas desviaciones.','Los sistemas identifican patrones, anomalías y oportunidades y generan insights accionables.','IA y analítica generan insights contextualizados, posibles causas y recomendaciones de acción.']},
+    {q:'¿Los datos se usan sistemáticamente para impulsar la mejora continua?',opts:['Las mejoras se originan principalmente en percepción o urgencias.','Los datos se utilizan ocasionalmente para justificar iniciativas.','Los proyectos importantes utilizan datos para diagnóstico y medición.','La información operacional alimenta identificación, priorización y validación de mejoras.','Existe un ciclo datos → insight → mejora → resultado → aprendizaje que alimenta nuevas mejoras.']}
   ]}
 ];
 
@@ -646,14 +648,15 @@ function buildQ(){
     d.className='dim-block';
     let h=`<div class="dim-hdr"><div class="dim-ico-box" style="background:${b.bg}">${b.ico}</div>
       <div><div class="dim-title">${b.title}</div><div class="dim-cnt">${b.qs.length} preguntas</div></div></div>`;
-    b.qs.forEach((q,qi)=>{
+    b.qs.forEach(({q,opts},qi)=>{
       const k=`${b.id}_${qi}`;
       h+=`<div class="q-item">
         <div class="q-text">${gi+1}. ${q}</div>
         <div class="q-scale">${[1,2,3,4,5].map(v=>`<div class="q-opt">
-          <input type="radio" name="${k}" id="${k}_${v}" value="${v}" onchange="onAns('${k}')">
-          <label for="${k}_${v}"><span class="sn">${v}</span></label></div>`).join('')}</div>
+          <input type="radio" name="${k}" id="${k}_${v}" value="${v}" onchange="onAns('${k}',this)">
+          <label for="${k}_${v}" title="${opts[v-1]}"><span class="sn">${v}</span></label></div>`).join('')}</div>
         <div class="q-scale-labels"><span>No existe</span><span>Excelente</span></div>
+        <div class="q-desc" id="${k}_desc"></div>
       </div>`;
       gi++;
     });
@@ -661,7 +664,20 @@ function buildQ(){
   });
 }
 
-function onAns(k){ANS[k]=true; updProg();}
+function onAns(k,el){
+  ANS[k]=true; updProg();
+  if(el){
+    const val=parseInt(el.value);
+    const parts=k.split('_');
+    const blockId=parts[0], qi=parseInt(parts[1]);
+    const block=BLOCKS.find(b=>b.id===blockId);
+    const descEl=document.getElementById(k+'_desc');
+    if(block&&block.qs[qi]&&descEl){
+      descEl.textContent=block.qs[qi].opts[val-1];
+      descEl.classList.add('visible');
+    }
+  }
+}
 function updProg(){
   const d=Object.keys(ANS).length, p=Math.round(d/TOTAL*100);
   document.getElementById('pLbl').textContent=`${d} de ${TOTAL} respondidas`;
@@ -717,6 +733,17 @@ async function enviarEmail(scores,nc,nt){
   const prioTxt=sorted.map(({s,i})=>`• ${BLOCKS[i].title} (${scores[i].toFixed(1)}/5) → ${PRIO_LVL(s,i)}`).join('\n');
   const tvTxt=TV.map((tv,i)=>`${tv.lbl}: ${tv.opts[(TVANS[i]||1)-1]}`).join('\n');
 
+  const SCORE_LBL_E={1:'No existe',2:'Parcial',3:'Existe (inconsistente)',4:'Existe y funciona',5:'Optimizado'};
+  const respuestasTxt=BLOCKS.map(b=>{
+    const promB=b.qs.reduce((_,__,qi)=>{const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);return _+(el?parseInt(el.value):0);},0)/b.qs.length;
+    const lineas=b.qs.map(({q},qi)=>{
+      const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);
+      const val=el?parseInt(el.value):0;
+      return `  ${qi+1}. ${q}\n     → ${val}/5 — ${val?SCORE_LBL_E[val]:'Sin responder'}`;
+    }).join('\n');
+    return `[ ${b.title.toUpperCase()} — Promedio: ${promB.toFixed(1)}/5.0 ]\n${lineas}`;
+  }).join('\n\n');
+
   const mensaje=`🏭 NUEVO LEAD — NOMI Express™
 ${'═'.repeat(50)}
 
@@ -752,6 +779,11 @@ ${'─'.repeat(50)}
 VARIABLES ESTRATÉGICAS NOMI TARGET
 ${'─'.repeat(50)}
 ${tvTxt}
+
+${'═'.repeat(50)}
+RESPUESTAS COMPLETAS — 65 PREGUNTAS
+${'═'.repeat(50)}
+${respuestasTxt}
 
 ${'═'.repeat(50)}
 NextGen OPEX Consulting™
@@ -1117,7 +1149,7 @@ async function descargarPDF(){
     doc.text(`Promedio: ${dimAvg.toFixed(1)}/5.0`,M+CW,y+8,{align:'right'});
     y+=16;
 
-    b.qs.forEach((q,qi)=>{
+    b.qs.forEach(({q},qi)=>{
       chk(14);
       const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);
       const val=el?parseInt(el.value):0;
