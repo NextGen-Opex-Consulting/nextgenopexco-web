@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico NOMI™ — NextGen OPEX Consulting</title>
+  <meta name="description" content="Evalúa el nivel de madurez operacional de tu empresa. 65 preguntas, 6 dimensiones, resultado inmediato.">
+  <link rel="icon" type="image/png" href="../isotipo-noc.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    :root{
+      --azul:#1E3A8A; --azul-deep:#0f2060; --verde:#6DBE45; --verde-dk:#4a9a2a;
+      --azul-mid:#1E6BC1; --azul-tec:#00AEEF; --gris:#4B5563;
+      --blanco:#FFF; --bg-light:#F4F7FA; --bg-mid:#E8EDF4; --texto:#1A2340;
+      --shadow:0 4px 24px rgba(30,58,138,.10); --shadow-lg:0 8px 40px rgba(30,58,138,.16);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:var(--bg-light);color:var(--texto);line-height:1.6;}
+
+    /* ══ NAV ══ */
+    nav{
+      position:sticky;top:0;z-index:200;
+      background:linear-gradient(90deg,#3a8aea 0%,#2E76E0 25%,#2359C4 60%,#1E3A8A 100%);
+      height:68px;padding:0 40px;
+      display:flex;align-items:center;justify-content:space-between;
+      box-shadow:0 2px 24px rgba(0,0,0,.25);
+    }
+    .nav-logo{display:flex;align-items:center;gap:0;text-decoration:none;}
+    .nav-logo img{height:44px;width:auto;object-fit:contain;}
+    .nav-links{display:flex;align-items:center;gap:24px;}
+    .nav-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;
+      color:rgba(255,255,255,.75);text-decoration:none;letter-spacing:.4px;transition:color .2s;}
+    .nav-links a:hover{color:#fff;}
+    .btn-nav{
+      background:var(--verde);color:#fff!important;
+      font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;
+      padding:10px 22px;border-radius:6px;border:none;cursor:pointer;
+      letter-spacing:.3px;transition:background .2s,transform .15s;
+    }
+    .btn-nav:hover{background:var(--verde-dk);transform:translateY(-1px);}
+
+    /* ══ HERO ══ */
+    .hero{
+      background:linear-gradient(160deg,#3a6fd8 0%,#1e4bbf 35%,#0f2870 70%,#080d30 100%);
+      padding:90px 40px 80px;text-align:center;
+      position:relative;overflow:hidden;
+    }
+    .hero-grid{
+      position:absolute;inset:0;
+      background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+      background-size:52px 52px;
+    }
+    .geo{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.07);animation:spin 25s linear infinite;}
+    .geo:nth-child(2){width:520px;height:520px;top:-140px;right:-100px;}
+    .geo:nth-child(3){width:340px;height:340px;bottom:-100px;left:-60px;animation-duration:35s;animation-direction:reverse;}
+    .geo:nth-child(4){width:180px;height:180px;top:40px;left:60px;animation-duration:18s;}
+    @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+    .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+    .hero-inner img.nomi-logo{height:110px;width:auto;margin-bottom:28px;filter:drop-shadow(0 6px 24px rgba(0,0,0,.5));}
+    .badge-top{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(109,190,69,.18);border:1px solid rgba(109,190,69,.45);
+      color:var(--verde);font-family:'Montserrat',sans-serif;
+      font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;
+      padding:7px 18px;border-radius:20px;margin-bottom:22px;
+    }
+    .badge-top::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--verde);animation:pulse 1.8s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(28px,4.5vw,46px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:18px;}
+    .hero h1 em{color:var(--verde);font-style:normal;}
+    .hero p{font-size:15px;color:rgba(255,255,255,.72);max-width:580px;margin:0 auto 36px;line-height:1.7;}
+    .hero-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+    .chip{
+      background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.9);font-family:'Montserrat',sans-serif;
+      font-size:12px;font-weight:700;padding:7px 18px;border-radius:99px;
+    }
+    .btn-cta{
+      display:inline-flex;align-items:center;gap:10px;
+      background:var(--verde);color:#fff;
+      font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;
+      padding:17px 40px;border-radius:8px;border:none;cursor:pointer;
+      box-shadow:0 6px 28px rgba(109,190,69,.38);
+      transition:background .2s,transform .15s,box-shadow .2s;
+    }
+    .btn-cta:hover{background:var(--verde-dk);transform:translateY(-3px);box-shadow:0 10px 36px rgba(109,190,69,.5);}
+    .btn-cta svg{transition:transform .2s;}
+    .btn-cta:hover svg{transform:translateX(4px);}
+
+    /* ══ STEP BAR ══ */
+    .stepbar{
+      display:none;
+      background:#fff;border-bottom:1px solid var(--bg-mid);
+      padding:14px 40px;
+      position:sticky;top:68px;z-index:150;
+      justify-content:center;align-items:center;gap:0;
+    }
+    .s-item{display:flex;align-items:center;gap:10px;padding:0 16px;}
+    .s-num{
+      width:30px;height:30px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;
+      border:2px solid var(--bg-mid);color:var(--gris);background:#fff;transition:all .3s;
+    }
+    .s-lbl{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--gris);letter-spacing:.5px;transition:color .3s;}
+    .s-sep{width:36px;height:1px;background:var(--bg-mid);}
+    .s-item.active .s-num{background:var(--azul);border-color:var(--azul);color:#fff;}
+    .s-item.active .s-lbl{color:var(--azul);}
+    .s-item.done .s-num{background:var(--verde);border-color:var(--verde);color:#fff;}
+    .s-item.done .s-lbl{color:var(--verde-dk);}
+
+    /* ══ SCREENS ══ */
+    .screen{display:none;padding:52px 40px 100px;max-width:900px;margin:0 auto;}
+    .screen.active{display:block;}
+    .s-title{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:var(--azul);margin-bottom:6px;}
+    .s-sub{font-size:14px;color:var(--gris);margin-bottom:30px;line-height:1.6;}
+
+    /* ══ FORM CARD ══ */
+    .card{background:#fff;border-radius:14px;padding:36px;box-shadow:var(--shadow);}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+    .fg{display:flex;flex-direction:column;gap:6px;}
+    .fg.full{grid-column:1/-1;}
+    .fg label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;color:var(--azul);text-transform:uppercase;letter-spacing:.8px;}
+    .fg input,.fg select{
+      padding:12px 15px;border:1.5px solid var(--bg-mid);border-radius:9px;
+      font-family:'Poppins',sans-serif;font-size:14px;color:var(--texto);
+      background:#fff;transition:border-color .2s,box-shadow .2s;
+    }
+    .fg input:focus,.fg select:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px rgba(30,58,138,.08);}
+    .btn-primary{
+      display:inline-flex;align-items:center;gap:10px;
+      background:var(--azul);color:#fff;
+      font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;
+      padding:14px 32px;border-radius:8px;border:none;cursor:pointer;
+      transition:background .2s,transform .15s;margin-top:24px;
+    }
+    .btn-primary:hover{background:var(--azul-deep);transform:translateY(-2px);}
+    .btn-primary:disabled{background:#9CA3AF;cursor:not-allowed;transform:none;opacity:.7;}
+    .btn-verde{background:var(--verde)!important;}
+    .btn-verde:hover{background:var(--verde-dk)!important;}
+
+    /* ══ INTRO INFO CARDS ══ */
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:30px 0;}
+    .info-c{background:#fff;border-radius:12px;padding:22px;box-shadow:var(--shadow);border-top:3px solid var(--verde);text-align:center;}
+    .info-c .ico{font-size:30px;margin-bottom:10px;}
+    .info-c h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:var(--azul);margin-bottom:6px;}
+    .info-c p{font-size:12px;color:var(--gris);}
+
+    /* ══ PROGRESS ══ */
+    .prog-wrap{
+      background:#fff;border-radius:0 0 12px 12px;padding:14px 22px;
+      box-shadow:0 4px 20px rgba(30,58,138,.12);margin-bottom:26px;
+      position:sticky;top:108px;z-index:80;
+      border-top:3px solid var(--verde);
+    }
+    .prog-top{display:flex;justify-content:space-between;margin-bottom:8px;}
+    .prog-lbl{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--gris);}
+    .prog-pct{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;color:var(--verde);}
+    .prog-track{height:8px;background:var(--bg-mid);border-radius:99px;overflow:hidden;}
+    .prog-fill{height:100%;background:linear-gradient(90deg,var(--azul),var(--verde));border-radius:99px;transition:width .4s;}
+
+    /* ══ DIMENSION BLOCKS ══ */
+    .dim-block{background:#fff;border-radius:14px;padding:28px;box-shadow:var(--shadow);margin-bottom:20px;}
+    .dim-hdr{display:flex;align-items:center;gap:14px;margin-bottom:22px;padding-bottom:16px;border-bottom:2px solid var(--bg-light);}
+    .dim-ico-box{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+    .dim-title{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:var(--azul);}
+    .dim-cnt{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--gris);}
+
+    /* ══ QUESTION ITEMS ══ */
+    .q-item{padding:16px 0;border-bottom:1px solid var(--bg-light);}
+    .q-item:last-child{border-bottom:none;padding-bottom:0;}
+    .q-text{font-size:13.5px;color:var(--texto);font-weight:500;margin-bottom:12px;line-height:1.5;}
+    .q-scale{display:flex;gap:8px;}
+    .q-opt{flex:1;}
+    .q-opt input{display:none;}
+    .q-opt label{
+      display:flex;flex-direction:column;align-items:center;gap:3px;
+      padding:10px 4px;border-radius:9px;border:1.5px solid var(--bg-mid);
+      cursor:pointer;transition:all .2s;
+      font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;color:var(--gris);
+    }
+    .q-opt label .sn{font-size:17px;font-weight:900;line-height:1;}
+    .q-opt input:checked+label{border-color:var(--azul);background:var(--azul);color:#fff;}
+    .q-opt label:hover:not(.checked){border-color:var(--azul-tec);background:rgba(0,174,239,.07);}
+    .q-scale-labels{display:flex;justify-content:space-between;margin-top:5px;font-size:9.5px;color:#9CA3AF;font-style:italic;padding:0 2px;}
+
+    /* ══ TV ══ */
+    .tv-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .tv-card{background:#fff;border-radius:11px;padding:18px;box-shadow:var(--shadow);}
+    .tv-lbl{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;color:var(--azul);margin-bottom:10px;line-height:1.4;}
+    .tv-opts{display:flex;gap:7px;}
+    .tv-opt{flex:1;}
+    .tv-opt input{display:none;}
+    .tv-opt label{
+      display:block;text-align:center;padding:9px 5px;border-radius:8px;
+      border:1.5px solid var(--bg-mid);cursor:pointer;
+      font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;color:var(--gris);
+      line-height:1.3;transition:all .2s;
+    }
+    .tv-opt input:checked+label{background:var(--azul);border-color:var(--azul);color:#fff;}
+    .tv-opt label:hover{border-color:var(--azul);}
+
+    /* ══ RESULTS ══ */
+    .res-hero{
+      background:linear-gradient(135deg,var(--azul-deep) 0%,var(--azul) 60%,var(--azul-mid) 100%);
+      border-radius:16px;padding:40px;color:#fff;margin-bottom:26px;
+      position:relative;overflow:hidden;
+    }
+    .res-hero::before{
+      content:'';position:absolute;inset:0;
+      background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+      background-size:40px 40px;
+    }
+    .res-hero-inner{position:relative;z-index:1;}
+    .res-kicker{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px;}
+    .res-empresa{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:24px;}
+    .levels-row{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;}
+    .level-box{text-align:center;}
+    .level-box .lbl{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px;}
+    .level-badge{display:inline-block;padding:12px 28px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;margin-bottom:8px;}
+    .level-desc{font-size:12px;color:rgba(255,255,255,.65);max-width:220px;margin:0 auto;line-height:1.5;}
+    .arrow-lbl{font-size:36px;opacity:.5;padding-top:12px;}
+
+    .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+    .kpi{background:#fff;border-radius:12px;padding:20px;box-shadow:var(--shadow);text-align:center;}
+    .kpi-val{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;color:var(--azul);line-height:1.1;}
+    .kpi-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;color:var(--gris);letter-spacing:1px;text-transform:uppercase;margin-top:5px;}
+
+    .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px;}
+    .res-card{background:#fff;border-radius:14px;padding:26px;box-shadow:var(--shadow);}
+    .res-card h3{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;color:var(--azul);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--bg-mid);text-transform:uppercase;letter-spacing:.5px;}
+    .bar-item{margin-bottom:13px;}
+    .bar-lbl{display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--texto);margin-bottom:5px;}
+    .bar-track{height:7px;background:var(--bg-mid);border-radius:99px;overflow:visible;position:relative;}
+    .bar-fill{height:100%;background:linear-gradient(90deg,var(--azul),var(--azul-tec));border-radius:99px;}
+    .bar-target{position:absolute;top:-4px;width:2px;height:15px;background:var(--verde);border-radius:1px;}
+    .chart-wrap{height:280px;position:relative;}
+
+    .prio-item{background:var(--bg-light);border-radius:10px;padding:16px;margin-bottom:12px;border-left:4px solid var(--verde);}
+    .prio-item:last-child{margin-bottom:0;}
+    .prio-dim{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:900;color:var(--azul);margin-bottom:4px;}
+    .prio-txt{font-size:12px;color:var(--gris);line-height:1.5;}
+
+    .tv-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+    .tv-sum-i{background:var(--bg-light);border-radius:9px;padding:12px;}
+    .tv-sum-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;color:var(--gris);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;}
+    .tv-sum-val{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;color:var(--azul);}
+
+    /* ══ CTA FINAL ══ */
+    .res-cta{
+      background:linear-gradient(135deg,#0a1840,var(--azul-deep));
+      border-radius:16px;padding:44px 40px;text-align:center;margin-top:24px;
+      position:relative;overflow:hidden;
+    }
+    .res-cta::before{
+      content:'';position:absolute;inset:0;
+      background-image:radial-gradient(circle at 20% 50%,rgba(109,190,69,.12) 0%,transparent 50%),
+                       radial-gradient(circle at 80% 20%,rgba(30,107,193,.2) 0%,transparent 50%);
+    }
+    .res-cta-inner{position:relative;z-index:1;}
+    .res-cta h3{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:8px;}
+    .res-cta p{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:28px;line-height:1.6;}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.3);color:#fff;
+      font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;padding:13px 26px;border-radius:8px;cursor:pointer;transition:all .2s;}
+    .btn-ghost:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6);}
+
+    /* ══ FOOTER ══ */
+    footer{background:var(--azul-deep);padding:28px 40px;text-align:center;margin-top:0;}
+    footer p{font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.3px;}
+    footer a{color:rgba(109,190,69,.7);text-decoration:none;}
+    footer a:hover{color:var(--verde);}
+
+    /* ══ RESPONSIVE ══ */
+    @media(max-width:680px){
+      nav{padding:0 18px;}
+      .screen{padding:28px 18px 80px;}
+      .form-grid,.info-grid,.tv-grid,.kpi-row,.res-grid{grid-template-columns:1fr;}
+      .fg.full{grid-column:1;}
+      .stepbar{padding:10px 12px;}
+      .s-lbl{display:none;}
+      .s-sep{width:14px;}
+      .levels-row{gap:16px;}
+      .tv-summary{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <img src="../NextGen%20OPEX%20Consulting%20logo%20design%20sin%20fondo.png" alt="NextGen OPEX Consulting">
+  </a>
+  <!-- NOMI logo centrado -->
+  <div style="position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;">
+    <div style="width:1px;height:32px;background:rgba(255,255,255,.2);"></div>
+    <img src="../NOMI%20logo%20sf.png" alt="NOMI™" style="height:36px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));">
+    <div style="display:flex;flex-direction:column;line-height:1.1;">
+      <span style="font-family:'Montserrat',sans-serif;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);">Fase 1</span>
+      <span style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;color:rgba(255,255,255,.9);">Express™</span>
+    </div>
+    <div style="width:1px;height:32px;background:rgba(255,255,255,.2);"></div>
+  </div>
+  <div class="nav-links">
+    <a href="../index.html">Inicio</a>
+    <a href="../index.html#servicios">Servicios</a>
+    <a href="../articulos.html">Artículos</a>
+    <button class="btn-nav" onclick="startDiag()">Iniciar diagnóstico</button>
+  </div>
+</nav>
+
+<!-- ══ STEP BAR ══ -->
+<div class="stepbar" id="stepbar">
+  <div class="s-item" id="si1"><div class="s-num">1</div><div class="s-lbl">Tus datos</div></div>
+  <div class="s-sep"></div>
+  <div class="s-item" id="si2"><div class="s-num">2</div><div class="s-lbl">NOMI Current</div></div>
+  <div class="s-sep"></div>
+  <div class="s-item" id="si3"><div class="s-num">3</div><div class="s-lbl">NOMI Target</div></div>
+  <div class="s-sep"></div>
+  <div class="s-item" id="si4"><div class="s-num">✓</div><div class="s-lbl">Resultado</div></div>
+</div>
+
+<!-- ══ HERO ══ -->
+<div class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="geo"></div>
+  <div class="geo"></div>
+  <div class="geo"></div>
+  <div class="hero-inner">
+    <img src="../NOMI%20logo%20sf.png" class="nomi-logo" alt="NOMI™">
+    <div class="badge-top">NOMI Express™ — Fase 1 · Autoevaluación digital gratuita</div>
+    <h1>Conoce la madurez operacional <em>de tu empresa</em></h1>
+    <p>NOMI Express es la primera fase del diagnóstico NOMI™. En 15 minutos obtienes tu nivel operacional actual, tu objetivo de evolución y las prioridades de transformación — todo sin necesidad de un consultor.</p>
+    <div class="hero-chips">
+      <div class="chip">⚡ 65 preguntas</div>
+      <div class="chip">📊 6 dimensiones</div>
+      <div class="chip">🎯 Resultado inmediato</div>
+      <div class="chip">📄 Reporte PDF con gráfica</div>
+    </div>
+    <!-- Fases callout -->
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:-16px;margin-bottom:28px;">
+      <div style="background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:10px;padding:12px 20px;text-align:left;max-width:230px;">
+        <div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;color:var(--verde);text-transform:uppercase;margin-bottom:5px;">Fase 1 — Gratis</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;color:#fff;margin-bottom:4px;">NOMI Express™</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.65);line-height:1.5;">Autoevaluación digital. Resultado inmediato con reporte PDF.</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:22px;color:rgba(255,255,255,.3);">→</div>
+      <div style="background:rgba(255,255,255,.06);border:1.5px dashed rgba(255,255,255,.2);border-radius:10px;padding:12px 20px;text-align:left;max-width:230px;">
+        <div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;color:rgba(109,190,69,.7);text-transform:uppercase;margin-bottom:5px;">Fase 2 — Con consultor</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;color:rgba(255,255,255,.7);margin-bottom:4px;">NOMI Full Assessment™</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;">Análisis profundo on-site con el consultor. Plan de transformación detallado.</div>
+      </div>
+    </div>
+    <button class="btn-cta" onclick="startDiag()">
+      Comenzar mi diagnóstico
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ══ SCREEN 1: DATOS ══ -->
+<div class="screen" id="s1">
+  <div class="s-title">Cuéntanos sobre tu empresa</div>
+  <div class="s-sub">Esta información personaliza tu reporte NOMI™ y nos permite darte contexto relevante a tu industria.</div>
+
+  <!-- Fases explicadas -->
+  <div style="background:#fff;border-radius:14px;padding:28px;box-shadow:var(--shadow);margin-bottom:28px;">
+    <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gris);margin-bottom:16px;">El modelo NOMI™ tiene dos fases</div>
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;">
+      <div style="border:2px solid var(--verde);border-radius:12px;padding:20px;position:relative;">
+        <div style="position:absolute;top:-11px;left:16px;background:var(--verde);color:#fff;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;padding:3px 12px;border-radius:99px;text-transform:uppercase;">Estás aquí · Fase 1</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:900;color:var(--azul);margin-bottom:8px;">NOMI Express™</div>
+        <p style="font-size:12px;color:var(--gris);line-height:1.6;margin-bottom:10px;">Autoevaluación digital guiada. Responde 65 preguntas sobre tu operación actual y obtén tu nivel de madurez operacional, tu objetivo de evolución y las 3 principales áreas de oportunidad — en 15 minutos, sin costo y sin necesidad de un consultor.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="background:rgba(109,190,69,.12);color:var(--verde-dk);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;">✓ Gratis</span>
+          <span style="background:rgba(109,190,69,.12);color:var(--verde-dk);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;">✓ Inmediato</span>
+          <span style="background:rgba(109,190,69,.12);color:var(--verde-dk);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;">✓ Reporte PDF</span>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:28px;color:var(--bg-mid);">→</div>
+      <div style="border:2px dashed var(--bg-mid);border-radius:12px;padding:20px;background:var(--bg-light);position:relative;">
+        <div style="position:absolute;top:-11px;left:16px;background:var(--azul);color:#fff;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;padding:3px 12px;border-radius:99px;text-transform:uppercase;">Siguiente paso · Fase 2</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:900;color:var(--azul);margin-bottom:8px;">NOMI Full Assessment™</div>
+        <p style="font-size:12px;color:var(--gris);line-height:1.6;margin-bottom:10px;">Evaluación profunda realizada en conjunto con el consultor. Incluye visitas al piso, entrevistas con el equipo, análisis de datos reales y la construcción de un plan de transformación detallado con hoja de ruta y KPIs específicos.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="background:rgba(30,58,138,.1);color:var(--azul);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;">↳ Con consultor</span>
+          <span style="background:rgba(30,58,138,.1);color:var(--azul);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;">↳ On-site o remoto</span>
+          <span style="background:rgba(30,58,138,.1);color:var(--azul);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;">↳ Plan detallado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-c"><div class="ico">🏭</div><h4>Manufactura</h4><p>Diseñado específicamente para PYMEs manufactureras en México y LATAM.</p></div>
+    <div class="info-c"><div class="ico">🔒</div><h4>Confidencial</h4><p>Tu información se usa solo para generar tu reporte. No se comparte con terceros.</p></div>
+    <div class="info-c"><div class="ico">⚡</div><h4>15 minutos</h4><p>Completa el diagnóstico completo y recibe tu resultado inmediato.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="form-grid">
+      <div class="fg"><label>Nombre completo *</label><input id="nombre" type="text" placeholder="Tu nombre completo"></div>
+      <div class="fg"><label>Cargo / Posición</label><input id="cargo" type="text" placeholder="Director General, Gerente Ops..."></div>
+      <div class="fg"><label>Empresa *</label><input id="empresa" type="text" placeholder="Nombre de tu empresa"></div>
+      <div class="fg"><label>Correo electrónico *</label><input id="correo" type="email" placeholder="correo@empresa.com"></div>
+      <div class="fg"><label>Teléfono</label><input id="tel" type="tel" placeholder="+52 (81) 0000-0000"></div>
+      <div class="fg">
+        <label>Industria *</label>
+        <select id="industria">
+          <option value="">Selecciona tu industria...</option>
+          <option>Manufactura general</option>
+          <option>Automotriz / Tier 1-2</option>
+          <option>Alimentos y bebidas</option>
+          <option>Plástico / Hule</option>
+          <option>Metal mecánica</option>
+          <option>Electrónica / Eléctrica</option>
+          <option>Logística / Distribución</option>
+          <option>Dispositivos médicos</option>
+          <option>Química / Farmacéutica</option>
+          <option>Otra</option>
+        </select>
+      </div>
+      <div class="fg full">
+        <label>Número de empleados *</label>
+        <select id="empleados">
+          <option value="">Selecciona el tamaño...</option>
+          <option>1 – 20 empleados</option>
+          <option>21 – 50 empleados</option>
+          <option>51 – 100 empleados</option>
+          <option>101 – 250 empleados</option>
+          <option>251 – 500 empleados</option>
+          <option>Más de 500 empleados</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="goQ()">
+      Iniciar diagnóstico NOMI™
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ══ SCREEN 2: QUESTIONS ══ -->
+<div class="screen" id="s2">
+  <div class="s-title">NOMI Current — Diagnóstico operacional</div>
+  <div class="s-sub">Califica cada afirmación del 1 al 5 según la realidad actual de tu empresa. Sé honesto: la precisión del resultado depende de ello.</div>
+  <div class="prog-wrap">
+    <div class="prog-top">
+      <span class="prog-lbl" id="pLbl">0 de 65 respondidas</span>
+      <span class="prog-pct" id="pPct">0%</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" id="pFill" style="width:0%"></div></div>
+  </div>
+  <div id="qWrap"></div>
+  <div style="text-align:center;margin-top:36px;">
+    <button class="btn-primary btn-verde" id="btnNext" onclick="goTV()" disabled>
+      Continuar a NOMI Target →
+    </button>
+    <p style="font-size:12px;color:var(--gris);margin-top:10px;" id="btnNextNote">Responde todas las preguntas para continuar</p>
+  </div>
+</div>
+
+<!-- ══ SCREEN 3: TARGET ══ -->
+<div class="screen" id="s3">
+  <div class="s-title">NOMI Target — Variables estratégicas</div>
+  <div class="s-sub">Estas variables calibran tu nivel objetivo considerando el contexto y ambición real de tu empresa.</div>
+  <div class="tv-grid" id="tvWrap"></div>
+  <div style="text-align:center;margin-top:36px;">
+    <button class="btn-primary btn-verde" id="btnCalc" onclick="calcular()" disabled>
+      Ver mi diagnóstico NOMI™
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <p style="font-size:12px;color:var(--gris);margin-top:10px;" id="btnCalcNote">Responde todas las variables para continuar</p>
+  </div>
+</div>
+
+<!-- ══ SCREEN 4: RESULTS ══ -->
+<div class="screen" id="s4">
+  <div id="resWrap"></div>
+</div>
+
+<footer>
+  <p>© 2026 NextGen OPEX Consulting™ · <a href="../index.html">nextgenopexco.com</a> · <a href="mailto:contacto@nextgenopexco.com">contacto@nextgenopexco.com</a></p>
+</footer>
+
+<script>
+/* ═══════════════════════ DATA ═══════════════════════ */
+const BLOCKS=[
+  {id:'proc',ico:'⚙️',color:'#1E3A8A',bg:'#EBF3FF',title:'Procesos',qs:[
+    '¿Los procesos clave están documentados?',
+    '¿Existen instrucciones claras por cada operación?',
+    '¿Los procesos se siguen de forma consistente?',
+    '¿Los procesos se actualizan regularmente?',
+    '¿Se eliminan actividades que no generan valor?',
+    '¿Existe un flujo definido para cada proceso?',
+    '¿Se mide el tiempo de ciclo de cada proceso?',
+    '¿Se tienen estándares operativos formales?',
+    '¿Se identifican y atacan los cuellos de botella?',
+    '¿Los procesos están alineados entre áreas?',
+    '¿Existe control de versiones para los procesos?',
+    '¿Se audita el cumplimiento de procesos?',
+    '¿Se documentan los cambios a procesos?',
+    '¿Los procesos son simples y fáciles de seguir?',
+    '¿Los procesos se diseñan pensando en eficiencia?'
+  ]},
+  {id:'oper',ico:'🏭',color:'#0F6E56',bg:'#E1F5EE',title:'Operación',qs:[
+    '¿La operación es estable y predecible día a día?',
+    '¿La variabilidad en resultados es baja?',
+    '¿La operación depende menos del operador individual?',
+    '¿Los retrabajos son mínimos o inexistentes?',
+    '¿Los tiempos muertos son controlados?',
+    '¿El flujo de producción es continuo?',
+    '¿Se balancea la carga de trabajo entre estaciones?',
+    '¿Se identifican y reducen desperdicios activamente?',
+    '¿Se trabaja para reducir tiempos de cambio?',
+    '¿Se controla la calidad dentro del proceso?'
+  ]},
+  {id:'gest',ico:'📊',color:'#4A2E8C',bg:'#EEEDFE',title:'Gestión',qs:[
+    '¿Existen KPIs claramente definidos?',
+    '¿Los KPIs se miden y registran diariamente?',
+    '¿Los datos de KPIs se usan para tomar decisiones?',
+    '¿Hay reuniones operativas estructuradas y frecuentes?',
+    '¿Se comparan regularmente los resultados vs meta?',
+    '¿Se actúa rápidamente sobre desviaciones detectadas?',
+    '¿Se utilizan tableros visuales de gestión?',
+    '¿Los datos operativos son confiables y verificables?',
+    '¿Hay seguimiento formal a acciones correctivas?',
+    '¿Las decisiones operativas se basan en datos?'
+  ]},
+  {id:'mej',ico:'🚀',color:'#2A6A0F',bg:'#EAF3DE',title:'Mejora Continua',qs:[
+    '¿Se realizan proyectos formales de mejora?',
+    '¿Se usan metodologías estructuradas (Lean, Six Sigma)?',
+    '¿Se identifican y atacan causas raíz de problemas?',
+    '¿Existe un sistema para generar y registrar ideas de mejora?',
+    '¿Las mejoras se priorizan por impacto en el negocio?',
+    '¿Se mide el impacto económico de las mejoras?',
+    '¿Las mejoras se estandarizan para que perduren?',
+    '¿Existe una cultura de mejora continua en el equipo?',
+    '¿El equipo operativo participa activamente en mejoras?',
+    '¿Se documentan y comparten los aprendizajes de mejoras?'
+  ]},
+  {id:'tec',ico:'💻',color:'#7A4A0A',bg:'#FAEEDA',title:'Tecnología',qs:[
+    '¿Se usan sistemas digitales para gestionar la operación?',
+    '¿Los sistemas de gestión están integrados entre sí?',
+    '¿Se automatizan tareas repetitivas con tecnología?',
+    '¿La información operativa se digitaliza en lugar de usarse en papel?',
+    '¿Se usan dashboards digitales para seguimiento?',
+    '¿Se están reduciendo los procesos manuales activamente?',
+    '¿Se captura data operativa en tiempo real?',
+    '¿Existe trazabilidad digital del producto/proceso?',
+    '¿Se usan herramientas de análisis de datos?',
+    '¿La tecnología disponible soporta la toma de decisiones?'
+  ]},
+  {id:'ia',ico:'🤖',color:'#0F4761',bg:'#E0F2FA',title:'Analítica e IA',qs:[
+    '¿Se analizan datos históricos para entender tendencias?',
+    '¿Se identifican patrones y tendencias operativas con datos?',
+    '¿Se hacen predicciones basadas en datos (ej. demanda, fallas)?',
+    '¿Se usan modelos analíticos para optimizar decisiones?',
+    '¿Alguna decisión operativa se automatiza con base en datos?',
+    '¿Se optimizan procesos usando análisis de datos?',
+    '¿Se usa inteligencia artificial en alguna parte de la operación?',
+    '¿Los datos se integran entre diferentes áreas del negocio?',
+    '¿Se generan insights de forma automática a partir de datos?',
+    '¿Los datos se usan sistemáticamente para impulsar la mejora continua?'
+  ]}
+];
+
+const TV=[
+  {id:'tam',lbl:'Tamaño de la empresa (empleados)',opts:['< 50 empleados','50 – 250 empleados','> 250 empleados']},
+  {id:'ind',lbl:'Complejidad de la industria',opts:['Baja complejidad','Complejidad media','Alta regulación']},
+  {id:'cal',lbl:'Riesgo de calidad / regulación',opts:['Riesgo bajo','Riesgo medio','Riesgo alto']},
+  {id:'aut',lbl:'Automatización requerida en la industria',opts:['Operación manual','Semi-automatizado','Alta automatización']},
+  {id:'cmp',lbl:'Nivel tecnológico de la competencia',opts:['Básico / manual','Semi-automatizado','Digital / avanzado']},
+  {id:'trz',lbl:'Trazabilidad requerida (producto/proceso)',opts:['Baja','Media','Alta']},
+  {id:'var',lbl:'Variabilidad de procesos / demanda',opts:['Baja','Media','Alta']},
+  {id:'mer',lbl:'Exigencia del cliente / mercado destino',opts:['Regional','Nacional','Global / OEM']},
+  {id:'cos',lbl:'Presión de reducción de costos',opts:['Moderada','Alta','Extrema']},
+  {id:'dep',lbl:'Dependencia de personas clave',opts:['Baja','Media','Alta']},
+  {id:'esc',lbl:'Capacidad de escalabilidad del negocio',opts:['Limitada','Regional','Global']},
+  {id:'inv',lbl:'Capacidad de inversión en tecnología',opts:['Limitada','Moderada','Alta']},
+  {id:'cpx',lbl:'Complejidad operacional actual',opts:['Moderada','Alta','Extrema']},
+  {id:'cul',lbl:'Madurez cultural del equipo',opts:['Reactiva','En desarrollo','Disciplina fuerte']},
+  {id:'dat',lbl:'Uso actual de datos y analítica',opts:['Básico','Intermedio','Avanzado']}
+];
+
+const LEVELS=[
+  {n:1,name:'Caótico',   color:'#C0392B',desc:'Operación completamente reactiva. Sin estándares ni visibilidad real.'},
+  {n:2,name:'Reactivo',  color:'#D85A30',desc:'Se resuelven problemas sin prevención. Las urgencias son el modo normal.'},
+  {n:3,name:'Estable',   color:'#BA7517',desc:'Procesos básicos documentados. Alta dependencia del esfuerzo individual.'},
+  {n:4,name:'Controlado',color:'#2A7A3A',desc:'KPIs monitoreados, estándares activos y mejoras sostenidas.'},
+  {n:5,name:'Optimizado',color:'#1A4B8C',desc:'Operación predecible, digitalización avanzada, mejora continua institucional.'},
+  {n:6,name:'Inteligente',color:'#4A2E8C',desc:'IA integrada, operación autónoma y escalable. Referente de clase mundial.'}
+];
+
+const PRIO=[
+  ['Establecer documentación básica de los procesos clave','Estandarizar procesos y medir su cumplimiento','Automatizar y optimizar procesos de alta frecuencia'],
+  ['Estabilizar la operación y reducir variabilidad básica','Implementar controles y reducir retrabajos','Digitalizar y automatizar el flujo operativo'],
+  ['Definir y medir KPIs operativos básicos','Implementar rutinas de gestión visual diaria','Pasar a gestión predictiva con datos en tiempo real'],
+  ['Iniciar primer proyecto formal de mejora','Institucionalizar metodologías Lean o Six Sigma','Crear cultura autónoma de mejora continua'],
+  ['Implementar sistemas digitales básicos de gestión','Integrar sistemas y crear dashboards operativos','Trazabilidad total e inteligencia operacional con IA'],
+  ['Comenzar con análisis de datos históricos básicos','Implementar modelos de tendencias y predicción','IA integrada para decisiones y optimización autónoma']
+];
+
+/* ═══════════════════════ STATE ═══════════════════════ */
+const ANS={}, TVANS={};
+let radarChart=null;
+const TOTAL=65;
+
+/* ═══════════════════════ NAV ═══════════════════════ */
+function startDiag(){
+  document.getElementById('hero').style.display='none';
+  document.getElementById('stepbar').style.display='flex';
+  show('s1'); steps(1);
+}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+function steps(a){[1,2,3,4].forEach(i=>{const e=document.getElementById('si'+i);e.classList.remove('active','done');if(i===a)e.classList.add('active');if(i<a)e.classList.add('done');});}
+
+/* ═══════════════════════ S1 → S2 ═══════════════════════ */
+function goQ(){
+  const f=['nombre','empresa','correo','industria','empleados'];
+  if(f.some(id=>!document.getElementById(id).value.trim())){alert('Por favor completa todos los campos marcados con *.');return;}
+  const emailEl=document.getElementById('correo');
+  const emailRx=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if(!emailRx.test(emailEl.value.trim())){
+    emailEl.style.borderColor='#C0392B';
+    emailEl.focus();
+    emailEl.placeholder='Ingresa un correo válido (ej. nombre@empresa.com)';
+    // Reset border on input
+    emailEl.addEventListener('input',()=>{emailEl.style.borderColor='';},{once:true});
+    alert('Por favor ingresa un correo electrónico válido.');
+    return;
+  }
+  buildQ(); show('s2'); steps(2);
+}
+
+function buildQ(){
+  const w=document.getElementById('qWrap'); w.innerHTML='';
+  let gi=0;
+  BLOCKS.forEach(b=>{
+    const d=document.createElement('div');
+    d.className='dim-block';
+    let h=`<div class="dim-hdr"><div class="dim-ico-box" style="background:${b.bg}">${b.ico}</div>
+      <div><div class="dim-title">${b.title}</div><div class="dim-cnt">${b.qs.length} preguntas</div></div></div>`;
+    b.qs.forEach((q,qi)=>{
+      const k=`${b.id}_${qi}`;
+      h+=`<div class="q-item">
+        <div class="q-text">${gi+1}. ${q}</div>
+        <div class="q-scale">${[1,2,3,4,5].map(v=>`<div class="q-opt">
+          <input type="radio" name="${k}" id="${k}_${v}" value="${v}" onchange="onAns('${k}')">
+          <label for="${k}_${v}"><span class="sn">${v}</span></label></div>`).join('')}</div>
+        <div class="q-scale-labels"><span>No existe</span><span>Excelente</span></div>
+      </div>`;
+      gi++;
+    });
+    d.innerHTML=h; w.appendChild(d);
+  });
+}
+
+function onAns(k){ANS[k]=true; updProg();}
+function updProg(){
+  const d=Object.keys(ANS).length, p=Math.round(d/TOTAL*100);
+  document.getElementById('pLbl').textContent=`${d} de ${TOTAL} respondidas`;
+  document.getElementById('pPct').textContent=p+'%';
+  document.getElementById('pFill').style.width=p+'%';
+  if(d===TOTAL){document.getElementById('btnNext').disabled=false;document.getElementById('btnNextNote').style.display='none';}
+}
+
+/* ═══════════════════════ S2 → S3 ═══════════════════════ */
+function goTV(){buildTV(); show('s3'); steps(3);}
+
+function buildTV(){
+  const w=document.getElementById('tvWrap'); w.innerHTML='';
+  TV.forEach((tv,i)=>{
+    const d=document.createElement('div'); d.className='tv-card';
+    d.innerHTML=`<div class="tv-lbl">${tv.lbl}</div>
+      <div class="tv-opts">${tv.opts.map((o,oi)=>`<div class="tv-opt">
+        <input type="radio" name="tv_${i}" id="tv_${i}_${oi}" value="${oi+1}" onchange="onTV(${i})">
+        <label for="tv_${i}_${oi}">${o}</label></div>`).join('')}</div>`;
+    w.appendChild(d);
+  });
+}
+
+function onTV(i){
+  TVANS[i]=parseInt(document.querySelector(`input[name="tv_${i}"]:checked`).value);
+  if(Object.keys(TVANS).length===TV.length){document.getElementById('btnCalc').disabled=false;document.getElementById('btnCalcNote').style.display='none';}
+}
+
+/* ═══════════════════════ CALCULAR ═══════════════════════ */
+function calcular(){
+  const scores=BLOCKS.map(b=>{
+    let s=0;
+    b.qs.forEach((_,qi)=>{const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);s+=el?parseInt(el.value):1;});
+    return s/b.qs.length;
+  });
+  const avg=scores.reduce((a,b)=>a+b,0)/scores.length;
+  const nc=Math.max(1,Math.min(6,Math.round(avg*6/5)));
+  let tvS=0; TV.forEach((_,i)=>tvS+=(TVANS[i]||1));
+  const nt=Math.max(nc+1,Math.min(6,Math.round(tvS/TV.length*2+1)));
+  renderRes(scores,avg,nc,nt);
+  show('s4'); steps(4);
+  // Enviar resultados por email (background, no bloquea UI)
+  enviarEmail(scores,nc,nt).catch(()=>{});
+}
+
+/* ═══════════════════════ ENVÍO WEB3FORMS ═══════════════════════ */
+async function enviarEmail(scores,nc,nt){
+  const R=window._R;
+  const lc=LEVELS[nc-1], lt=LEVELS[nt-1];
+  const sorted=[...scores.map((s,i)=>({s,i}))].sort((a,b)=>a.s-b.s).slice(0,3);
+  const PRIO_LVL=(s,i)=>{const lvl=s<2?0:s<4?1:2;return PRIO[i][lvl];};
+
+  const dimRows=BLOCKS.map((b,i)=>`
+    <tr>
+      <td style="padding:8px 12px;font-family:Arial,sans-serif;font-size:13px;color:#1A2340;">${b.ico} ${b.title}</td>
+      <td style="padding:8px 12px;text-align:center;">
+        <span style="display:inline-block;background:${scores[i]<2?'#C0392B':scores[i]<3?'#D85A30':scores[i]<4?'#BA7517':scores[i]<5?'#2A7A3A':'#1A4B8C'};color:#fff;padding:3px 10px;border-radius:99px;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;">${scores[i].toFixed(1)}/5.0</span>
+      </td>
+    </tr>`).join('');
+
+  const prioRows=sorted.map(({s,i})=>`
+    <tr>
+      <td style="padding:8px 12px;font-family:Arial,sans-serif;font-size:13px;color:#1A2340;border-left:4px solid #6DBE45;">
+        <strong>${BLOCKS[i].title}</strong> — ${PRIO_LVL(s,i)}
+      </td>
+    </tr>`).join('');
+
+  const tvRows=TV.map((tv,i)=>`
+    <tr>
+      <td style="padding:5px 12px;font-family:Arial,sans-serif;font-size:12px;color:#4B5563;">${tv.lbl}</td>
+      <td style="padding:5px 12px;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1E3A8A;">${tv.opts[(TVANS[i]||1)-1]}</td>
+    </tr>`).join('');
+
+  const html=`
+<!DOCTYPE html><html><body style="margin:0;padding:0;background:#F4F7FA;font-family:Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 16px;">
+<table width="620" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(30,58,138,.12);">
+
+  <!-- HEADER -->
+  <tr><td style="background:linear-gradient(90deg,#1E3A8A,#2E76E0);padding:28px 32px;">
+    <p style="margin:0;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);">NOMI Express™ — Diagnóstico completado</p>
+    <h1 style="margin:8px 0 4px;font-size:22px;color:#fff;">Nuevo lead: ${R.nom}</h1>
+    <p style="margin:0;font-size:14px;color:rgba(255,255,255,.75);">${R.emp} · ${R.ind} · ${R.ems}</p>
+  </td></tr>
+
+  <!-- CONTACTO -->
+  <tr><td style="background:#0f2060;padding:14px 32px;">
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td style="font-size:12px;color:rgba(255,255,255,.7);">📧 <a href="mailto:${R.cor}" style="color:#6DBE45;">${R.cor}</a></td>
+      <td style="font-size:12px;color:rgba(255,255,255,.7);">${R.tel?'📞 '+R.tel:''}</td>
+      <td style="font-size:12px;color:rgba(255,255,255,.7);">${R.cargo?'💼 '+R.cargo:''}</td>
+    </tr></table>
+  </td></tr>
+
+  <!-- NIVELES -->
+  <tr><td style="padding:28px 32px 12px;">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="46%" style="background:${lc.color};border-radius:10px;padding:16px;text-align:center;">
+          <p style="margin:0 0 4px;font-size:9px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);">NOMI CURRENT</p>
+          <p style="margin:0;font-size:18px;font-weight:bold;color:#fff;">Nivel ${nc} — ${lc.name}</p>
+          <p style="margin:6px 0 0;font-size:11px;color:rgba(255,255,255,.75);">${lc.desc}</p>
+        </td>
+        <td width="8%" style="text-align:center;font-size:22px;color:#ccc;">→</td>
+        <td width="46%" style="background:${lt.color};border-radius:10px;padding:16px;text-align:center;">
+          <p style="margin:0 0 4px;font-size:9px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);">NOMI TARGET</p>
+          <p style="margin:0;font-size:18px;font-weight:bold;color:#fff;">Nivel ${nt} — ${lt.name}</p>
+          <p style="margin:6px 0 0;font-size:11px;color:rgba(255,255,255,.75);">${lt.desc}</p>
+        </td>
+      </tr>
+    </table>
+    <!-- KPIs -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+      <tr>
+        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
+          <p style="margin:0;font-size:22px;font-weight:bold;color:${lc.color};">${nc}/6</p>
+          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Current</p>
+        </td>
+        <td width="10"></td>
+        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
+          <p style="margin:0;font-size:22px;font-weight:bold;color:${lt.color};">${nt}/6</p>
+          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Target</p>
+        </td>
+        <td width="10"></td>
+        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
+          <p style="margin:0;font-size:22px;font-weight:bold;color:#6DBE45;">${R.gap}</p>
+          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Brecha</p>
+        </td>
+        <td width="10"></td>
+        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
+          <p style="margin:0;font-size:22px;font-weight:bold;color:#1E3A8A;">${R.pct}%</p>
+          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Score</p>
+        </td>
+        <td width="10"></td>
+        <td style="text-align:center;padding:12px;background:#F4F7FA;border-radius:8px;">
+          <p style="margin:0;font-size:14px;font-weight:bold;color:#1E3A8A;">${R.hor}</p>
+          <p style="margin:4px 0 0;font-size:9px;font-weight:bold;color:#4B5563;text-transform:uppercase;letter-spacing:1px;">Horizonte</p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- SCORES POR DIMENSIÓN -->
+  <tr><td style="padding:8px 32px 4px;">
+    <p style="font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#1E3A8A;border-bottom:2px solid #E8EDF4;padding-bottom:8px;margin-bottom:0;">Scores por dimensión</p>
+    <table width="100%" cellpadding="0" cellspacing="0">${dimRows}</table>
+  </td></tr>
+
+  <!-- PRIORIDADES -->
+  <tr><td style="padding:16px 32px 4px;">
+    <p style="font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#1E3A8A;border-bottom:2px solid #E8EDF4;padding-bottom:8px;margin-bottom:0;">Top 3 prioridades de transformación</p>
+    <table width="100%" cellpadding="0" cellspacing="0">${prioRows}</table>
+  </td></tr>
+
+  <!-- VARIABLES TV -->
+  <tr><td style="padding:16px 32px 4px;">
+    <p style="font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:#1E3A8A;border-bottom:2px solid #E8EDF4;padding-bottom:8px;margin-bottom:0;">Variables estratégicas NOMI Target</p>
+    <table width="100%" cellpadding="0" cellspacing="0">${tvRows}</table>
+  </td></tr>
+
+  <!-- FOOTER -->
+  <tr><td style="background:#0f2060;padding:20px 32px;margin-top:24px;">
+    <p style="margin:0;font-size:12px;color:rgba(255,255,255,.6);">NextGen OPEX Consulting™ · <a href="https://nextgenopexco.com" style="color:#6DBE45;">nextgenopexco.com</a> · <a href="mailto:contacto@nextgenopexco.com" style="color:#6DBE45;">contacto@nextgenopexco.com</a></p>
+    <p style="margin:6px 0 0;font-size:11px;color:rgba(255,255,255,.4);">Este correo fue generado automáticamente por NOMI Express™.</p>
+  </td></tr>
+
+</table>
+</td></tr></table>
+</body></html>`;
+
+  await fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({
+      access_key:'e1a6b5f0-dca3-425f-b3db-64f437427fa3',
+      subject:`🏭 NOMI Express™ — ${R.emp} · Nivel ${nc}→${nt} · ${R.nom}`,
+      from_name:'NOMI Express™ — NextGen OPEX',
+      name:R.nom,
+      email:R.cor,
+      message:html,
+      is_html:true,
+      replyto:R.cor
+    })
+  });
+}
+
+/* ═══════════════════════ RENDER RESULTS ═══════════════════════ */
+function renderRes(scores,avg,nc,nt){
+  const lc=LEVELS[nc-1], lt=LEVELS[nt-1];
+  const nom=document.getElementById('nombre').value, car=document.getElementById('cargo').value||'—',
+        cor=document.getElementById('correo').value, tel=document.getElementById('tel').value||'—',
+        emp=document.getElementById('empresa').value, ind=document.getElementById('industria').value,
+        ems=document.getElementById('empleados').value;
+  const gap=nt-nc, pct=Math.round(avg/5*100);
+  const hor=gap<=1?'6 – 12 meses':gap<=2?'9 – 18 meses':gap<=3?'12 – 24 meses':'18 – 36 meses';
+  const sorted=[...scores.map((s,i)=>({s,i}))].sort((a,b)=>a.s-b.s).slice(0,3);
+
+  document.getElementById('resWrap').innerHTML=`
+    <div class="res-hero">
+      <div class="res-hero-inner">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px;">
+          <div>
+            <div class="res-kicker">Diagnóstico NOMI™ — NextGen OPEX Consulting</div>
+            <div class="res-empresa" style="margin-bottom:0;">${nom} · ${emp} · ${ind}</div>
+          </div>
+          <img src="../NOMI%20logo%20sf.png" alt="NOMI™" style="height:56px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 12px rgba(0,0,0,.4));flex-shrink:0;">
+        </div>
+        <div class="levels-row">
+          <div class="level-box">
+            <div class="lbl">NOMI Current</div>
+            <div class="level-badge" style="background:${lc.color};">Nivel ${nc} — ${lc.name}</div>
+            <div class="level-desc">${lc.desc}</div>
+          </div>
+          <div class="arrow-lbl">→</div>
+          <div class="level-box">
+            <div class="lbl">NOMI Target</div>
+            <div class="level-badge" style="background:${lt.color};">Nivel ${nt} — ${lt.name}</div>
+            <div class="level-desc">${lt.desc}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-val" style="color:${lc.color}">${nc}/6</div><div class="kpi-lbl">NOMI Current</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:${lt.color}">${nt}/6</div><div class="kpi-lbl">NOMI Target</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:#6DBE45">${gap}</div><div class="kpi-lbl">Niveles de brecha</div></div>
+      <div class="kpi"><div class="kpi-val">${pct}%</div><div class="kpi-lbl">Score operacional</div></div>
+    </div>
+
+    <div class="res-grid">
+      <div class="res-card">
+        <h3>Perfil de madurez por dimensión</h3>
+        ${BLOCKS.map((b,i)=>`<div class="bar-item">
+          <div class="bar-lbl"><span>${b.ico} ${b.title}</span><span>${scores[i].toFixed(1)}/5.0</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:${scores[i]/5*100}%"></div>
+            <div class="bar-target" style="left:${nt/6*100}%"></div>
+          </div></div>`).join('')}
+        <div style="display:flex;gap:16px;margin-top:14px;font-size:10px;color:var(--gris);">
+          <span>── Nivel actual</span>
+          <span style="color:#6DBE45;font-weight:700;">│ Nivel objetivo</span>
+        </div>
+      </div>
+      <div class="res-card">
+        <h3>Radar operacional NOMI™</h3>
+        <div class="chart-wrap"><canvas id="radar"></canvas></div>
+      </div>
+    </div>
+
+    <div class="res-card" style="margin-bottom:22px;">
+      <h3>⚡ Top 3 — Prioridades de transformación</h3>
+      ${sorted.map(({s,i})=>{const lvl=s<2?0:s<4?1:2;return`<div class="prio-item">
+        <div class="prio-dim">${BLOCKS[i].ico} ${BLOCKS[i].title} — Score: ${scores[i].toFixed(1)}/5.0</div>
+        <div class="prio-txt">${PRIO[i][lvl]}</div></div>`;}).join('')}
+    </div>
+
+    <div class="res-card" style="margin-bottom:22px;">
+      <h3>Variables estratégicas NOMI Target</h3>
+      <div class="tv-summary">${TV.map((tv,i)=>`<div class="tv-sum-i">
+        <div class="tv-sum-lbl">${tv.lbl}</div>
+        <div class="tv-sum-val">${tv.opts[(TVANS[i]||1)-1]}</div></div>`).join('')}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+        background:var(--bg-light);border-radius:9px;padding:14px 18px;margin-top:16px;">
+        <span style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--gris);">Horizonte de transformación recomendado</span>
+        <span style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:var(--azul);">${hor}</span>
+      </div>
+    </div>
+
+    <div class="res-cta">
+      <div class="res-cta-inner">
+        <div style="display:inline-block;background:rgba(109,190,69,.2);border:1px solid rgba(109,190,69,.4);color:var(--verde);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;padding:5px 14px;border-radius:99px;text-transform:uppercase;margin-bottom:16px;">Siguiente paso — NOMI Full Assessment™</div>
+        <h3>Tu NOMI Express™ está listo.</h3>
+        <p style="max-width:560px;margin:0 auto 12px;">Este diagnóstico te da una foto clara de dónde estás hoy. El siguiente paso es el <strong style="color:var(--verde);">NOMI Full Assessment™</strong> — la evaluación profunda que hacemos juntos, en tu empresa, con tu equipo y tus datos reales.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:28px;">Agenda una sesión de 45 minutos sin costo. Revisamos tu resultado NOMI Express y definimos si un Full Assessment tiene sentido para tu empresa.</p>
+        <!-- Phase comparison mini -->
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;">
+          <div style="background:rgba(109,190,69,.12);border:1px solid rgba(109,190,69,.3);border-radius:10px;padding:14px 20px;text-align:left;max-width:220px;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;color:var(--verde);text-transform:uppercase;margin-bottom:6px;">✓ Completado — Fase 1</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;color:#fff;margin-bottom:4px;">NOMI Express™</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.5;">Autoevaluación digital · Resultado inmediato</div>
+          </div>
+          <div style="display:flex;align-items:center;font-size:20px;color:rgba(255,255,255,.25);">→</div>
+          <div style="background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.25);border-radius:10px;padding:14px 20px;text-align:left;max-width:220px;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;color:rgba(109,190,69,.7);text-transform:uppercase;margin-bottom:6px;">Siguiente paso — Fase 2</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;color:rgba(255,255,255,.8);margin-bottom:4px;">NOMI Full Assessment™</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.45);line-height:1.5;">Con consultor · On-site · Plan detallado</div>
+          </div>
+        </div>
+        <div class="cta-btns">
+          <a href="../index.html#contacto" style="display:inline-flex;align-items:center;gap:10px;background:#6DBE45;color:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;padding:15px 30px;border-radius:8px;text-decoration:none;box-shadow:0 4px 20px rgba(109,190,69,.35);">Quiero mi NOMI Full Assessment™ →</a>
+          <button class="btn-ghost" onclick="descargarPDF()">📄 Descargar reporte PDF con gráfica</button>
+          <button class="btn-ghost" onclick="location.reload()">↺ Nuevo diagnóstico</button>
+        </div>
+      </div>
+    </div>`;
+
+  // Store for PDF
+  window._R={scores,avg,nc,nt,lc,lt,nom,cargo:car,cor,tel,emp,ind,ems,gap,pct,hor,sorted};
+
+  // Draw radar
+  setTimeout(()=>{
+    const ctx=document.getElementById('radar').getContext('2d');
+    if(radarChart) radarChart.destroy();
+    radarChart=new Chart(ctx,{
+      type:'radar',
+      data:{
+        labels:BLOCKS.map(b=>b.title),
+        datasets:[
+          {label:'NOMI Current',data:scores,backgroundColor:'rgba(30,58,138,.15)',borderColor:'#1E3A8A',borderWidth:2.5,pointBackgroundColor:'#1E3A8A',pointRadius:5,pointHoverRadius:7},
+          {label:'NOMI Target', data:BLOCKS.map(()=>nt/6*5),backgroundColor:'rgba(109,190,69,.1)', borderColor:'#6DBE45',borderWidth:2,borderDash:[6,4],pointBackgroundColor:'#6DBE45',pointRadius:4}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        scales:{r:{min:0,max:5,ticks:{stepSize:1,font:{size:10,family:'Montserrat'},backdropColor:'transparent'},
+          grid:{color:'rgba(0,0,0,.07)'},angleLines:{color:'rgba(0,0,0,.07)'},
+          pointLabels:{font:{size:11,family:'Montserrat',weight:'700'},color:'#1A2340'}}},
+        plugins:{legend:{position:'bottom',labels:{font:{size:11,family:'Montserrat'},boxWidth:12,padding:16}}}
+      }
+    });
+  },150);
+}
+
+/* ═══════════════════════ HELPERS ═══════════════════════ */
+// Pre-cached logos (loaded on page init)
+const _IMGS={};
+async function preloadImgs(){
+  const targets={
+    noc:'../NextGen OPEX Consulting logo design sin fondo.png',
+    nomi:'../NOMI logo sf.png'
+  };
+  await Promise.all(Object.entries(targets).map(([k,url])=>
+    fetch(url).then(r=>r.blob()).then(b=>new Promise(res=>{
+      const fr=new FileReader();fr.onload=e=>{_IMGS[k]=e.target.result;res();};fr.onerror=()=>res();fr.readAsDataURL(b);
+    })).catch(()=>{
+      // fallback: canvas
+      return new Promise(res=>{
+        const img=new Image();img.crossOrigin='anonymous';
+        img.onload=()=>{const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext('2d').drawImage(img,0,0);try{_IMGS[k]=c.toDataURL('image/png');}catch(e){}res();};
+        img.onerror=()=>res();img.src=url;
+      });
+    })
+  ));
+}
+document.addEventListener('DOMContentLoaded',preloadImgs);
+
+/* ═══════════════════════ PDF (with radar chart + logos + all answers) ═══════════════════════ */
+async function descargarPDF(){
+  const btn=document.querySelector('.btn-ghost');
+  btn.textContent='⏳ Generando PDF...';btn.disabled=true;
+  await new Promise(r=>setTimeout(r,300));
+  const logoNOC=_IMGS.noc||null, logoNOMI=_IMGS.nomi||null;
+
+  const {jsPDF}=window.jspdf;
+  const R=window._R;
+  const doc=new jsPDF({unit:'mm',format:'a4'});
+  const W=210,M=18,CW=W-2*M;
+  let y=M;
+  const chk=h=>{if(y+h>282){doc.addPage();y=M;}};
+
+  // ── Header band ──
+  // Top stripe: azul oscuro
+  doc.setFillColor(15,32,96); doc.rect(0,0,W,36,'F');
+  // NextGen logo (left)
+  if(logoNOC){
+    doc.addImage(logoNOC,'PNG',M,5,60,22);
+  } else {
+    doc.setTextColor(255,255,255);doc.setFontSize(11);doc.setFont('helvetica','bold');
+    doc.text('NextGen OPEX Consulting™',M,20);
+  }
+  // NOMI logo (center)
+  if(logoNOMI){
+    doc.addImage(logoNOMI,'PNG',W/2-22,3,44,28);
+  } else {
+    doc.setTextColor(255,255,255);doc.setFontSize(14);doc.setFont('helvetica','bold');
+    doc.text('NOMI™',W/2,20,{align:'center'});
+  }
+  // Badge (right)
+  doc.setFillColor(109,190,69); doc.roundedRect(W-M-52,10,52,14,3,3,'F');
+  doc.setTextColor(255,255,255);doc.setFontSize(7.5);doc.setFont('helvetica','bold');
+  doc.text('NOMI',W-M-26,19,{align:'center'});
+  doc.setFontSize(6.5);doc.setFont('helvetica','normal');
+  doc.text('EXPRESS™ — Fase 1',W-M-26,24,{align:'center'});
+
+  // Second stripe: info empresa
+  doc.setFillColor(26,58,140); doc.rect(0,36,W,18,'F');
+  doc.setTextColor(255,255,255);doc.setFontSize(10);doc.setFont('helvetica','bold');
+  doc.text(`${R.emp}`,M+2,45);
+  doc.setFontSize(8);doc.setFont('helvetica','normal');doc.setTextColor(180,210,255);
+  doc.text(`${R.nom}  ·  ${R.cargo||''}  ·  ${R.cor}`,M+2,52);
+  doc.setTextColor(180,210,255);doc.setFontSize(7.5);
+  doc.text(`Industria: ${R.ind}  ·  Tamaño: ${R.ems}  ·  ${new Date().toLocaleDateString('es-MX',{year:'numeric',month:'long',day:'numeric'})}`,W-M,52,{align:'right'});
+  y=62;
+
+  // ── Level blocks ──
+  const lc=R.lc,lt=R.lt;
+  // Current
+  const [lcR,lcG,lcB]=hexToRgb(lc.color);
+  doc.setFillColor(lcR,lcG,lcB); doc.roundedRect(M,y,CW/2-4,28,4,4,'F');
+  doc.setTextColor(255,255,255);doc.setFontSize(8);doc.setFont('helvetica','bold');
+  doc.text('NOMI CURRENT',M+6,y+8);
+  doc.setFontSize(16);doc.text(`Nivel ${R.nc} — ${lc.name}`,M+6,y+19);
+  doc.setFontSize(7.5);doc.setFont('helvetica','normal');
+  const lcLines=doc.splitTextToSize(lc.desc,CW/2-12);doc.text(lcLines,M+6,y+25);
+  // Target
+  const [ltR,ltG,ltB]=hexToRgb(lt.color);
+  doc.setFillColor(ltR,ltG,ltB); doc.roundedRect(M+CW/2+4,y,CW/2-4,28,4,4,'F');
+  doc.setTextColor(255,255,255);doc.setFontSize(8);doc.setFont('helvetica','bold');
+  doc.text('NOMI TARGET',M+CW/2+10,y+8);
+  doc.setFontSize(16);doc.text(`Nivel ${R.nt} — ${lt.name}`,M+CW/2+10,y+19);
+  doc.setFontSize(7.5);doc.setFont('helvetica','normal');
+  const ltLines=doc.splitTextToSize(lt.desc,CW/2-12);doc.text(ltLines,M+CW/2+10,y+25);
+  y+=36;
+
+  // ── KPI row ──
+  const kpis=[
+    {v:`${R.nc}/6`,l:'NOMI Current',c:lc.color},
+    {v:`${R.nt}/6`,l:'NOMI Target',c:lt.color},
+    {v:`${R.gap}`,l:'Niveles de brecha',c:'#6DBE45'},
+    {v:`${R.pct}%`,l:'Score operacional',c:'#1E3A8A'}
+  ];
+  const kw=(CW-6)/4;
+  kpis.forEach((k,i)=>{
+    const x=M+i*(kw+2);
+    doc.setFillColor(244,247,250); doc.roundedRect(x,y,kw,18,3,3,'F');
+    const [r,g,b]=hexToRgb(k.c);
+    doc.setTextColor(r,g,b); doc.setFontSize(14);doc.setFont('helvetica','bold');
+    doc.text(k.v,x+kw/2,y+10,{align:'center'});
+    doc.setTextColor(100,100,100);doc.setFontSize(7);doc.setFont('helvetica','normal');
+    doc.text(k.l.toUpperCase(),x+kw/2,y+16,{align:'center'});
+  });
+  y+=26;
+
+  // ── Dimension bars ──
+  doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
+  doc.text('PERFIL DE MADUREZ POR DIMENSIÓN',M,y);y+=8;
+  BLOCKS.forEach((b,i)=>{
+    chk(12);
+    doc.setFontSize(9.5);doc.setFont('helvetica','bold');doc.setTextColor(40,40,40);
+    doc.text(`${b.title}`,M,y);
+    doc.setFontSize(9.5);doc.setFont('helvetica','normal');doc.setTextColor(80,80,80);
+    doc.text(`${R.scores[i].toFixed(1)}/5.0`,M+CW,y,{align:'right'});
+    const bx=M+42,bw=CW-42,bh=5;
+    doc.setFillColor(232,237,244); doc.roundedRect(bx,y-4.5,bw,bh,1,1,'F');
+    const [br,bg,bb]=hexToRgb('#1E3A8A');
+    doc.setFillColor(br,bg,bb); doc.roundedRect(bx,y-4.5,bw*R.scores[i]/5,bh,1,1,'F');
+    // target marker
+    const txPos=bx+bw*(R.nt/6);
+    doc.setFillColor(109,190,69); doc.rect(txPos-0.7,y-6,1.5,8,'F');
+    y+=11;
+  });
+  doc.setFontSize(8);doc.setTextColor(120,120,120);
+  doc.text('── Nivel actual     │ Nivel objetivo (verde)',M,y);y+=12;
+
+  // ── Radar chart ──
+  chk(80);
+  doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
+  doc.text('RADAR OPERACIONAL NOMI™',M,y);y+=6;
+  if(radarChart){
+    try{
+      const imgData=radarChart.toBase64Image('image/png',1);
+      doc.addImage(imgData,'PNG',M,y,CW,74);y+=80;
+    }catch(e){y+=4;}
+  }
+
+  // ── Priorities ──
+  chk(12);
+  doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
+  doc.text('TOP 3 — PRIORIDADES DE TRANSFORMACIÓN',M,y);y+=8;
+  R.sorted.forEach(({s,i})=>{
+    const lvl=s<2?0:s<4?1:2;
+    chk(18);
+    doc.setFillColor(244,247,250);doc.roundedRect(M,y-4,CW,15,2,2,'F');
+    doc.setFillColor(109,190,69);doc.rect(M,y-4,2,15,'F');
+    doc.setFontSize(9.5);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
+    doc.text(`${BLOCKS[i].title}  —  Score: ${R.scores[i].toFixed(1)}/5.0`,M+6,y+2);
+    doc.setFontSize(8.5);doc.setFont('helvetica','normal');doc.setTextColor(75,85,99);
+    const lines=doc.splitTextToSize(PRIO[i][lvl],CW-8);
+    doc.text(lines,M+6,y+7);
+    y+=18;
+  });
+  y+=6;
+
+  // ── Variables estratégicas ──
+  chk(10);
+  doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
+  doc.text('VARIABLES ESTRATÉGICAS NOMI TARGET',M,y);y+=8;
+  const colW=(CW-4)/3;
+  TV.forEach((tv,i)=>{
+    const col=i%3, row=Math.floor(i/3);
+    if(col===0){chk(16);}
+    const xpos=M+col*(colW+2), ypos=col===0&&i>0?y:y+row*0;
+    if(col===0&&i>0)y+=16;
+    doc.setFillColor(244,247,250); doc.roundedRect(xpos,y-4,colW,12,2,2,'F');
+    doc.setFontSize(7);doc.setFont('helvetica','bold');doc.setTextColor(100,100,100);
+    const lblLines=doc.splitTextToSize(tv.lbl,colW-4);
+    doc.text(lblLines[0],xpos+3,y+1);
+    doc.setFontSize(8);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
+    doc.text(tv.opts[(TVANS[i]||1)-1],xpos+3,y+8);
+  });
+  y+=18;
+
+  // ── Horizon ──
+  chk(14);
+  doc.setFillColor(15,32,96);doc.roundedRect(M,y,CW,12,3,3,'F');
+  doc.setTextColor(180,200,255);doc.setFontSize(9);doc.setFont('helvetica','bold');
+  doc.text('HORIZONTE DE TRANSFORMACIÓN RECOMENDADO',M+CW/2,y+5,{align:'center'});
+  doc.setTextColor(109,190,69);doc.setFontSize(12);
+  doc.text(R.hor,M+CW/2,y+10.5,{align:'center'});
+  y+=20;
+
+  // ── Bloque de contacto NextGen OPEX ──
+  chk(50);
+  doc.setFillColor(15,32,96); doc.roundedRect(M,y,CW,44,4,4,'F');
+  // Fondo decorativo
+  doc.setFillColor(26,58,140); doc.roundedRect(M,y,CW/2,44,4,4,'F');
+  if(logoNOC) doc.addImage(logoNOC,'PNG',M+8,y+6,56,20);
+  // Texto derecho
+  doc.setTextColor(109,190,69);doc.setFontSize(9);doc.setFont('helvetica','bold');
+  doc.text('¿LISTO PARA EL SIGUIENTE PASO?',M+CW/2+8,y+10);
+  doc.setTextColor(255,255,255);doc.setFontSize(8.5);doc.setFont('helvetica','bold');
+  doc.text('NOMI Full Assessment™ — Con consultor',M+CW/2+8,y+18);
+  doc.setFontSize(7.5);doc.setFont('helvetica','normal');doc.setTextColor(180,210,255);
+  doc.text('Análisis profundo on-site con tu equipo y datos reales.',M+CW/2+8,y+25);
+  doc.text('Plan de transformación detallado con KPIs y hoja de ruta.',M+CW/2+8,y+31);
+  doc.setTextColor(109,190,69);doc.setFont('helvetica','bold');doc.setFontSize(7.5);
+  doc.text('contacto@nextgenopexco.com  |  nextgenopexco.com',M+CW/2+8,y+39);
+  y+=52;
+
+  // ══ TODAS LAS RESPUESTAS ══
+  doc.addPage();
+  y=M;
+  // Header de sección
+  doc.setFillColor(30,58,138); doc.rect(0,0,W,22,'F');
+  if(logoNOMI) doc.addImage(logoNOMI,'PNG',M,2,28,16);
+  doc.setTextColor(255,255,255);doc.setFontSize(13);doc.setFont('helvetica','bold');
+  doc.text('DETALLE COMPLETO DE RESPUESTAS',W/2,13,{align:'center'});
+  if(logoNOC) doc.addImage(logoNOC,'PNG',W-M-38,2,38,14);
+  y=30;
+
+  const SCORE_LBL={1:'No existe',2:'Parcial',3:'Existe (inconsistente)',4:'Existe y funciona',5:'Optimizado'};
+  const LEVEL_COLORS={1:[192,57,43],2:[216,90,48],3:[186,117,23],4:[42,122,58],5:[26,75,140],6:[74,46,140]};
+
+  BLOCKS.forEach(b=>{
+    chk(20);
+    // Dim header
+    doc.setFillColor(235,240,255); doc.roundedRect(M,y,CW,12,2,2,'F');
+    doc.setTextColor(30,58,138);doc.setFontSize(10);doc.setFont('helvetica','bold');
+    doc.text(`${b.title.toUpperCase()}`,M+5,y+8);
+    const dimAvg=b.qs.reduce((_,__,qi)=>{const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);return _+(el?parseInt(el.value):0);},0)/b.qs.length;
+    doc.setTextColor(109,190,69);
+    doc.text(`Promedio: ${dimAvg.toFixed(1)}/5.0`,M+CW,y+8,{align:'right'});
+    y+=16;
+
+    b.qs.forEach((q,qi)=>{
+      chk(14);
+      const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);
+      const val=el?parseInt(el.value):0;
+      const lbl=val?SCORE_LBL[val]:'Sin responder';
+      // Row bg alternating
+      if(qi%2===0){doc.setFillColor(248,250,252);doc.rect(M,y-3,CW,11,'F');}
+      // Question number + text
+      doc.setTextColor(60,60,60);doc.setFontSize(8);doc.setFont('helvetica','normal');
+      const qTxt=doc.splitTextToSize(`${qi+1}. ${q}`,CW-42);
+      doc.text(qTxt,M+2,y+3);
+      // Score badge
+      const scoreColor=val===0?[180,180,180]:val<=2?[216,90,48]:val===3?[186,117,23]:val===4?[42,122,58]:[26,75,140];
+      doc.setFillColor(...scoreColor);
+      doc.roundedRect(M+CW-38,y-1,38,9,2,2,'F');
+      doc.setTextColor(255,255,255);doc.setFontSize(8);doc.setFont('helvetica','bold');
+      doc.text(`${val}/5 — ${lbl}`,M+CW-19,y+5,{align:'center'});
+      y+=Math.max(qTxt.length*5,11)+2;
+    });
+    y+=6;
+  });
+
+  // ── Footer on all pages ──
+  const pages=doc.getNumberOfPages();
+  for(let p=1;p<=pages;p++){
+    doc.setPage(p);
+    doc.setFillColor(15,32,96);doc.rect(0,285,W,12,'F');
+    if(logoNOC) doc.addImage(logoNOC,'PNG',M,286,26,9);
+    if(logoNOMI) doc.addImage(logoNOMI,'PNG',M+30,286,18,9);
+    doc.setFontSize(7);doc.setFont('helvetica','normal');doc.setTextColor(180,200,255);
+    doc.text('nextgenopexco.com  ·  contacto@nextgenopexco.com  ·  Confidencial — uso exclusivo del cliente',W/2,292,{align:'center'});
+    doc.setTextColor(109,190,69);doc.setFont('helvetica','bold');
+    doc.text(`${p} / ${pages}`,W-M,292,{align:'right'});
+  }
+
+  doc.save(`NOMI_${R.emp.replace(/\s+/g,'_')}_Diagnostico.pdf`);
+  btn.textContent='📄 Descargar reporte PDF con gráfica'; btn.disabled=false;
+}
+
+function hexToRgb(hex){
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return [r,g,b];
+}
+</script>
+</body>
+</html>
