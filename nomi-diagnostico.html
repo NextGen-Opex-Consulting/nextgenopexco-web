@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diagnóstico NOMI™ — NextGen OPEX Consulting</title>
   <meta name="description" content="Evalúa el nivel de madurez operacional de tu empresa. 65 preguntas, 6 dimensiones, resultado inmediato.">
-  <link rel="icon" type="image/png" href="../isotipo-noc.png">
+  <link rel="icon" type="image/png" href="isotipo-noc.png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -294,13 +294,13 @@
 
 <!-- ══ NAV ══ -->
 <nav>
-  <a class="nav-logo" href="../index.html">
-    <img src="../NextGen%20OPEX%20Consulting%20logo%20design%20sin%20fondo.png" alt="NextGen OPEX Consulting">
+  <a class="nav-logo" href="index.html">
+    <img src="NextGen%20OPEX%20Consulting%20logo%20design%20sin%20fondo.png" alt="NextGen OPEX Consulting">
   </a>
   <!-- NOMI logo centrado -->
   <div style="position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;">
     <div style="width:1px;height:32px;background:rgba(255,255,255,.2);"></div>
-    <img src="../NOMI%20logo%20sf.png" alt="NOMI™" style="height:36px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));">
+    <img src="NOMI%20logo%20sf.png" alt="NOMI™" style="height:36px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));">
     <div style="display:flex;flex-direction:column;line-height:1.1;">
       <span style="font-family:'Montserrat',sans-serif;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);">Fase 1</span>
       <span style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;color:rgba(255,255,255,.9);">Express™</span>
@@ -308,9 +308,9 @@
     <div style="width:1px;height:32px;background:rgba(255,255,255,.2);"></div>
   </div>
   <div class="nav-links">
-    <a href="../index.html">Inicio</a>
-    <a href="../index.html#servicios">Servicios</a>
-    <a href="../articulos.html">Artículos</a>
+    <a href="index.html">Inicio</a>
+    <a href="index.html#servicios">Servicios</a>
+    <a href="articulos.html">Artículos</a>
     <button class="btn-nav" onclick="startDiag()">Iniciar diagnóstico</button>
   </div>
 </nav>
@@ -333,7 +333,7 @@
   <div class="geo"></div>
   <div class="geo"></div>
   <div class="hero-inner">
-    <img src="../NOMI%20logo%20sf.png" class="nomi-logo" alt="NOMI™">
+    <img src="NOMI%20logo%20sf.png" class="nomi-logo" alt="NOMI™">
     <div class="badge-top">NOMI Express™ — Fase 1 · Autoevaluación digital gratuita</div>
     <h1>Conoce la madurez operacional <em>de tu empresa</em></h1>
     <p>NOMI Express es la primera fase del diagnóstico NOMI™. En 15 minutos obtienes tu nivel operacional actual, tu objetivo de evolución y las prioridades de transformación — todo sin necesidad de un consultor.</p>
@@ -486,7 +486,7 @@
 </div>
 
 <footer>
-  <p>© 2026 NextGen OPEX Consulting™ · <a href="../index.html">nextgenopexco.com</a> · <a href="mailto:contacto@nextgenopexco.com">contacto@nextgenopexco.com</a></p>
+  <p>© 2026 NextGen OPEX Consulting™ · <a href="index.html">nextgenopexco.com</a> · <a href="mailto:contacto@nextgenopexco.com">contacto@nextgenopexco.com</a></p>
 </footer>
 
 <script>
@@ -631,7 +631,6 @@ function goQ(){
     emailEl.style.borderColor='#C0392B';
     emailEl.focus();
     emailEl.placeholder='Ingresa un correo válido (ej. nombre@empresa.com)';
-    // Reset border on input
     emailEl.addEventListener('input',()=>{emailEl.style.borderColor='';},{once:true});
     alert('Por favor ingresa un correo electrónico válido.');
     return;
@@ -704,7 +703,6 @@ function calcular(){
   const nt=Math.max(nc+1,Math.min(6,Math.round(tvS/TV.length*2+1)));
   renderRes(scores,avg,nc,nt);
   show('s4'); steps(4);
-  // Enviar resultados por email (background, no bloquea UI)
   enviarEmail(scores,nc,nt).catch(()=>{});
 }
 
@@ -868,7 +866,7 @@ function renderRes(scores,avg,nc,nt){
             <div class="res-kicker">Diagnóstico NOMI™ — NextGen OPEX Consulting</div>
             <div class="res-empresa" style="margin-bottom:0;">${nom} · ${emp} · ${ind}</div>
           </div>
-          <img src="../NOMI%20logo%20sf.png" alt="NOMI™" style="height:56px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 12px rgba(0,0,0,.4));flex-shrink:0;">
+          <img src="NOMI%20logo%20sf.png" alt="NOMI™" style="height:56px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 12px rgba(0,0,0,.4));flex-shrink:0;">
         </div>
         <div class="levels-row">
           <div class="level-box">
@@ -953,7 +951,7 @@ function renderRes(scores,avg,nc,nt){
           </div>
         </div>
         <div class="cta-btns">
-          <a href="../index.html#contacto" style="display:inline-flex;align-items:center;gap:10px;background:#6DBE45;color:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;padding:15px 30px;border-radius:8px;text-decoration:none;box-shadow:0 4px 20px rgba(109,190,69,.35);">Quiero mi NOMI Full Assessment™ →</a>
+          <a href="index.html#contacto" style="display:inline-flex;align-items:center;gap:10px;background:#6DBE45;color:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;padding:15px 30px;border-radius:8px;text-decoration:none;box-shadow:0 4px 20px rgba(109,190,69,.35);">Quiero mi NOMI Full Assessment™ →</a>
           <button class="btn-ghost" onclick="descargarPDF()">📄 Descargar reporte PDF con gráfica</button>
           <button class="btn-ghost" onclick="location.reload()">↺ Nuevo diagnóstico</button>
         </div>
@@ -988,18 +986,16 @@ function renderRes(scores,avg,nc,nt){
 }
 
 /* ═══════════════════════ HELPERS ═══════════════════════ */
-// Pre-cached logos (loaded on page init)
 const _IMGS={};
 async function preloadImgs(){
   const targets={
-    noc:'../NextGen OPEX Consulting logo design sin fondo.png',
-    nomi:'../NOMI logo sf.png'
+    noc:'NextGen OPEX Consulting logo design sin fondo.png',
+    nomi:'NOMI logo sf.png'
   };
   await Promise.all(Object.entries(targets).map(([k,url])=>
     fetch(url).then(r=>r.blob()).then(b=>new Promise(res=>{
       const fr=new FileReader();fr.onload=e=>{_IMGS[k]=e.target.result;res();};fr.onerror=()=>res();fr.readAsDataURL(b);
     })).catch(()=>{
-      // fallback: canvas
       return new Promise(res=>{
         const img=new Image();img.crossOrigin='anonymous';
         img.onload=()=>{const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext('2d').drawImage(img,0,0);try{_IMGS[k]=c.toDataURL('image/png');}catch(e){}res();};
@@ -1010,7 +1006,7 @@ async function preloadImgs(){
 }
 document.addEventListener('DOMContentLoaded',preloadImgs);
 
-/* ═══════════════════════ PDF (with radar chart + logos + all answers) ═══════════════════════ */
+/* ═══════════════════════ PDF ═══════════════════════ */
 async function descargarPDF(){
   const btn=document.querySelector('.btn-ghost');
   btn.textContent='⏳ Generando PDF...';btn.disabled=true;
@@ -1024,31 +1020,25 @@ async function descargarPDF(){
   let y=M;
   const chk=h=>{if(y+h>282){doc.addPage();y=M;}};
 
-  // ── Header band ──
-  // Top stripe: azul oscuro
   doc.setFillColor(15,32,96); doc.rect(0,0,W,36,'F');
-  // NextGen logo (left)
   if(logoNOC){
     doc.addImage(logoNOC,'PNG',M,5,60,22);
   } else {
     doc.setTextColor(255,255,255);doc.setFontSize(11);doc.setFont('helvetica','bold');
     doc.text('NextGen OPEX Consulting™',M,20);
   }
-  // NOMI logo (center)
   if(logoNOMI){
     doc.addImage(logoNOMI,'PNG',W/2-22,3,44,28);
   } else {
     doc.setTextColor(255,255,255);doc.setFontSize(14);doc.setFont('helvetica','bold');
     doc.text('NOMI™',W/2,20,{align:'center'});
   }
-  // Badge (right)
   doc.setFillColor(109,190,69); doc.roundedRect(W-M-52,10,52,14,3,3,'F');
   doc.setTextColor(255,255,255);doc.setFontSize(7.5);doc.setFont('helvetica','bold');
   doc.text('NOMI',W-M-26,19,{align:'center'});
   doc.setFontSize(6.5);doc.setFont('helvetica','normal');
   doc.text('EXPRESS™ — Fase 1',W-M-26,24,{align:'center'});
 
-  // Second stripe: info empresa
   doc.setFillColor(26,58,140); doc.rect(0,36,W,18,'F');
   doc.setTextColor(255,255,255);doc.setFontSize(10);doc.setFont('helvetica','bold');
   doc.text(`${R.emp}`,M+2,45);
@@ -1058,9 +1048,7 @@ async function descargarPDF(){
   doc.text(`Industria: ${R.ind}  ·  Tamaño: ${R.ems}  ·  ${new Date().toLocaleDateString('es-MX',{year:'numeric',month:'long',day:'numeric'})}`,W-M,52,{align:'right'});
   y=62;
 
-  // ── Level blocks ──
   const lc=R.lc,lt=R.lt;
-  // Current
   const [lcR,lcG,lcB]=hexToRgb(lc.color);
   doc.setFillColor(lcR,lcG,lcB); doc.roundedRect(M,y,CW/2-4,28,4,4,'F');
   doc.setTextColor(255,255,255);doc.setFontSize(8);doc.setFont('helvetica','bold');
@@ -1068,7 +1056,6 @@ async function descargarPDF(){
   doc.setFontSize(16);doc.text(`Nivel ${R.nc} — ${lc.name}`,M+6,y+19);
   doc.setFontSize(7.5);doc.setFont('helvetica','normal');
   const lcLines=doc.splitTextToSize(lc.desc,CW/2-12);doc.text(lcLines,M+6,y+25);
-  // Target
   const [ltR,ltG,ltB]=hexToRgb(lt.color);
   doc.setFillColor(ltR,ltG,ltB); doc.roundedRect(M+CW/2+4,y,CW/2-4,28,4,4,'F');
   doc.setTextColor(255,255,255);doc.setFontSize(8);doc.setFont('helvetica','bold');
@@ -1078,7 +1065,6 @@ async function descargarPDF(){
   const ltLines=doc.splitTextToSize(lt.desc,CW/2-12);doc.text(ltLines,M+CW/2+10,y+25);
   y+=36;
 
-  // ── KPI row ──
   const kpis=[
     {v:`${R.nc}/6`,l:'NOMI Current',c:lc.color},
     {v:`${R.nt}/6`,l:'NOMI Target',c:lt.color},
@@ -1097,7 +1083,6 @@ async function descargarPDF(){
   });
   y+=26;
 
-  // ── Dimension bars ──
   doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
   doc.text('PERFIL DE MADUREZ POR DIMENSIÓN',M,y);y+=8;
   BLOCKS.forEach((b,i)=>{
@@ -1110,7 +1095,6 @@ async function descargarPDF(){
     doc.setFillColor(232,237,244); doc.roundedRect(bx,y-4.5,bw,bh,1,1,'F');
     const [br,bg,bb]=hexToRgb('#1E3A8A');
     doc.setFillColor(br,bg,bb); doc.roundedRect(bx,y-4.5,bw*R.scores[i]/5,bh,1,1,'F');
-    // target marker
     const txPos=bx+bw*(R.nt/6);
     doc.setFillColor(109,190,69); doc.rect(txPos-0.7,y-6,1.5,8,'F');
     y+=11;
@@ -1118,7 +1102,6 @@ async function descargarPDF(){
   doc.setFontSize(8);doc.setTextColor(120,120,120);
   doc.text('── Nivel actual     │ Nivel objetivo (verde)',M,y);y+=12;
 
-  // ── Radar chart ──
   chk(80);
   doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
   doc.text('RADAR OPERACIONAL NOMI™',M,y);y+=6;
@@ -1129,7 +1112,6 @@ async function descargarPDF(){
     }catch(e){y+=4;}
   }
 
-  // ── Priorities ──
   chk(12);
   doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
   doc.text('TOP 3 — PRIORIDADES DE TRANSFORMACIÓN',M,y);y+=8;
@@ -1147,7 +1129,6 @@ async function descargarPDF(){
   });
   y+=6;
 
-  // ── Variables estratégicas ──
   chk(10);
   doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30,58,138);
   doc.text('VARIABLES ESTRATÉGICAS NOMI TARGET',M,y);y+=8;
@@ -1166,7 +1147,6 @@ async function descargarPDF(){
   });
   y+=18;
 
-  // ── Horizon ──
   chk(14);
   doc.setFillColor(15,32,96);doc.roundedRect(M,y,CW,12,3,3,'F');
   doc.setTextColor(180,200,255);doc.setFontSize(9);doc.setFont('helvetica','bold');
@@ -1175,13 +1155,10 @@ async function descargarPDF(){
   doc.text(R.hor,M+CW/2,y+10.5,{align:'center'});
   y+=20;
 
-  // ── Bloque de contacto NextGen OPEX ──
   chk(50);
   doc.setFillColor(15,32,96); doc.roundedRect(M,y,CW,44,4,4,'F');
-  // Fondo decorativo
   doc.setFillColor(26,58,140); doc.roundedRect(M,y,CW/2,44,4,4,'F');
   if(logoNOC) doc.addImage(logoNOC,'PNG',M+8,y+6,56,20);
-  // Texto derecho
   doc.setTextColor(109,190,69);doc.setFontSize(9);doc.setFont('helvetica','bold');
   doc.text('¿LISTO PARA EL SIGUIENTE PASO?',M+CW/2+8,y+10);
   doc.setTextColor(255,255,255);doc.setFontSize(8.5);doc.setFont('helvetica','bold');
@@ -1196,7 +1173,6 @@ async function descargarPDF(){
   // ══ TODAS LAS RESPUESTAS ══
   doc.addPage();
   y=M;
-  // Header de sección
   doc.setFillColor(30,58,138); doc.rect(0,0,W,22,'F');
   if(logoNOMI) doc.addImage(logoNOMI,'PNG',M,2,28,16);
   doc.setTextColor(255,255,255);doc.setFontSize(13);doc.setFont('helvetica','bold');
@@ -1205,11 +1181,9 @@ async function descargarPDF(){
   y=30;
 
   const SCORE_LBL={1:'No existe',2:'Parcial',3:'Existe (inconsistente)',4:'Existe y funciona',5:'Optimizado'};
-  const LEVEL_COLORS={1:[192,57,43],2:[216,90,48],3:[186,117,23],4:[42,122,58],5:[26,75,140],6:[74,46,140]};
 
   BLOCKS.forEach(b=>{
     chk(20);
-    // Dim header
     doc.setFillColor(235,240,255); doc.roundedRect(M,y,CW,12,2,2,'F');
     doc.setTextColor(30,58,138);doc.setFontSize(10);doc.setFont('helvetica','bold');
     doc.text(`${b.title.toUpperCase()}`,M+5,y+8);
@@ -1223,13 +1197,10 @@ async function descargarPDF(){
       const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);
       const val=el?parseInt(el.value):0;
       const lbl=val?SCORE_LBL[val]:'Sin responder';
-      // Row bg alternating
       if(qi%2===0){doc.setFillColor(248,250,252);doc.rect(M,y-3,CW,11,'F');}
-      // Question number + text
       doc.setTextColor(60,60,60);doc.setFontSize(8);doc.setFont('helvetica','normal');
       const qTxt=doc.splitTextToSize(`${qi+1}. ${q}`,CW-42);
       doc.text(qTxt,M+2,y+3);
-      // Score badge
       const scoreColor=val===0?[180,180,180]:val<=2?[216,90,48]:val===3?[186,117,23]:val===4?[42,122,58]:[26,75,140];
       doc.setFillColor(...scoreColor);
       doc.roundedRect(M+CW-38,y-1,38,9,2,2,'F');
@@ -1240,7 +1211,6 @@ async function descargarPDF(){
     y+=6;
   });
 
-  // ── Footer on all pages ──
   const pages=doc.getNumberOfPages();
   for(let p=1;p<=pages;p++){
     doc.setPage(p);
