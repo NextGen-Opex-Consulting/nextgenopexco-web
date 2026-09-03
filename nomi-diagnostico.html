@@ -734,12 +734,14 @@ async function enviarEmail(scores,nc,nt){
   const tvTxt=TV.map((tv,i)=>`${tv.lbl}: ${tv.opts[(TVANS[i]||1)-1]}`).join('\n');
 
   const SCORE_LBL_E={1:'No existe',2:'Parcial',3:'Existe (inconsistente)',4:'Existe y funciona',5:'Optimizado'};
+  let gNum=0;
   const respuestasTxt=BLOCKS.map(b=>{
     const promB=b.qs.reduce((_,__,qi)=>{const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);return _+(el?parseInt(el.value):0);},0)/b.qs.length;
     const lineas=b.qs.map(({q},qi)=>{
+      gNum++;
       const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);
       const val=el?parseInt(el.value):0;
-      return `  ${qi+1}. ${q}\n     → ${val}/5 — ${val?SCORE_LBL_E[val]:'Sin responder'}`;
+      return `  ${gNum}. ${q}\n     → ${val}/5 — ${val?SCORE_LBL_E[val]:'Sin responder'}`;
     }).join('\n');
     return `[ ${b.title.toUpperCase()} — Promedio: ${promB.toFixed(1)}/5.0 ]\n${lineas}`;
   }).join('\n\n');
@@ -1057,8 +1059,8 @@ async function descargarPDF(){
   ];
   meta.forEach((m,i)=>{
     const mx=M+(i%2)*(mW+6), my=mY+Math.floor(i/2)*20;
-    setF(255,255,255,0.05);doc.roundedRect(mx,my,mW,16,2,2,'F');
-    doc.setFontSize(7);doc.setFont('helvetica','bold');setC(100,140,200);
+    setF(22,42,110);doc.roundedRect(mx,my,mW,16,2,2,'F');
+    doc.setFontSize(7);doc.setFont('helvetica','bold');setC(100,140,210);
     doc.text(m.l,mx+5,my+6);
     doc.setFontSize(9.5);doc.setFont('helvetica','bold');setC(...WHITE);
     const vLines=doc.splitTextToSize(m.v,mW-10);
@@ -1067,8 +1069,8 @@ async function descargarPDF(){
 
   // score badge
   const sbY=mY+50;
-  setF(109,190,69,0.1);doc.roundedRect(M,sbY,CW,26,4,4,'F');
-  doc.setDrawColor(...GREEN);doc.setLineWidth(0.8);doc.roundedRect(M,sbY,CW,26,4,4,'S');
+  setF(18,40,108);doc.roundedRect(M,sbY,CW,26,4,4,'F');
+  doc.setDrawColor(...GREEN);doc.setLineWidth(1);doc.roundedRect(M,sbY,CW,26,4,4,'S');
   doc.setFontSize(32);doc.setFont('helvetica','bold');setC(...GREEN);
   doc.text(`${R.avg.toFixed(1)}/5.0`,M+16,sbY+18);
   doc.setFontSize(10);doc.setFont('helvetica','bold');setC(...WHITE);
@@ -1153,7 +1155,7 @@ async function descargarPDF(){
     const sc=R.scores[i];
     const bxb=M+46,bwb=CW-46,bhb=5;
     doc.setFontSize(9);doc.setFont('helvetica','bold');setC(30,35,60);
-    doc.text(`${b.ico} ${b.title}`,M,y+1);
+    doc.text(b.title,M,y+1);
     doc.setFontSize(9);doc.setFont('helvetica','bold');
     const cr2=sc<2.5?[200,70,40]:sc<3.5?[210,145,20]:[35,125,65];
     setC(...cr2);doc.text(`${sc.toFixed(1)}/5.0`,M+CW,y+1,{align:'right'});
@@ -1202,7 +1204,7 @@ async function descargarPDF(){
     doc.setFontSize(7);doc.setFont('helvetica','bold');setC(...prioColors[lvl]);
     doc.text(prioLabels[lvl],M+6,y+5);
     doc.setFontSize(9.5);doc.setFont('helvetica','bold');setC(20,30,60);
-    doc.text(`${BLOCKS[i].ico} ${BLOCKS[i].title}  —  Score: ${R.scores[i].toFixed(1)}/5.0`,M+6,y+11);
+    doc.text(`${BLOCKS[i].title}  —  Score: ${R.scores[i].toFixed(1)}/5.0`,M+6,y+11);
     doc.setFontSize(7.5);doc.setFont('helvetica','normal');setC(80,90,110);
     const plines=doc.splitTextToSize(PRIO[i][lvl],CW-10);
     doc.text(plines.slice(0,2),M+6,y+17);
@@ -1253,69 +1255,6 @@ async function descargarPDF(){
   y+=50;
 
   pageFooter(logoNOC,logoNOMI);
-
-  // ══════════════════════════════════════
-  // PÁGINAS 4+ — DETALLE COMPLETO DE RESPUESTAS
-  // ══════════════════════════════════════
-  addPage();
-
-  // header
-  setF(...NAVY);doc.rect(0,0,W,18,'F');
-  if(logoNOMI) doc.addImage(logoNOMI,'PNG',M,1.5,24,14);
-  setC(...WHITE);doc.setFontSize(12);doc.setFont('helvetica','bold');
-  doc.text('DETALLE COMPLETO DE RESPUESTAS',W/2,11,{align:'center'});
-  if(logoNOC) doc.addImage(logoNOC,'PNG',W-M-32,2,32,12);
-  y=26;
-
-  BLOCKS.forEach(b=>{
-    chk(20);
-    // block header
-    const [bR,bG,bBc]=hexToRgb(b.color||'#1E3A8A');
-    setF(bR,bG,bBc);doc.roundedRect(M,y,CW,13,2,2,'F');
-    setC(...WHITE);doc.setFontSize(10);doc.setFont('helvetica','bold');
-    doc.text(`${b.ico}  ${b.title.toUpperCase()}`,M+6,y+9);
-    const dimAvg=b.qs.reduce((_,__,qi)=>{
-      const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);
-      return _+(el?parseInt(el.value):0);
-    },0)/b.qs.length;
-    setC(...GREEN);
-    doc.text(`Promedio: ${dimAvg.toFixed(1)}/5.0`,M+CW-2,y+9,{align:'right'});
-    y+=17;
-
-    b.qs.forEach(({q,opts},qi)=>{
-      const el=document.querySelector(`input[name="${b.id}_${qi}"]:checked`);
-      const val=el?parseInt(el.value):0;
-      const barsDesc=val&&opts?opts[val-1]:'';
-      const qLines=doc.splitTextToSize(`${qi+1}. ${q}`,CW-48);
-      const descLines=barsDesc?doc.splitTextToSize(barsDesc,CW-10):[];
-      const rowH=Math.max(qLines.length*4.8,10)+(descLines.length?descLines.length*3.8+3:0)+5;
-      chk(rowH+2);
-
-      if(qi%2===0){setF(248,250,253);doc.rect(M,y-1,CW,rowH,'F');}
-      doc.setFontSize(8);doc.setFont('helvetica','bold');setC(30,40,70);
-      doc.text(qLines,M+3,y+4);
-
-      // score badge
-      const scoreC=val===0?[180,180,180]:val<=2?[198,40,40]:val===3?[175,110,15]:val===4?[35,115,60]:[20,60,140];
-      setF(...scoreC);doc.roundedRect(M+CW-44,y,44,9,2,2,'F');
-      setC(...WHITE);doc.setFontSize(7.5);doc.setFont('helvetica','bold');
-      const scoreLbls=['','No existe','Parcial','Inconsistente','Funciona','Optimizado'];
-      doc.text(`${val}/5 — ${scoreLbls[val]||'S/R'}`,M+CW-22,y+6,{align:'center'});
-
-      // BARS description
-      if(descLines.length){
-        const dY=y+qLines.length*4.8+3;
-        setF(...scoreC,0.08);
-        setF(scoreC[0],scoreC[1],scoreC[2]);
-        doc.setDrawColor(...scoreC);doc.setLineWidth(0.6);
-        doc.line(M+4,dY-1,M+4,dY+descLines.length*3.8);
-        setC(...scoreC);doc.setFontSize(7);doc.setFont('helvetica','italic');
-        doc.text(descLines,M+8,dY+3);
-      }
-      y+=rowH+1;
-    });
-    y+=5;
-  });
 
   // ══ FOOTER EN TODAS LAS PÁGINAS ══
   const pages=doc.getNumberOfPages();
