@@ -317,10 +317,10 @@
     }
     .btn-ghost:hover { border-color: rgba(255,255,255,.55); color: #fff; }
     .stats-strip {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      display: flex; background: rgba(6,14,40,0.75); backdrop-filter: blur(16px);
-      border-top: 1px solid rgba(255,255,255,0.08); z-index: 3;
-      opacity: 0; animation: hFadeIn 0.8s 1.4s forwards;
+      display: flex;
+      background: rgba(6,14,40,0.97);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      z-index: 3;
     }
     .stat-item {
       flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -1830,6 +1830,7 @@
     <li><a href="#problemas" onclick="closeMenu()">Problemática</a></li>
     <li><a href="#metodologia" onclick="closeMenu()">Metodología</a></li>
     <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
+    <li><a href="#pca" onclick="closeMenu()">PCA™</a></li>
     <li><a href="#proceso" onclick="closeMenu()">Ecosistema</a></li>
     <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
     <li><a href="articulos.html" onclick="closeMenu()">Artículos</a></li>
@@ -1922,30 +1923,31 @@
     <div class="scroll-line"></div>
   </div>
 
-  <!-- Stats strip animado -->
-  <div class="stats-strip">
-    <div class="stat-item">
-      <div class="stat-val" id="h-s1">0%</div>
-      <div class="stat-label">Productividad OEE</div>
-      <div class="stat-delta">↑ Promedio en 90 días</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-val" id="h-s2">0%</div>
-      <div class="stat-label">Reducción de Scrap</div>
-      <div class="stat-delta">↓ Retrabajos eliminados</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-val blue" id="h-s3">0%</div>
-      <div class="stat-label">Entregas a Tiempo</div>
-      <div class="stat-delta">↑ OTIF promedio NOS™</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-val" id="h-s4">0%</div>
-      <div class="stat-label">Dependencia del Dueño</div>
-      <div class="stat-delta">✓ Autonomía operativa</div>
-    </div>
-  </div>
 </section>
+
+<!-- Stats strip animado — fuera del hero para siempre ser visible -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-val" id="h-s1">0%</div>
+    <div class="stat-label">Productividad OEE</div>
+    <div class="stat-delta">↑ Promedio en 90 días</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val" id="h-s2">0%</div>
+    <div class="stat-label">Reducción de Scrap</div>
+    <div class="stat-delta">↓ Retrabajos eliminados</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val blue" id="h-s3">0%</div>
+    <div class="stat-label">Entregas a Tiempo</div>
+    <div class="stat-delta">↑ OTIF promedio NOS™</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val" id="h-s4">0%</div>
+    <div class="stat-label">Dependencia del Dueño</div>
+    <div class="stat-delta">✓ Autonomía operativa</div>
+  </div>
+</div>
 
 <!-- ══════════ PROBLEMAS ══════════ -->
 <section class="section problemas" id="problemas">
@@ -4338,7 +4340,7 @@ function toggleFaq(btn) {
 </script>
 
 <script>
-  /* Contadores animados del hero strip */
+  /* Contadores animados — se disparan al hacer scroll hasta el strip */
   function hCounter(id, target, prefix, suffix, duration) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -4350,12 +4352,25 @@ function toggleFaq(btn) {
       el.textContent = prefix + Math.round(cur) + suffix;
     }, 16);
   }
-  setTimeout(() => {
-    hCounter('h-s1', 35, '+', '%', 1400);
-    hCounter('h-s2', 40, '−', '%', 1400);
-    hCounter('h-s3', 90, '+', '%', 1400);
-    hCounter('h-s4', 70, '−', '%', 1400);
-  }, 1500);
+
+  (function() {
+    const strip = document.querySelector('.stats-strip');
+    if (!strip) return;
+    let fired = false;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !fired) {
+          fired = true;
+          obs.disconnect();
+          hCounter('h-s1', 35, '+', '%', 1400);
+          hCounter('h-s2', 40, '−', '%', 1400);
+          hCounter('h-s3', 90, '+', '%', 1400);
+          hCounter('h-s4', 70, '−', '%', 1400);
+        }
+      });
+    }, { threshold: 0.4 });
+    obs.observe(strip);
+  })();
 </script>
 
 </body>
