@@ -1502,6 +1502,13 @@
         <p>Depende del punto de partida. Una empresa con procesos básicos documentados y liderazgo comprometido puede ver resultados significativos en 6-12 meses. Una empresa sin sistemas, con alta dependencia del dueño y sin cultura de indicadores, necesita 18-36 meses de trabajo disciplinado para construir la base.</p>
         <p>Lo que sí es constante: el primer paso siempre es el diagnóstico. Saber exactamente dónde estás — en los 6 pilares — define el camino más corto hacia donde quieres llegar.</p>
 
+        <div class="detail-box">
+          <h4>¿Cómo medir tu nivel de madurez operacional? El Diagnóstico NOMI™</h4>
+          <p>NOMI (NextGen Operational Maturity Index) es nuestra herramienta de diagnóstico diseñada específicamente para PyMEs manufactureras. Evalúa los 6 pilares de excelencia operativa en 45 minutos y genera un índice de madurez del 0 al 100 por área, con un mapa de calor que muestra exactamente dónde están las brechas más críticas.<br><br>
+          Una empresa con puntuación de 0-30 está en etapa reactiva: apaga incendios constantemente. De 31-60 está en etapa de control: tiene sistemas básicos pero no son consistentes. De 61-85 está en etapa de optimización: opera bien pero puede mejorar sistemáticamente. De 86-100 está en excelencia: sus sistemas se autofortalecen.<br><br>
+          El diagnóstico es gratuito y el resultado es una hoja de ruta concreta — no una presentación genérica.</p>
+        </div>
+
         <h2>El rol de la consultoría operacional en este camino</h2>
         <p>Un consultor operacional no lleva la excelencia en su maletín. La construye junto con el equipo de la empresa, transfiriendo metodología, instalando sistemas y desarrollando la capacidad interna para que los resultados se sostengan cuando el consultor ya no está. La consultoría que no transfiere capacidad no genera excelencia — genera dependencia.</p>
       </div>
@@ -1527,7 +1534,13 @@
   function openArticle(id) {
     const content = articles[id];
     if (!content) return;
-    document.getElementById('articleContent').innerHTML = content;
+    document.getElementById('articleContent').innerHTML = content +
+      `<div style="text-align:center; margin: 48px 0 24px;">
+        <button onclick="closeArticle()" style="display:inline-flex; align-items:center; gap:10px; background:#1E3A8A; color:#fff; border:none; padding:14px 32px; border-radius:8px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px; cursor:pointer; letter-spacing:.5px; transition:background .2s;" onmouseover="this.style.background='#6DBE45'" onmouseout="this.style.background='#1E3A8A'">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Regresar a los artículos disponibles
+        </button>
+      </div>`;
     document.getElementById('articlesView').style.display = 'none';
     document.getElementById('articleDetail').classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
