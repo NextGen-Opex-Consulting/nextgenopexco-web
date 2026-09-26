@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCA™ — Pensamiento Crítico Aumentado | NextGen OPEX Consulting™</title>
+  <meta name="description" content="PCA™ es el programa de formación directiva de NextGen OPEX Consulting. Desarrolla líderes operacionales con pensamiento crítico, resolución de problemas e IA aplicada. Talleres in-company en Monterrey.">
+  <meta name="keywords" content="PCA pensamiento crítico aumentado, formación directiva Monterrey, liderazgo operacional, resolución de problemas manufactura, capacitación lean six sigma Monterrey, talleres in-company">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.nextgenopexco.com/pca.html">
+  <link rel="icon" type="image/png" href="isotipo noc.png">
+
+  <meta property="og:title" content="PCA™ — Pensamiento Crítico Aumentado | NextGen OPEX Consulting™">
+  <meta property="og:description" content="Programa de formación que combina pensamiento crítico e IA aplicada para desarrollar líderes operacionales que resuelven problemas reales con método.">
+  <meta property="og:url" content="https://www.nextgenopexco.com/pca.html">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul: #1E3A8A;
+      --verde: #6DBE45;
+      --gris: #4B5563;
+      --bg: #F4F7FA;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: #1A2340; background: #fff; }
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+
+    /* NAV */
+    nav {
+      background: linear-gradient(90deg, #2a5cc8 0%, #1a3a8a 100%);
+      padding: 0 64px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    nav img { height: 56px; width: auto; }
+    .nav-links { display: flex; gap: 8px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 600;
+      text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: background .2s;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,.1); }
+    .nav-links a.btn { background: var(--verde); color: #fff; padding: 10px 20px; }
+    .nav-links a.btn:hover { background: #5aaa38; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(130deg, rgba(10,22,70,0.96) 0%, rgba(15,40,100,0.93) 100%),
+        url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      padding: 90px 64px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(109,190,69,.15); border: 1px solid rgba(109,190,69,.3); border-radius: 100px; padding: 6px 18px; margin-bottom: 20px; }
+    .hero-badge span { font-size: 11px; font-weight: 700; color: var(--verde); letter-spacing: 2px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+    .hero h1 { font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 em { color: var(--verde); font-style: normal; }
+    .hero p { color: rgba(255,255,255,.75); font-size: 16px; line-height: 1.8; margin-bottom: 32px; }
+    .btn-green { display: inline-block; background: var(--verde); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; padding: 14px 28px; border-radius: 8px; text-decoration: none; transition: background .2s, transform .15s; }
+    .btn-green:hover { background: #5aaa38; transform: translateY(-2px); }
+
+    .hero-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 20px; padding: 36px; }
+    .hero-card img { height: 80px; width: auto; object-fit: contain; display: block; margin: 0 auto 20px; filter: brightness(0) invert(1); }
+    .hero-card h3 { font-size: 18px; font-weight: 800; color: #fff; text-align: center; margin-bottom: 24px; }
+    .formats { display: flex; flex-direction: column; gap: 12px; }
+    .fmt { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(255,255,255,.06); border-radius: 8px; }
+    .fmt svg { width: 20px; height: 20px; stroke: var(--verde); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .fmt span { font-size: 13px; color: rgba(255,255,255,.85); font-weight: 500; }
+
+    /* SECTIONS */
+    .section { padding: 80px 64px; }
+    .section-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; color: var(--verde); letter-spacing: 3px; text-transform: uppercase; }
+    .section-title { font-size: 38px; font-weight: 900; color: var(--azul); line-height: 1.15; margin: 12px 0 16px; }
+    .section-sub { font-size: 16px; color: var(--gris); line-height: 1.8; max-width: 680px; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+
+    /* MODULOS */
+    .modulos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .modulo {
+      background: #fff; border: 1px solid #E8EDF4; border-radius: 14px; padding: 28px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04); transition: transform .2s, box-shadow .2s;
+    }
+    .modulo:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,.09); }
+    .modulo-icon { font-size: 28px; margin-bottom: 14px; }
+    .modulo h4 { font-size: 15px; font-weight: 800; color: var(--azul); margin-bottom: 10px; }
+    .modulo p { font-size: 13px; color: var(--gris); line-height: 1.6; }
+
+    /* PARA QUIÉN */
+    .para-quien { background: linear-gradient(135deg, #0f2060 0%, #1a3a8a 100%); padding: 80px 64px; }
+    .para-quien .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .para-quien h2 { font-size: 36px; font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 20px; }
+    .para-quien p { color: rgba(255,255,255,.7); font-size: 15px; line-height: 1.8; margin-bottom: 32px; }
+    .perfiles { display: flex; flex-direction: column; gap: 14px; }
+    .perfil { display: flex; align-items: flex-start; gap: 14px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 18px 20px; }
+    .perfil-icon { width: 40px; height: 40px; background: rgba(109,190,69,.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .perfil-icon svg { width: 20px; height: 20px; stroke: var(--verde); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .perfil h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .perfil p { font-size: 12px; color: rgba(255,255,255,.65); margin: 0; line-height: 1.5; }
+
+    /* FORMATOS */
+    .formatos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+    .formato { background: var(--bg); border-radius: 14px; padding: 28px 20px; text-align: center; border: 1px solid #E8EDF4; }
+    .formato svg { width: 36px; height: 36px; stroke: var(--azul); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 14px; }
+    .formato h4 { font-size: 14px; font-weight: 800; color: var(--azul); margin-bottom: 8px; }
+    .formato p { font-size: 12px; color: var(--gris); line-height: 1.5; }
+
+    /* CTA */
+    .cta-final {
+      background: linear-gradient(130deg, rgba(10,22,70,0.96) 0%, rgba(22,50,130,0.93) 100%),
+        url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      padding: 80px 64px; text-align: center; color: #fff;
+    }
+    .cta-final h2 { font-size: 40px; font-weight: 900; margin-bottom: 16px; line-height: 1.2; }
+    .cta-final p { color: rgba(255,255,255,.7); font-size: 16px; margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+    .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline { display: inline-block; border: 2px solid rgba(255,255,255,.4); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; padding: 14px 28px; border-radius: 8px; text-decoration: none; transition: border-color .2s; }
+    .btn-outline:hover { border-color: #fff; }
+
+    /* FOOTER */
+    footer { background: #0f2060; color: rgba(255,255,255,.6); text-align: center; padding: 28px 32px; font-size: 13px; }
+    footer a { color: var(--verde); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 60px 24px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 34px; }
+      .section { padding: 56px 24px; }
+      .modulos-grid { grid-template-columns: 1fr 1fr; }
+      .formatos-grid { grid-template-columns: 1fr 1fr; }
+      .para-quien { padding: 56px 24px; }
+      .para-quien .wrap { grid-template-columns: 1fr; gap: 40px; }
+      .cta-final { padding: 60px 24px; }
+      .cta-final h2 { font-size: 28px; }
+    }
+    @media (max-width: 600px) {
+      .modulos-grid { grid-template-columns: 1fr; }
+      .formatos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html"><img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™"></a>
+  <div class="nav-links">
+    <a href="index.html">← Inicio</a>
+    <a href="nomi-nos.html">NOMI™ + NOS™</a>
+    <a href="nomi-diagnostico.html">Diagnóstico Express</a>
+    <a href="index.html#contacto" class="btn">Contáctanos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span>Programa de Formación Directiva</span></div>
+      <h1>PCA™ —<br><em>Pensamiento</em><br>Crítico Aumentado™</h1>
+      <p>Desarrolla líderes operacionales que resuelven problemas reales con método, no con intuición. La combinación de pensamiento crítico estructurado e inteligencia artificial aplicada al piso de planta.</p>
+      <a href="index.html#contacto" class="btn-green">Solicitar información →</a>
+    </div>
+    <div class="hero-card">
+      <img src="Logo PCA sf.png" alt="PCA™">
+      <h3>Modalidades de Entrega</h3>
+      <div class="formats">
+        <div class="fmt">
+          <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          <span>Talleres In-Company</span>
+        </div>
+        <div class="fmt">
+          <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span>Cursos Online</span>
+        </div>
+        <div class="fmt">
+          <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Entrenamiento para Equipos</span>
+        </div>
+        <div class="fmt">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <span>Conferencias y Keynotes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MÓDULOS -->
+<section class="section" style="background:#fff;">
+  <div class="wrap">
+    <span class="section-label">Contenido del Programa</span>
+    <h2 class="section-title">Los 6 Módulos de PCA™</h2>
+    <p class="section-sub">Cada módulo combina teoría, herramientas prácticas y aplicación directa en el contexto operacional de tu empresa. Sin teoría vacía — todo se ancla en casos reales.</p>
+
+    <div class="modulos-grid">
+      <div class="modulo">
+        <div class="modulo-icon">🧠</div>
+        <h4>Pensamiento Crítico Aplicado</h4>
+        <p>Frameworks de análisis y toma de decisiones estructuradas para líderes operacionales. Del "yo creo" al "los datos dicen".</p>
+      </div>
+      <div class="modulo">
+        <div class="modulo-icon">⚙️</div>
+        <h4>Resolución de Problemas</h4>
+        <p>A3, 8D, 5 Por Qués y metodologías de análisis de causa raíz aplicados al piso de planta con resultados medibles.</p>
+      </div>
+      <div class="modulo">
+        <div class="modulo-icon">🤖</div>
+        <h4>IA para Operaciones</h4>
+        <p>Herramientas de inteligencia artificial accesibles para análisis operacional, diagnóstico y mejora de decisiones en tiempo real.</p>
+      </div>
+      <div class="modulo">
+        <div class="modulo-icon">📊</div>
+        <h4>Gestión con Datos</h4>
+        <p>Cómo interpretar indicadores, construir argumentos con evidencia y liderar reuniones de gestión con datos reales.</p>
+      </div>
+      <div class="modulo">
+        <div class="modulo-icon">🎯</div>
+        <h4>Liderazgo Situacional</h4>
+        <p>Desarrollo del estilo de liderazgo adecuado para cada situación operacional y nivel de madurez del equipo.</p>
+      </div>
+      <div class="modulo">
+        <div class="modulo-icon">📈</div>
+        <h4>Lean Thinking</h4>
+        <p>Mentalidad Lean aplicada a la manufactura: identificar valor, eliminar desperdicio y crear flujo en la operación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<div class="para-quien">
+  <div class="wrap">
+    <div>
+      <span class="section-label" style="color:var(--verde);">Perfil del Participante</span>
+      <h2>¿Para quién es<br>PCA™?</h2>
+      <p>PCA™ está diseñado para líderes que ya tienen responsabilidades operacionales y quieren desarrollar un criterio más estructurado para tomar decisiones, resolver problemas y desarrollar a su equipo.</p>
+      <a href="index.html#contacto" class="btn-green">Hablar con Omar Sierra →</a>
+    </div>
+    <div class="perfiles">
+      <div class="perfil">
+        <div class="perfil-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div><h4>Directores y Gerentes de Operaciones</h4><p>Que buscan llevar su gestión operacional al siguiente nivel de madurez con herramientas concretas.</p></div>
+      </div>
+      <div class="perfil">
+        <div class="perfil-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div><h4>Líderes de Área y Supervisores</h4><p>Con potencial de crecimiento que necesitan desarrollar su criterio analítico y habilidades de liderazgo.</p></div>
+      </div>
+      <div class="perfil">
+        <div class="perfil-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div><h4>Dueños de PyMEs Manufactureras</h4><p>Que quieren dejar de operar por intuición y construir una organización que funcione con sistema.</p></div>
+      </div>
+      <div class="perfil">
+        <div class="perfil-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div><h4>Ingenieros y Profesionales en Formación</h4><p>Que buscan diferenciarse con habilidades analíticas, metodológicas y conocimiento de IA aplicada.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMATOS -->
+<section class="section" style="background:#fff;">
+  <div class="wrap">
+    <span class="section-label">Modalidades</span>
+    <h2 class="section-title">Formatos de Entrega</h2>
+    <p class="section-sub">PCA™ se adapta a la agenda y las necesidades de tu organización. Desde un taller intensivo de un día hasta un programa de formación de varios meses.</p>
+
+    <div class="formatos-grid">
+      <div class="formato">
+        <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        <h4>Talleres In-Company</h4>
+        <p>Entrenamiento intensivo en las instalaciones de tu empresa, con casos reales de tu operación.</p>
+      </div>
+      <div class="formato">
+        <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+        <h4>Cursos Online</h4>
+        <p>Formato flexible para equipos distribuidos o personas que aprenden a su propio ritmo.</p>
+      </div>
+      <div class="formato">
+        <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <h4>Equipos Completos</h4>
+        <p>Programa de formación para grupos de líderes de la misma empresa, con seguimiento y aplicación real.</p>
+      </div>
+      <div class="formato">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <h4>Conferencias y Keynotes</h4>
+        <p>Presentaciones de alto impacto para eventos industriales, cámaras empresariales y congresos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <h2>¿Tu equipo toma decisiones<br>con método o con intuición?</h2>
+  <p>Agenda una llamada con Omar Sierra para conocer cómo PCA™ puede desarrollar el criterio operacional de tu equipo de liderazgo.</p>
+  <div class="cta-group">
+    <a href="index.html#contacto" class="btn-green" style="font-size:15px; padding:16px 32px;">Solicitar información sobre PCA™ →</a>
+    <a href="nomi-nos.html" class="btn-outline">Conocer NOMI™ + NOS™</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 NextGen OPEX Consulting™ &nbsp;|&nbsp; <a href="index.html">Inicio</a> &nbsp;|&nbsp; <a href="nomi-nos.html">NOMI™ + NOS™</a> &nbsp;|&nbsp; <a href="nomi-diagnostico.html">Diagnóstico NOMI™</a> &nbsp;|&nbsp; <a href="aviso-privacidad.html">Aviso de Privacidad</a></p>
+</footer>
+
+</body>
+</html>
