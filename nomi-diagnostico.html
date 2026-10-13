@@ -759,7 +759,7 @@ function calcular(){
   const nt=Math.max(nc+1,Math.min(6,Math.round(tvS/TV.length*2+1)));
   renderRes(scores,avg,nc,nt);
   show('s4'); steps(4);
-  enviarEmail(scores,nc,nt).catch(()=>{});
+  enviarEmail(scores,nc,nt).catch(e=>console.error('NOMI email error:',e));
 }
 
 /* ═══════════════════════ ENVÍO WEB3FORMS ═══════════════════════ */
@@ -856,6 +856,9 @@ function renderRes(scores,avg,nc,nt){
   const gap=nt-nc, pct=Math.round(avg/5*100);
   const hor=gap<=1?'6 – 12 meses':gap<=2?'9 – 18 meses':gap<=3?'12 – 24 meses':'18 – 36 meses';
   const sorted=[...scores.map((s,i)=>({s,i}))].sort((a,b)=>a.s-b.s).slice(0,3);
+
+  // Guardar datos ANTES de renderizar HTML para que enviarEmail siempre los tenga
+  window._R={scores,avg,nc,nt,lc,lt,nom,cargo:car,cor,tel,emp,ind,ems,gap,pct,hor,sorted};
 
   document.getElementById('resWrap').innerHTML=`
     <div class="res-hero">
