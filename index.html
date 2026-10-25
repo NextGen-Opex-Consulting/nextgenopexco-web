@@ -3906,10 +3906,10 @@ async function handleNewsletter(e) {
 
   <!-- Quick Replies -->
   <div class="quick-replies" id="noc-quick-replies">
-    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'servicios')">Conocer nuestros servicios</button>
-    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'nomi')">¿Qué es NOMI™?</button>
-    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'reunion')">Agendar una reunión</button>
+    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'nomi')">⚡ Hacer NOMI™ Express gratis</button>
     <button class="quick-reply-btn" onclick="sendQuickReply(this, 'problema')">Tengo un problema operacional</button>
+    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'servicios')">Conocer los servicios</button>
+    <button class="quick-reply-btn" onclick="sendQuickReply(this, 'reunion')">Hablar con un consultor</button>
   </div>
 
   <!-- Input -->
@@ -3931,39 +3931,39 @@ async function handleNewsletter(e) {
 🔍 <strong>Diagnóstico NOMI™</strong> — Evaluación de madurez operacional<br>
 ⚙️ <strong>Transformación NOS™</strong> — ALIGN, X-RAY, DESIGN, EXECUTION, CONTROL, SCALE<br>
 📊 <strong>Indicadores y Control</strong> — KPIs y tableros de gestión<br>
-🧠 <strong>PCA™ Training</strong> — Talleres de pensamiento crítico + IA<br>
+🧠 <strong>PCA™</strong> — Pensamiento Crítico Aumentado™ para líderes operacionales<br>
 🤖 <strong>IA Aplicada</strong> — Inteligencia operacional y analítica<br><br>
-¿Te gustaría que te recomendara el servicio ideal según tu situación?`
+El mejor primer paso es el <strong>Diagnóstico NOMI™ Express</strong> — es online, gratuito y lo haces en este momento. ¿Lo intentamos?`
     },
     nomi: {
       user: "¿Qué es NOMI™?",
       bot: `<strong>NOMI™</strong> es el NextGen Operational Maturity Index™, nuestro sistema de diagnóstico operacional.<br><br>
 Evalúa tu empresa en <strong>6 dimensiones</strong>: Procesos, Operación, Gestión, Mejora Continua, Tecnología e Inteligencia Operacional.<br><br>
-Mide tu nivel actual en una escala de <strong>6 niveles</strong>, del Caótico al World Class, y genera la ruta de evolución hacia NOS™.<br><br>
-✅ Incluye <strong>Reporte Ejecutivo</strong> con hallazgos, brecha y prioridades.<br><br>
-¿Te gustaría agendar una evaluación NOMI™ Express gratuita?`
+Mide tu nivel en una escala de <strong>6 niveles</strong>, del Caótico al World Class, y genera tu ruta de evolución hacia NOS™.<br><br>
+Tenemos dos modalidades:<br>
+⚡ <strong>NOMI™ Express</strong> — Online, gratuito, resultado inmediato. <a href="nomi-diagnostico.html" style="color:#6DBE45;font-weight:700;">Hacerlo ahora →</a><br>
+🔬 <strong>NOMI™ Full Assessment</strong> — Diagnóstico profundo con Omar Sierra, in-company. Se agenda con nosotros.<br><br>
+¿Quieres empezar con el Express o te interesa el Full Assessment?`
     },
     reunion: {
-      user: "Agendar una reunión",
-      bot: `Con gusto. Para agendar tu reunión con <strong>Omar Sierra</strong>, necesito algunos datos:<br><br>
-📌 Nombre<br>
-🏭 Empresa<br>
-📧 Correo<br>
-💬 ¿Cuál es tu mayor desafío operacional?<br><br>
-También puedes escribirnos directamente a:<br>
-📧 <strong>contacto@nextgenopexco.com</strong><br><br>
-La reunión inicial es <strong>sin costo</strong> y dura 45 minutos. ¡Listo, ya lo enviamos!`
+      user: "Hablar con un consultor",
+      bot: `Con gusto coordinamos una sesión con <strong>Omar Sierra</strong>.<br><br>
+Antes de la reunión te recomendamos hacer el <strong>NOMI™ Express</strong> — es online y gratuito — para que la sesión sea mucho más productiva. <a href="nomi-diagnostico.html" style="color:#6DBE45;font-weight:700;">Hacerlo aquí →</a><br><br>
+Si prefieres contactarnos directamente:<br>
+📧 <strong>contacto@nextgenopexco.com</strong><br>
+📱 <strong>+52 813 588 8025</strong><br><br>
+La sesión inicial es <strong>sin costo</strong> y dura aproximadamente 45 minutos.`
     },
     problema: {
       user: "Tengo un problema operacional",
-      bot: `Entiendo — es un desafío muy común. Puedo ayudarte a identificar posibles causas y recomendarte un plan inicial.<br><br>
+      bot: `Entiendo — es un desafío muy común en manufactura. El primer paso para resolverlo es entender exactamente dónde está la brecha.<br><br>
 Los problemas más frecuentes que resolvemos:<br><br>
 🔴 Scrap elevado y retrabajos<br>
 🔴 Entregas tardías (bajo OTIF)<br>
 🔴 Baja productividad y tiempos muertos<br>
 🔴 Falta de indicadores confiables<br>
 🔴 Dependencia excesiva del dueño<br><br>
-¿Te gustaría hacer un diagnóstico rápido con NOMI™ Express? Podemos identificar la causa raíz en 48 horas.`
+Te recomiendo comenzar con el <strong>NOMI™ Express</strong> — es online, gratuito y te da resultados al instante. <a href="nomi-diagnostico.html" style="color:#6DBE45;font-weight:700;">Hacerlo ahora →</a>`
     }
   };
 
@@ -4067,7 +4067,7 @@ Los problemas más frecuentes que resolvemos:<br><br>
     const qr = document.getElementById('noc-quick-replies');
     qr.style.display = 'flex';
     qr.innerHTML = `
-      <button class="quick-reply-btn" onclick="sendQuickReply(this,'reunion')">Sí, me interesa agendar</button>
+      <button class="quick-reply-btn" onclick="sendQuickReply(this,'nomi')">⚡ Hacer NOMI™ Express gratis</button>
       <button class="quick-reply-btn" onclick="sendQuickReply(this,'problema')">Tengo un problema operacional</button>`;
 
     messages.scrollTop = messages.scrollHeight;
@@ -4232,7 +4232,7 @@ Los problemas más frecuentes que resolvemos:<br><br>
     // ── PRECIOS / COSTOS ─────────────────────────────────────────────────
     if (t.includes('precio') || t.includes('costo') || t.includes('cuanto') || t.includes('cuánto') || t.includes('tarifa') || t.includes('inversion') || t.includes('inversión')) {
       nocaExpr('decide');
-      return `Los precios varían según el alcance y las necesidades de tu empresa.<br><br>El mejor primer paso es un <strong>Diagnóstico NOMI™ Express gratuito</strong> — 45 minutos que te dan claridad total sobre qué necesita tu operación.<br><br>📧 <strong>contacto@nextgenopexco.com</strong><br>Sin compromiso, sin presión.`;
+      return `Los precios varían según el alcance y las necesidades de tu empresa.<br><br>El mejor primer paso — y es <strong>gratuito</strong> — es el <a href="nomi-diagnostico.html" style="color:#6DBE45;font-weight:700;">NOMI™ Express online →</a>. Te da en minutos una radiografía de tu operación y la brecha hacia World Class.<br><br>Con ese diagnóstico, Omar puede darte una propuesta ajustada a tu realidad.<br><br>📧 <strong>contacto@nextgenopexco.com</strong> · 📱 <strong>+52 813 588 8025</strong>`;
     }
 
     // ── LEAN / OEE / PRODUCTIVIDAD ───────────────────────────────────────
