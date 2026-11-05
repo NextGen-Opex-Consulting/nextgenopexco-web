@@ -1816,6 +1816,13 @@
   </style>
 </head>
 <body>
+<div id="book-banner" style="background:linear-gradient(90deg,#0D1B3E 0%,#1a3270 50%,#0D1B3E 100%);padding:11px 48px 11px 20px;text-align:center;position:relative;z-index:200;border-bottom:1px solid rgba(109,190,69,.3);">
+  <p style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;color:#fff;margin:0;line-height:1.4;">
+    📚 <span style="color:#6DBE45;">¡ESTRENO!</span> &nbsp;«Metodología NextGen OPEX System» ya disponible en <strong>Amazon Kindle</strong> &nbsp;
+    <a href="https://a.co/d/0gSZArOx" target="_blank" style="background:#FF9900;color:#fff;padding:4px 14px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:800;margin-left:8px;white-space:nowrap;">Conseguir ahora →</a>
+  </p>
+  <button onclick="document.getElementById('book-banner').style.display='none'" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.45);font-size:17px;cursor:pointer;line-height:1;padding:4px;" aria-label="Cerrar">✕</button>
+</div>
 
 <!-- ══════════ NAV ══════════ -->
 <nav id="inicio">
@@ -2123,24 +2130,35 @@
       <span class="libro-badge">Pensamiento Crítico Aumentado™</span>
     </div>
 
-    <div class="libro-card">
-      <div style="text-align:center; margin-bottom:18px; margin-top:4px;">
-        <img loading="lazy" src="Portada NOS.png" alt="Metodología NOS™" style="height:180px; width:auto; object-fit:contain; border-radius:6px; box-shadow:0 8px 28px rgba(0,0,0,.5); display:inline-block;">
+    <div class="libro-card" style="border:1px solid rgba(109,190,69,.35); position:relative;">
+      <!-- Ribbon NUEVO -->
+      <div style="position:absolute;top:0;right:0;background:#6DBE45;color:#fff;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:1px;padding:5px 12px;border-radius:0 14px 0 10px;white-space:nowrap;">
+        📚 YA EN AMAZON KINDLE
+      </div>
+      <div style="text-align:center; margin-bottom:18px; margin-top:14px;">
+        <img loading="lazy" src="Portada NOS kindle.jpg" alt="Metodología NextGen OPEX System" style="height:200px; width:auto; object-fit:contain; border-radius:8px; box-shadow:0 12px 40px rgba(0,0,0,.6); display:inline-block;">
       </div>
       <div class="libro-num">03</div>
       <span class="libro-tag">Sistema · Transformación Operacional</span>
-      <h3>Metodología NOS™<br>NextGen OPEX System™</h3>
+      <h3>Metodología NextGen<br>OPEX System™</h3>
       <p>
-        Para convertir la estrategia en resultados sostenibles mediante diagnóstico, diseño,
-        ejecución, control y escalamiento. El manual del sistema propietario ALIGN™ → X-RAY™ →
-        DESIGN™ → EXECUTION™ → CONTROL™ → SCALE™.
+        Cómo las PyMEs pueden evolucionar del caos reactivo a la Inteligencia Operacional
+        con Lean, Seis Sigma e Inteligencia Artificial. El manual completo del sistema NOS™:
+        ALIGN™ → X-RAY™ → DESIGN™ → EXECUTION™ → CONTROL™ → SCALE™.
       </p>
-      <div style="margin-top: 18px; padding: 12px 14px; background: rgba(255,255,255,.07); border-radius: 8px; border-left: 2px solid rgba(109,190,69,.5);">
-        <p style="font-size: 12px; color: rgba(255,255,255,.6); font-style: italic; line-height: 1.5;">
+      <div style="margin-top:18px; padding:12px 14px; background:rgba(255,255,255,.07); border-radius:8px; border-left:2px solid rgba(109,190,69,.5);">
+        <p style="font-size:12px; color:rgba(255,255,255,.6); font-style:italic; line-height:1.5;">
           "NOMI™ es el primer paso. NOS™ es el camino.<br>La transformación es el destino."
         </p>
       </div>
       <span class="libro-badge">Excelencia Operacional</span>
+      <a href="https://a.co/d/0gSZArOx" target="_blank"
+         style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;background:#FF9900;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;padding:12px 20px;border-radius:8px;text-decoration:none;transition:background .2s,transform .15s;box-shadow:0 4px 16px rgba(255,153,0,.35);"
+         onmouseover="this.style.background='#e68a00';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.background='#FF9900';this.style.transform='none'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.23 10.56V10c-1.94.02-3.99.42-3.99 2.68 0 1.15.6 1.93 1.63 1.93.76 0 1.43-.47 1.86-1.22.52-.93.5-1.8.5-2.83zm2.7 6.53c-.18.16-.43.17-.63.06-1.57-1.3-1.84-1.91-2.70-3.16-2.59 2.64-4.42 3.43-7.76 3.43C2.1 17.42 0 15.38 0 11.74c0-2.9 1.57-4.88 3.81-5.84C5.84 5 8.68 4.65 10.98 4.4v-.48c0-.88.07-1.92-.45-2.68-.45-.67-1.33-.95-2.1-.95-1.43 0-2.7.73-3.02 2.25-.06.33-.31.65-.65.67l-3.62-.39c-.31-.07-.65-.32-.56-.8C1.95 1.19 4.6 0 7.14 0c1.3 0 3 .35 4.03 1.33C12.44 2.5 12.37 4.07 12.37 5.78v4.74c0 1.42.59 2.05 1.15 2.82.2.28.24.61-.01.82l-1.58 1.37zm4.74 2.5c-5.72 4.25-14.01 6.5-21.16 3.47C-.73 22.37-.22 23.3.5 22.86c6.56-3.78 14.59-4.08 20.68.06.57.38 1.08-.25.49-.73z"/></svg>
+        Conseguir en Amazon Kindle
+      </a>
     </div>
   </div>
 
