@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metodología NextGen OPEX System™ — Libro | Omar Sierra</title>
+  <meta name="description" content="Cómo las PyMEs pueden evolucionar del caos reactivo a la Inteligencia Operacional con Lean, Seis Sigma e IA. El manual completo del Sistema NOS™. Ya en Amazon Kindle.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nextgenopexco.com/libro-nos.html">
+  <meta property="og:title" content="Metodología NextGen OPEX System™ — Ya en Amazon Kindle">
+  <meta property="og:description" content="El manual completo del sistema NOS™: ALIGN → X-RAY → DESIGN → EXECUTION → CONTROL → SCALE.">
+  <meta property="og:url" content="https://nextgenopexco.com/libro-nos.html">
+  <meta property="og:type" content="book">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --azul:#1E3A8A; --verde:#6DBE45; --navy:#0D1B3E; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Poppins',sans-serif; color:#1A2340; background:#fff; }
+    h1,h2,h3,h4 { font-family:'Montserrat',sans-serif; }
+
+    nav { background:linear-gradient(90deg,#2a5cc8,#1a3a8a); padding:0 64px; height:76px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(0,0,0,.2); }
+    nav img { height:56px; width:auto; }
+    .nav-links { display:flex; gap:8px; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); font-family:'Montserrat',sans-serif; font-size:13px; font-weight:600; text-decoration:none; padding:8px 16px; border-radius:6px; transition:background .2s; }
+    .nav-links a:hover { background:rgba(255,255,255,.1); }
+    .nav-links a.btn { background:var(--verde); color:#fff; }
+    .nav-links a.btn:hover { background:#5aaa38; }
+
+    /* HERO */
+    .hero { background:linear-gradient(135deg,#0D1B3E 0%,#1a3270 50%,#0a2010 100%); padding:80px 64px; color:#fff; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; top:-50%; right:-10%; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(109,190,69,.08),transparent 70%); pointer-events:none; }
+    .hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:380px 1fr; gap:72px; align-items:center; position:relative; }
+    .book-cover-wrap { text-align:center; }
+    .book-cover-wrap img { max-height:460px; width:auto; border-radius:10px; box-shadow:0 24px 64px rgba(0,0,0,.7); }
+    .amazon-badge { display:inline-flex; align-items:center; gap:8px; background:#FF9900; border-radius:100px; padding:6px 16px; margin-bottom:16px; }
+    .amazon-badge span { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; color:#fff; letter-spacing:1px; text-transform:uppercase; }
+    .hero-label { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--verde); margin-bottom:16px; display:block; }
+    .hero h1 { font-size:42px; font-weight:900; line-height:1.1; margin-bottom:12px; }
+    .hero h1 em { color:var(--verde); font-style:normal; }
+    .hero-sub { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:20px; }
+    .hero p { font-size:16px; color:rgba(255,255,255,.75); line-height:1.8; margin-bottom:32px; max-width:520px; }
+    .btn-amazon { display:inline-flex; align-items:center; gap:10px; background:#FF9900; color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; font-weight:800; padding:14px 28px; border-radius:8px; text-decoration:none; transition:.2s; box-shadow:0 4px 20px rgba(255,153,0,.4); }
+    .btn-amazon:hover { background:#e68a00; transform:translateY(-2px); }
+    .btn-outline { display:inline-flex; align-items:center; gap:8px; border:2px solid rgba(255,255,255,.25); color:rgba(255,255,255,.75); font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; padding:12px 24px; border-radius:8px; text-decoration:none; margin-left:12px; transition:.2s; }
+    .btn-outline:hover { border-color:var(--verde); color:var(--verde); }
+
+    /* QUOTE */
+    .quote-section { background:var(--verde); padding:52px 64px; text-align:center; }
+    .quote-section blockquote { font-family:'Montserrat',sans-serif; font-size:22px; font-weight:800; color:#fff; max-width:700px; margin:0 auto; line-height:1.4; }
+    .quote-section cite { display:block; margin-top:16px; font-size:13px; color:rgba(255,255,255,.75); font-style:normal; font-weight:600; letter-spacing:1px; }
+
+    /* FASES */
+    .section { padding:80px 64px; }
+    .wrap { max-width:1100px; margin:0 auto; }
+    .section-label { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--verde); display:block; margin-bottom:12px; }
+    .section-title { font-size:36px; font-weight:900; color:var(--navy); line-height:1.15; margin-bottom:16px; }
+    .section-sub { font-size:16px; color:#4B5563; line-height:1.8; max-width:700px; margin-bottom:48px; }
+
+    .fases { display:flex; flex-direction:column; gap:0; }
+    .fase { display:grid; grid-template-columns:120px 1fr; gap:32px; align-items:center; padding:28px 32px; border-radius:12px; margin-bottom:4px; }
+    .fase:hover { background:#F4F7FA; }
+    .fase-num { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; letter-spacing:2px; color:var(--verde); text-transform:uppercase; text-align:center; }
+    .fase-name { font-family:'Montserrat',sans-serif; font-size:22px; font-weight:900; color:var(--navy); }
+    .fase h4 { font-size:16px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+    .fase p { font-size:14px; color:#4B5563; line-height:1.7; }
+    .fase-divider { height:1px; background:rgba(0,0,0,.06); margin:0 32px; }
+
+    /* PARA QUIEN */
+    .paraquien { background:#F4F7FA; padding:80px 64px; }
+    .perfiles { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+    .perfil { background:#fff; border-radius:14px; padding:28px 24px; border-left:4px solid var(--verde); }
+    .perfil .icon { font-size:28px; margin-bottom:14px; }
+    .perfil h4 { font-size:16px; font-weight:800; color:var(--navy); margin-bottom:8px; }
+    .perfil p { font-size:14px; color:#4B5563; line-height:1.6; }
+
+    /* TRILOGÍA */
+    .trilogia-mini { background:var(--navy); padding:72px 64px; }
+    .trilogia-mini .wrap { text-align:center; }
+    .trilogia-mini h2 { font-size:28px; font-weight:900; color:#fff; margin-bottom:12px; }
+    .trilogia-mini p { color:rgba(255,255,255,.65); margin-bottom:40px; font-size:15px; }
+    .libros-row { display:flex; gap:24px; justify-content:center; align-items:stretch; flex-wrap:wrap; }
+    .libro-mini { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:24px 20px; width:220px; text-align:center; text-decoration:none; transition:.2s; }
+    .libro-mini:hover { background:rgba(255,255,255,.12); transform:translateY(-4px); }
+    .libro-mini img { height:100px; width:auto; border-radius:6px; box-shadow:0 8px 24px rgba(0,0,0,.5); margin-bottom:14px; }
+    .libro-mini .num { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; color:var(--verde); letter-spacing:2px; margin-bottom:6px; }
+    .libro-mini span { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; color:#fff; display:block; line-height:1.4; }
+    .libro-mini.active { border-color:rgba(109,190,69,.5); background:rgba(109,190,69,.1); }
+
+    /* CTA */
+    .cta-final { background:linear-gradient(135deg,#0D1B3E,#1a3270); padding:72px 64px; text-align:center; color:#fff; }
+    .cta-final h2 { font-size:32px; font-weight:900; margin-bottom:16px; line-height:1.2; }
+    .cta-final p { color:rgba(255,255,255,.7); font-size:16px; margin-bottom:36px; max-width:520px; margin-left:auto; margin-right:auto; }
+    .cta-group { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .btn-green { display:inline-block; background:var(--verde); color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; padding:14px 28px; border-radius:8px; text-decoration:none; transition:.2s; }
+    .btn-green:hover { background:#5aaa38; transform:translateY(-2px); }
+
+    footer { background:#0D1B3E; padding:28px; text-align:center; }
+    footer p { font-size:13px; color:rgba(255,255,255,.45); }
+    footer a { color:rgba(255,255,255,.6); text-decoration:none; }
+    footer a:hover { color:var(--verde); }
+
+    @media(max-width:900px) {
+      nav { padding:0 24px; }
+      .hero { padding:52px 24px; }
+      .hero-inner { grid-template-columns:1fr; gap:40px; }
+      .book-cover-wrap img { max-height:280px; }
+      .hero h1 { font-size:30px; }
+      .section,.paraquien { padding:52px 24px; }
+      .perfiles { grid-template-columns:1fr; }
+      .fase { grid-template-columns:1fr; gap:8px; }
+      .trilogia-mini { padding:52px 24px; }
+      .cta-final { padding:52px 24px; }
+      .quote-section { padding:40px 24px; }
+      .quote-section blockquote { font-size:17px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BANNER LIBRO NOS -->
+<div id="book-banner" style="background:linear-gradient(90deg,#0D1B3E 0%,#1a3270 50%,#0D1B3E 100%);padding:11px 48px 11px 20px;text-align:center;position:relative;z-index:200;border-bottom:1px solid rgba(109,190,69,.3);">
+  <p style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;color:#fff;margin:0;line-height:1.4;">
+    📚 <span style="color:#6DBE45;">¡ESTRENO!</span> &nbsp;«Metodología NextGen OPEX System» ya disponible en <strong>Amazon Kindle</strong> &nbsp;
+    <a href="https://a.co/d/0gSZArOx" target="_blank" style="background:#FF9900;color:#fff;padding:4px 14px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:800;margin-left:8px;white-space:nowrap;">Conseguir ahora →</a>
+  </p>
+  <button onclick="document.getElementById('book-banner').style.display='none'" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.45);font-size:17px;cursor:pointer;line-height:1;padding:4px;" aria-label="Cerrar">✕</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html"><img src="NextGen OPEX Consulting logo design sin fondo.png" alt="NextGen OPEX Consulting™"></a>
+  <div class="nav-links">
+    <a href="index.html">← Inicio</a>
+    <a href="index.html#metodologia">Trilogía</a>
+    <a href="nomi-nos.html">NOMI™ + NOS™</a>
+    <a href="index.html#contacto" class="btn">Contáctanos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="book-cover-wrap">
+      <img src="Portada NOS kindle.jpg" alt="Metodología NextGen OPEX System™">
+    </div>
+    <div>
+      <div class="amazon-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M13.23 10.56V10c-1.94.02-3.99.42-3.99 2.68 0 1.15.6 1.93 1.63 1.93.76 0 1.43-.47 1.86-1.22.52-.93.5-1.8.5-2.83zm2.7 6.53c-.18.16-.43.17-.63.06-1.57-1.3-1.84-1.91-2.70-3.16-2.59 2.64-4.42 3.43-7.76 3.43C2.1 17.42 0 15.38 0 11.74c0-2.9 1.57-4.88 3.81-5.84C5.84 5 8.68 4.65 10.98 4.4v-.48c0-.88.07-1.92-.45-2.68-.45-.67-1.33-.95-2.1-.95-1.43 0-2.7.73-3.02 2.25-.06.33-.31.65-.65.67l-3.62-.39c-.31-.07-.65-.32-.56-.8C1.95 1.19 4.6 0 7.14 0c1.3 0 3 .35 4.03 1.33C12.44 2.5 12.37 4.07 12.37 5.78v4.74c0 1.42.59 2.05 1.15 2.82.2.28.24.61-.01.82l-1.58 1.37zm4.74 2.5c-5.72 4.25-14.01 6.5-21.16 3.47C-.73 22.37-.22 23.3.5 22.86c6.56-3.78 14.59-4.08 20.68.06.57.38 1.08-.25.49-.73z"/></svg>
+        <span>Ya disponible en Amazon Kindle</span>
+      </div>
+      <span class="hero-label">Libro · Trilogía del Liderazgo Operativo · Vol. 03</span>
+      <p class="hero-sub">Sistema · Transformación Operacional</p>
+      <h1>Metodología NextGen<br><em>OPEX System™</em></h1>
+      <p>Cómo las PyMEs pueden evolucionar del caos reactivo a la Inteligencia Operacional con Lean, Seis Sigma e Inteligencia Artificial. El manual completo del sistema NOS™: seis fases para transformar una operación de raíz.</p>
+      <a href="https://a.co/d/0gSZArOx" target="_blank" class="btn-amazon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.23 10.56V10c-1.94.02-3.99.42-3.99 2.68 0 1.15.6 1.93 1.63 1.93.76 0 1.43-.47 1.86-1.22.52-.93.5-1.8.5-2.83zm2.7 6.53c-.18.16-.43.17-.63.06-1.57-1.3-1.84-1.91-2.70-3.16-2.59 2.64-4.42 3.43-7.76 3.43C2.1 17.42 0 15.38 0 11.74c0-2.9 1.57-4.88 3.81-5.84C5.84 5 8.68 4.65 10.98 4.4v-.48c0-.88.07-1.92-.45-2.68-.45-.67-1.33-.95-2.1-.95-1.43 0-2.7.73-3.02 2.25-.06.33-.31.65-.65.67l-3.62-.39c-.31-.07-.65-.32-.56-.8C1.95 1.19 4.6 0 7.14 0c1.3 0 3 .35 4.03 1.33C12.44 2.5 12.37 4.07 12.37 5.78v4.74c0 1.42.59 2.05 1.15 2.82.2.28.24.61-.01.82l-1.58 1.37zm4.74 2.5c-5.72 4.25-14.01 6.5-21.16 3.47C-.73 22.37-.22 23.3.5 22.86c6.56-3.78 14.59-4.08 20.68.06.57.38 1.08-.25.49-.73z"/></svg>
+        Conseguir en Amazon Kindle
+      </a>
+      <a href="nomi-nos.html" class="btn-outline">Conocer el Sistema NOS™</a>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <blockquote>
+    "NOMI™ es el primer paso. NOS™ es el camino.<br>La transformación es el destino."
+  </blockquote>
+  <cite>— Omar Sierra, Fundador de NextGen OPEX Consulting™</cite>
+</div>
+
+<!-- LAS 6 FASES -->
+<section class="section">
+  <div class="wrap">
+    <span class="section-label">El sistema completo</span>
+    <h2 class="section-title">Las 6 Fases del<br>Sistema NOS™</h2>
+    <p class="section-sub">Un proceso de transformación operacional diseñado para PyMEs manufactureras que necesitan evolucionar sin parar la producción. Cada fase construye sobre la anterior para generar resultados sostenibles.</p>
+
+    <div class="fases">
+      <div class="fase">
+        <div>
+          <div class="fase-num">Fase 01</div>
+          <div class="fase-name">ALIGN™</div>
+        </div>
+        <div>
+          <h4>Alineación estratégica y diagnóstico inicial</h4>
+          <p>Define la visión operacional, alinea al equipo directivo y establece la línea base de madurez con el Diagnóstico NOMI™. Sin esta fase, toda mejora es tiro al aire.</p>
+        </div>
+      </div>
+      <div class="fase-divider"></div>
+
+      <div class="fase">
+        <div>
+          <div class="fase-num">Fase 02</div>
+          <div class="fase-name">X-RAY™</div>
+        </div>
+        <div>
+          <h4>Mapeo profundo de la operación</h4>
+          <p>Analiza el flujo de valor completo, identifica los cuellos de botella reales y cuantifica el costo de los desperdicios. Radiografía completa antes de intervenir.</p>
+        </div>
+      </div>
+      <div class="fase-divider"></div>
+
+      <div class="fase">
+        <div>
+          <div class="fase-num">Fase 03</div>
+          <div class="fase-name">DESIGN™</div>
+        </div>
+        <div>
+          <h4>Diseño del sistema operacional futuro</h4>
+          <p>Co-diseña con el equipo los nuevos estándares, procesos y estructuras de gestión. El estado futuro que sí es alcanzable con los recursos actuales.</p>
+        </div>
+      </div>
+      <div class="fase-divider"></div>
+
+      <div class="fase">
+        <div>
+          <div class="fase-num">Fase 04</div>
+          <div class="fase-name">EXECUTION™</div>
+        </div>
+        <div>
+          <h4>Implementación estructurada y disciplinada</h4>
+          <p>Ejecuta los cambios con metodología Lean + Six Sigma, con gestión del cambio cultural integrada. No solo instala herramientas — transforma comportamientos.</p>
+        </div>
+      </div>
+      <div class="fase-divider"></div>
+
+      <div class="fase">
+        <div>
+          <div class="fase-num">Fase 05</div>
+          <div class="fase-name">CONTROL™</div>
+        </div>
+        <div>
+          <h4>Sistemas de control y sostenibilidad</h4>
+          <p>Instala tableros de gestión visual, rutinas de seguimiento y mecanismos de respuesta rápida. La mejora se convierte en el nuevo estándar.</p>
+        </div>
+      </div>
+      <div class="fase-divider"></div>
+
+      <div class="fase">
+        <div>
+          <div class="fase-num">Fase 06</div>
+          <div class="fase-name">SCALE™</div>
+        </div>
+        <div>
+          <h4>Escalamiento y Inteligencia Operacional</h4>
+          <p>Replica el modelo en otras áreas, integra IA como herramienta de toma de decisiones y posiciona a la organización para crecer sin perder el control operacional.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="paraquien">
+  <div class="wrap">
+    <span class="section-label">¿Para quién es este libro?</span>
+    <h2 class="section-title">Escrito para quienes<br>operan en la realidad</h2>
+    <p class="section-sub">No es un libro académico. Es un manual práctico para líderes que enfrentan todos los días la presión de producir, mejorar y crecer al mismo tiempo.</p>
+    <div class="perfiles">
+      <div class="perfil">
+        <div class="icon">🏭</div>
+        <h4>Directores de Operaciones</h4>
+        <p>Para quienes buscan un sistema completo que les permita gestionar la complejidad operacional sin depender de consultores externos de forma permanente.</p>
+      </div>
+      <div class="perfil">
+        <div class="icon">📈</div>
+        <h4>Dueños de PyMEs manufactureras</h4>
+        <p>Para los que saben que su empresa necesita evolucionar pero no saben por dónde empezar ni cómo hacerlo sin parar la producción.</p>
+      </div>
+      <div class="perfil">
+        <div class="icon">🎯</div>
+        <h4>Gerentes y líderes de mejora continua</h4>
+        <p>Para quienes implementan Lean o Six Sigma y buscan un marco integrador que conecte las herramientas con la estrategia del negocio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO NOS -->
+<section style="background:#0D1B3E; padding:72px 24px;">
+  <div style="max-width:800px; margin:0 auto; text-align:center;">
+    <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#6DBE45; margin-bottom:14px;">NOS™ en video</p>
+    <h2 style="font-family:'Montserrat',sans-serif; font-size:26px; font-weight:800; color:#fff; margin-bottom:10px; line-height:1.25;">Conoce la Metodología<br><span style="color:#6DBE45;">NextGen OPEX System™</span></h2>
+    <p style="font-size:15px; color:rgba(255,255,255,.65); margin-bottom:32px; max-width:520px; margin-left:auto; margin-right:auto;">Del caos reactivo a la Inteligencia Operacional. Las 6 fases del sistema que transforma PyMEs manufactureras.</p>
+    <div style="position:relative; padding-bottom:56.25%; height:0; border-radius:16px; overflow:hidden; box-shadow:0 20px 56px rgba(0,0,0,.5);">
+      <iframe
+        src="https://www.youtube.com/embed/27HPMt8qdjA"
+        title="Metodología NextGen OPEX System™ | NextGen OPEX Consulting"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+        style="position:absolute; top:0; left:0; width:100%; height:100%;">
+      </iframe>
+    </div>
+    <p style="margin-top:24px; font-size:13px; color:rgba(255,255,255,.4);">
+      Más contenido en →
+      <a href="https://www.youtube.com/@NextGenOPEXConsulting" target="_blank" style="color:#6DBE45; font-weight:600; text-decoration:none;">@NextGenOPEXConsulting</a>
+    </p>
+  </div>
+</section>
+
+<!-- TRILOGÍA MINI -->
+<section class="trilogia-mini">
+  <div class="wrap">
+    <h2>Trilogía del Liderazgo Operativo</h2>
+    <p>Tres libros que forman el fundamento filosófico y metodológico de NextGen OPEX Consulting™.</p>
+    <div class="libros-row">
+      <a href="libro-cronicas.html" class="libro-mini">
+        <img src="Cronicas_Portada_Kindle_1600x2560.jpg" alt="Crónicas de la Planta">
+        <div class="num">01</div>
+        <span>Crónicas de la Planta</span>
+      </a>
+      <a href="libro-pca.html" class="libro-mini">
+        <img src="PortadaPCAamazonKDP.jpg" alt="Pensamiento Crítico Aumentado™">
+        <div class="num">02</div>
+        <span>Pensamiento Crítico Aumentado™</span>
+      </a>
+      <div class="libro-mini active">
+        <img src="Portada NOS kindle.jpg" alt="Metodología NextGen OPEX System™">
+        <div class="num">03</div>
+        <span>Metodología NextGen OPEX System™</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <h2>¿Listo para transformar<br>tu operación con NOS™?</h2>
+  <p>Consigue el libro en Amazon Kindle o agenda un diagnóstico sin costo para saber en qué fase de madurez está tu empresa hoy.</p>
+  <div class="cta-group">
+    <a href="https://a.co/d/0gSZArOx" target="_blank" class="btn-amazon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.23 10.56V10c-1.94.02-3.99.42-3.99 2.68 0 1.15.6 1.93 1.63 1.93.76 0 1.43-.47 1.86-1.22.52-.93.5-1.8.5-2.83zm2.7 6.53c-.18.16-.43.17-.63.06-1.57-1.3-1.84-1.91-2.70-3.16-2.59 2.64-4.42 3.43-7.76 3.43C2.1 17.42 0 15.38 0 11.74c0-2.9 1.57-4.88 3.81-5.84C5.84 5 8.68 4.65 10.98 4.4v-.48c0-.88.07-1.92-.45-2.68-.45-.67-1.33-.95-2.1-.95-1.43 0-2.7.73-3.02 2.25-.06.33-.31.65-.65.67l-3.62-.39c-.31-.07-.65-.32-.56-.8C1.95 1.19 4.6 0 7.14 0c1.3 0 3 .35 4.03 1.33C12.44 2.5 12.37 4.07 12.37 5.78v4.74c0 1.42.59 2.05 1.15 2.82.2.28.24.61-.01.82l-1.58 1.37zm4.74 2.5c-5.72 4.25-14.01 6.5-21.16 3.47C-.73 22.37-.22 23.3.5 22.86c6.56-3.78 14.59-4.08 20.68.06.57.38 1.08-.25.49-.73z"/></svg>
+      Conseguir en Amazon Kindle
+    </a>
+    <a href="index.html#contacto" class="btn-green">Agendar diagnóstico Sin Costo →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 NextGen OPEX Consulting™ &nbsp;|&nbsp; <a href="index.html">Inicio</a> &nbsp;|&nbsp; <a href="libro-cronicas.html">Libro Crónicas</a> &nbsp;|&nbsp; <a href="libro-pca.html">Libro PCA™</a> &nbsp;|&nbsp; <a href="nomi-nos.html">NOMI™ + NOS™</a> &nbsp;|&nbsp; <a href="aviso-privacidad.html">Aviso de Privacidad</a></p>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/528135888025?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20NextGen%20OPEX%20Consulting" target="_blank" aria-label="WhatsApp"
+   style="position:fixed;bottom:24px;left:24px;z-index:9999;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);text-decoration:none;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.75.75 0 00.916.916l5.57-1.478A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-4.953-1.355l-.355-.211-3.676.975.975-3.565-.229-.368A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+</a>
+</body>
+</html>
